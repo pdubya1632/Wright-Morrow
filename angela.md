@@ -83,10 +83,75 @@ I believe, an application where;
 
 ## 💽 DB
 
-Store:
+Documents:
 
-- Jobs
-- Customers
+- 📦Jobs
+
+```js
+// not sure why I did this one in JS and the others in JSON 🤷‍♀️
+jobModel = {
+ _id: string,
+ customerId: string,
+ employeeId: string,
+ status: string, //"upcoming", "pick-up", packing", "waitForShip", "shipping" "delivered", "issue"
+ addresses:{
+   pickup: {
+     street: string,
+     city:string,
+     state: string, // possible enum, so users can input a state that doesnt exsist. def use drop down.
+     zipCode: string,
+   },
+   shipping: {
+     street: string,
+     city:string,
+     state: string,
+     zipCode: string,
+   },
+ },
+ piece: {
+   name: string,,
+   value:string,
+   dims:{ // this is technically crucial to the business, but if its to large a scope, we can elim or dumb down to just one size and weight?
+     length:string,
+     width:string,
+     height:string,
+     weight:string,
+   },
+   qty: number,
+   packType: string, // drop down of a range of pack types. 1 for minimum pack, 5 for the most intricate (and expensive). Technical term is C-Pack
+   value: string, // this is used for insurance. also one we can elim for simplicity sake.
+ },
+ price: number, // not sure if we want to implament this or not.
+}
+```
+
+- 👨🏻Customers
+
+```json
+customer = {
+  "_id":"String",
+  "name": "String",
+  "phone":"String",
+  "email":"String",
+  "password":"String",
+  "jobIds": "[JobIds]",
+  // maybe we have a past jobs and active jobs? but we can probably just query the jobids for active jobs.
+}
+```
+
+- 👷‍♀️Employees
+
+```json
+Employees = {
+  "_id":"String",
+  "name": "String",
+  "phone":"String",
+  "email":"String",
+  "password":"String",
+  "jobIds": "[JobIds]",
+  "isAdmin": "Boolean"
+}
+```
 
 ## ⚒️ Functionality
 
