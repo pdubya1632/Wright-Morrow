@@ -1,133 +1,133 @@
 ## Project Criteria
 
--React
--GraphQL with Node.js & Express.js
--MongoDB & Mongoose ODM for database
--Queries & Mutations for add, get, update, delete data
--JWT Auth
--Heroku deploy
+- React
+- GraphQL with Node.js & Express.js
+- MongoDB & Mongoose ODM for database
+- Queries & Mutations for add, get, update, delete data
+- JWT Auth
+- Heroku deploy
 
 ## Project Libraries
 
-Material UI: https://mui.com/material-ui/getting-started/overview/
+- [Material UI](https://mui.com/material-ui/getting-started/overview/)
 
 ## Resources
 
-MERN App Tutorial w/ Mongo: https://www.mongodb.com/languages/mern-stack-tutorial
-MUI Templates: https://mui.com/material-ui/getting-started/templates/
-Generate schema: https://scaffoldhub.io/scaffolds/react-material-ui
-Generate dummy data: https://www.mockaroo.com/
+- [MERN App Tutorial w/ Mongo](https://www.mongodb.com/languages/mern-stack-tutorial)
+- [MUI Templates](https://mui.com/material-ui/getting-started/templates/)
+- [Generate schema](https://scaffoldhub.io/scaffolds/react-material-ui)
+- [Generate dummy data](https://www.mockaroo.com/)
 
 ## Schema
 
-- 📦 Jobs
+    Job = {
+        "\_id": "string",
+        "customerId": "string",
+        "employeeId": "string",
+        "status": "string",
+        "pickupDate": "string",
+        "addresses": {
+    	    "pickup": {
+    		    "street: "string",
+    		    "city: "string",
+    		    "state: "string",
+    		    "zip: "string",
+    	    },
+    	    "shipping": {
+    		    "street: "string",
+    		    "city: "string",
+    		    "state: "string",
+    		    "zip: "string",
+    	    },
+        },
+        "industry": "string",
+        "category": "string",
+        "cost": "number",
+        "invoice": "number",
+        "ItemIds": "[ItemIds]",
+        }
 
-job = {
-"\_id": "string",
-"customerId": "string",
-"employeeId": "string",
-"status": "string",
-"pickupDate": "string",
-"addresses":{
-"pickup": {
-"street: "string",
-"city: "string",
-"state: "string",
-"zipCode: "string",
-},
-"shipping": {
-"street: "string",
-"city: "string",
-"state: "string",
-"zipCode: "string",
-},
-},
-"industry": "string",
-"category": "string",
-"cost": "number",
-"invoice": "number",
-"ItemIds": "[ItemIds]",
-}
+    Item = {
+        "\_id": "string",
+        "jobId: "string",
+        "name: "string",
+        "value: "string",
+        "dims: {
+    	    "length: "string",
+    	    "width: "string",
+    	    "height: "string",
+    	    "weight: "string",
+        },
+        "qty: "number",
+        "packType: "string",
+        "value: "string"
+    }
 
-Item = {
-"\_id": "string",
-"jobId: "string",
-"name: "string",
-"value: "string",
-"dims: {
-"length: "string",
-"width: "string",
-"height: "string",
-"weight: "string",
-},
-"qty: "number",
-"packType: "string",
-"value: "string"
-}
+    Customer = {
+        "\_id":"String",
+        "name": "String",
+        "phone":"String",
+        "email":"String",
+        "password":"String",
+        "addresses":{
+    	    "pickup": {
+    		    "street": "string",
+    		    "city":"string",
+    		    "state": "string",
+    		    "zip": "string",
+    	    },
+    	    "billing": {
+    		    "street": "string",
+    		    "city":"string",
+    		    "state": "string",
+    		    "zipCode": "string",
+    	    },
+        },
+        "jobIds": "[JobIds]",
+    }
 
-Customer = {
-"\_id":"String",
-"name": "String",
-"phone":"String",
-"email":"String",
-"password":"String",
-"addresses":{
-"pickup": {
-"street": "string",
-"city":"string",
-"state": "string",
-"zipCode": "string",
-},
-"billing": {
-"street": "string",
-"city":"string",
-"state": "string",
-"zipCode": "string",
-},
-},
-"jobIds": "[JobIds]",
-}
-
-Employees = {
-"\_id":"String",
-"name": "String",
-"email":"String",
-"phone":"String",
-"password":"String",
-"jobIds": "[JobIds]",
-"isAdmin": "Boolean"
-"active": "Boolean"
-}
+    Employee = {
+        "\_id":"String",
+        "name": "String",
+        "email":"String",
+        "phone":"String",
+        "password":"String",
+        "jobIds": "[JobIds]",
+        "isAdmin": "Boolean"
+        "active": "Boolean"
+    }
 
 ## ⚒️ v1 Functionality
 
--PUBLIC-
-Landing Page w/ company info and request form
+**PUBLIC**<br />
 
--CUSTOMER-
-Create request on website
+- Landing Page w/ company info and request form
 
--EMPLOYEE & ADMIN-
-(All pages include view/edit functionality)
+**CUSTOMER**<br />
 
-Login Page
+- Create request on website
 
-Admin: Jobs
--Customer
--Shipping Info
--Industry
--Category
--Status
--Notes
+**EMPLOYEE & ADMIN**<br />
+(All admin pages include view/edit functionality)
 
-Admin: Customers
+- Login Page
 
--ADMIN ONLY-
-(All pages include view/edit functionality)
+- Admin: Jobs<br />
+  -- Customer<br />
+  -- Shipping Info<br />
+  -- Industry<br />
+  -- Category<br />
+  -- Status<br />
+  -- Notes
 
-Admin: Employees
--create/edit Employee
--add Employee to job
+- Admin: Customers
+
+**ADMIN ONLY**<br />
+(All admin pages include view/edit functionality)
+
+- Admin: Employees<br />
+  -- create/edit Employee<br />
+  -- add Employee to Job
 
 ## 🎁 Future Functionality
 
