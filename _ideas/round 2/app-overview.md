@@ -27,19 +27,17 @@
         "status": "string",
         "pickupDate": "string",
         "shipDate": "string",
-        "addresses": {
-    	    "pickup": {
-    		    "street: "string",
-    		    "city: "string",
-    		    "state: "string",
-    		    "zip: "string",
-    	    },
-    	    "shipping": {
-    		    "street: "string",
-    		    "city: "string",
-    		    "state: "string",
-    		    "zip: "string",
-    	    },
+        "pickupAddress": {
+            "street: "string",
+            "city: "string",
+            "state: "string",
+            "zip: "string",
+        },
+        "shippingAddress": {
+            "street: "string",
+            "city: "string",
+            "state: "string",
+            "zip: "string",
         },
         "industry": "string",
         "category": "string",
@@ -71,20 +69,12 @@
         "phone":"String",
         "email":"String",
         "password":"String",
-        "addresses":{
-    	    "pickup": {
-    		    "street": "string",
-    		    "city":"string",
-    		    "state": "string",
-    		    "zip": "string",
-    	    },
-    	    "billing": {
-    		    "street": "string",
-    		    "city":"string",
-    		    "state": "string",
-    		    "zipCode": "string",
-    	    },
-        },
+    	"billingAddress": {
+            "street": "string",
+            "city":"string",
+            "state": "string",
+            "zipCode": "string",
+    	},
         "jobIds": "[JobIds]",
     }
 
