@@ -2,7 +2,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const cors = require('cors');
-require("dotenv").config();
+require('dotenv').config();
 
 const app = express();
 
@@ -10,10 +10,10 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -35,9 +35,11 @@ const startApolloServer = async (typeDefs, resolvers) => {
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-    })
-  })
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      );
+    });
+  });
 };
 
 startApolloServer(typeDefs, resolvers);
