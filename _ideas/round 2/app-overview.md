@@ -26,6 +26,7 @@
         "employeeId": "string",
         "status": "string",
         "pickupDate": "string",
+        "shipDate": "string",
         "addresses": {
     	    "pickup": {
     		    "street: "string",
@@ -44,6 +45,7 @@
         "category": "string",
         "cost": "number",
         "invoice": "number",
+        "paymentStatus": "string",
         "ItemIds": "[ItemIds]",
         }
 
@@ -97,17 +99,24 @@
         "active": "Boolean"
     }
 
+## Enums
+
+- Job Status: Received > Confirmed > Packing > Wait for Ship > Shipped > Delivered > Completed > Issue > Lost
+- Job Industry: Personal, Auction, Retail Business, Manufacturer, Other
+- Job Category: Industrial, Medical, Technology, Automotive, Retail, Art, Antiques, Furniture, Residential Move, Office Move, Other
+- Item packType: c1, c2, c3, c4, c5
+
 ## ⚒️ v1 Functionality
 
-**PUBLIC**<br />
+**v1 PUBLIC**<br />
 
 - Landing Page w/ company info and request form
 
-**CUSTOMER**<br />
+**v1 CUSTOMER**<br />
 
 - Create request on website
 
-**EMPLOYEE & ADMIN**<br />
+**v1 EMPLOYEE & ADMIN**<br />
 (All admin pages include view/edit functionality)
 
 - Login Page
@@ -122,7 +131,7 @@
 
 - Admin: Customers
 
-**ADMIN ONLY**<br />
+**v2 ADMIN ONLY**<br />
 (All admin pages include view/edit functionality)
 
 - Admin: Employees<br />
