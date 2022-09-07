@@ -1,30 +1,60 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
-// const { signToken } = require('../utils/auth');
+const { Customer, Job, Item, Employee } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    employees: async () => {
+      return Employee.find({});
     },
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    employee: async (parent, { customerId }) => {
+      return Employee.findOne({ _id: customerId });
+    },
+    customers: async () => {
+      return Customer.find({});
+    },
+
+    customer: async (parent, { customerId }) => {
+      return Customer.findOne({ _id: customerId });
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return Profile.findOne({ _id: context.user._id });
-      }
-      throw new AuthenticationError('You need to be logged in!');
+    // me: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return Customer.findOne({ _id: context.user._id });
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+    jobs: async () => {
+      return Job.find({});
+    },
+
+    job: async (parent, { jobId }) => {
+      return Job.findOne({ _id: jobId });
+    },
+    items: async (parent, { jobId }) => {
+      return Item.find({ jobID: jobId });
+    },
+
+    item: async (parent, { itemId }) => {
+      return Item.findOne({ _id: itemId });
     },
   },
 
   Mutation: {
-    addProfile: async (parent, { name, email, password }) => {
-      const profile = await Profile.create({ name, email, password });
+    addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
+      const profile = await Profile.create({ firstName, lastName, email, password, phone });
       const token = signToken(profile);
-
+      return { token, profile };
+    },
+    addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin }) => {
+      const profile = await Profile.create({ firstName, lastName, email, password, phone });
+      const token = signToken(profile);
+      return { token, profile };
+    },
+    addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
+      const profile = await Profile.create({ firstName, lastName, email, password, phone });
+      const token = signToken(profile);
       return { token, profile };
     },
     login: async (parent, { email, password }) => {
