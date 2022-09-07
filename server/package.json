@@ -19,5 +19,8 @@
     "mongodb": "^4.9.1",
     "mongoose": "^6.5.3",
     "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
   }
 }

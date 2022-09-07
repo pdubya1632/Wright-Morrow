@@ -41,6 +41,7 @@
         },
         "industry": "string",
         "category": "string",
+        "description": "string",
         "cost": "number",
         "invoice": "number",
         "paymentStatus": "string",
