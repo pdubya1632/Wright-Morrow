@@ -19,9 +19,12 @@ const jobSchema = new Schema({
     type: Number,
   },
   category: {
-    type: Number,
-    min: 0,
-    default: 0
+    type: String,
+
+  },
+  industry: {
+    type: String,
+
   },
   customerId: {
     type: Schema.Types.ObjectId,

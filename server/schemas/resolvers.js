@@ -1,6 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Customer, Job, Item, Employee } = require('../models');
-const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -18,13 +17,7 @@ const resolvers = {
     customer: async (parent, { customerId }) => {
       return await Customer.findOne({ _id: customerId });
     },
-    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    // me: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return Customer.findOne({ _id: context.user._id });
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+
     jobs: async () => {
       return Job.find({});
     },
@@ -43,9 +36,8 @@ const resolvers = {
 
   Mutation: {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
-      const profile = await Customer.create({ firstName, lastName, email, password, phone });
-      const token = signToken(profile);
-      return { token, profile };
+      const customer = await Customer.create({ firstName, lastName, email, password, phone }, { new: true });
+      return { customer };
     },
     updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {
       const customer = await Customer.findOneAndUpdate({ firstName, lastName, email, password, phone });

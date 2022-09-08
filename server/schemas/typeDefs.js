@@ -82,7 +82,7 @@ const typeDefs = gql`
       phone: String!, 
       email: String!, 
       password: String! 
-      jobIDs:  String!
+      jobIDs:  String
       ): Customer
     updateCustomer(
       firstName: String!
