@@ -56,7 +56,7 @@ const typeDefs = gql`
   email: String
   password: String
   isAdmin: Boolean
-  active: Boolean
+  isActive: Boolean
   jobIDs: [Job]
   }
   
@@ -85,12 +85,12 @@ const typeDefs = gql`
       jobIDs:  String
       ): Customer
     updateCustomer(
-      firstName: String!
-      lastName: String! 
-      phone: String!
-      email: String!
-      password: String! 
-      jobIDs:  String!
+      firstName: String
+      lastName: String
+      phone: String
+      email: String
+      password: String 
+      jobIDs:  String
       ): Customer
     addEmployee(
       firstName: String!
@@ -98,17 +98,17 @@ const typeDefs = gql`
       phone: String!
       email: String!
       password: String!
-      jobIDs:  String!
-      isAdmin:Boolean!
+      jobIDs:  String
+      isAdmin:Boolean
       ): Employee
     updateEmployee(
-      firstName: String!
-      lastName: String! 
-      phone: String!, 
-      email: String!, 
-      password: String!, 
-      jobIDs:  String!,
-      isAdmin:Boolean!
+      firstName: String
+      lastName: String
+      phone: String
+      email: String
+      password: String
+      jobIDs:  String
+      isAdmin:Boolean
       ): Employee
     addJob(  _id: ID!
       customerId: String

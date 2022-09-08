@@ -28,7 +28,7 @@ const employeeSchema = new Schema({
     type: Boolean,
     default: true
   },
-  active: {
+  isActive: {
     type: Boolean,
     default: true
 

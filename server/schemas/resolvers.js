@@ -44,10 +44,9 @@ const resolvers = {
       const token = signToken(profile);
       return { token, profile };
     },
-    addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin }) => {
-      const profile = await Employee.create({ firstName, lastName, email, password, phone });
-      const token = signToken(profile);
-      return { token, profile };
+    addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin, isActive }) => {
+      const profile = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive });
+      return { profile };
     },
     addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
       const profile = await Job.create({ firstName, lastName, email, password, phone });
