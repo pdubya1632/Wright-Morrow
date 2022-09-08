@@ -24,6 +24,10 @@ const customerSchema = new Schema({
     required: true,
     minlength: 5
   },
+  phone: {
+    type: String,
+
+  },
 });
 
 // set up pre-save middleware to create password

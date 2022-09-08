@@ -85,6 +85,7 @@ const typeDefs = gql`
       jobIDs:  String
       ): Customer
     updateCustomer(
+      _id: ID!
       firstName: String
       lastName: String
       phone: String
@@ -102,6 +103,7 @@ const typeDefs = gql`
       isAdmin:Boolean
       ): Employee
     updateEmployee(
+      _id: ID!
       firstName: String
       lastName: String
       phone: String
@@ -110,7 +112,7 @@ const typeDefs = gql`
       jobIDs:  String
       isAdmin:Boolean
       ): Employee
-    addJob(  _id: ID!
+    addJob(  
       customerId: String
       employeeId: String
       status: String

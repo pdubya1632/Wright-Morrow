@@ -40,9 +40,8 @@ const resolvers = {
       return { customer };
     },
     updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {
-      const customer = await Customer.findOneAndUpdate({ firstName, lastName, email, password, phone });
-      const token = signToken(profile);
-      return { token, profile };
+      const customer = await Customer.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone });
+      return { customer };
     },
     addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin, isActive }) => {
       const profile = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive });
