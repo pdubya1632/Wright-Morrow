@@ -42,15 +42,3 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
 startApolloServer(typeDefs, resolvers);
 
-
-items: [
-  {
-    _id: 'ID1', // Paintings
-    qty: 12,
-  },
-  {
-    _id: 'ID2', // Chairs
-    qty: 3,
-  }
-]
-

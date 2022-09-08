@@ -43,17 +43,27 @@ const resolvers = {
 
   Mutation: {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
-      const profile = await Profile.create({ firstName, lastName, email, password, phone });
+      const profile = await Customer.create({ firstName, lastName, email, password, phone });
+      const token = signToken(profile);
+      return { token, profile };
+    },
+    updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {
+      const customer = await Customer.findOneAndUpdate({ firstName, lastName, email, password, phone });
       const token = signToken(profile);
       return { token, profile };
     },
     addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin }) => {
-      const profile = await Profile.create({ firstName, lastName, email, password, phone });
+      const profile = await Employee.create({ firstName, lastName, email, password, phone });
       const token = signToken(profile);
       return { token, profile };
     },
     addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
-      const profile = await Profile.create({ firstName, lastName, email, password, phone });
+      const profile = await Job.create({ firstName, lastName, email, password, phone });
+      const token = signToken(profile);
+      return { token, profile };
+    },
+    addItem: async (parent, { jobID, name, value, length, width, height, weight, qty, packType }) => {
+      const profile = await Item.create({ name, value, length, width, height, weight, qty, packType });
       const token = signToken(profile);
       return { token, profile };
     },
