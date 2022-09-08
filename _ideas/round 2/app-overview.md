@@ -9,7 +9,7 @@
 
 ## Project Libraries
 
-- [Material UI](https://mui.com/material-ui/getting-started/overview/)
+- [Flowbite React](https://flowbite.com/docs/getting-started/react/)
 
 ## Resources
 
