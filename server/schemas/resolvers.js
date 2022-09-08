@@ -44,8 +44,12 @@ const resolvers = {
       return { customer };
     },
     addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin, isActive }) => {
-      const profile = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive });
-      return { profile };
+      const employee = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive });
+      return { employee };
+    },
+    updateEmployee: async (parent, { _id, firstName, lastName, email, password, phone, isAdmin, isActive }) => {
+      const employee = await Employee.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone, isAdmin, isActive });
+      return { employee };
     },
     addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
       const profile = await Job.create({ firstName, lastName, email, password, phone });
