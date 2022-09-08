@@ -10,10 +10,10 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-app.get('*', (req, res) => {
-  res.send('Wrong route!');
-});
+// app.get('*', (req, res) => {
+//   res.send('Wrong route!');
+// });
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

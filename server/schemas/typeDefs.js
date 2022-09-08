@@ -13,7 +13,7 @@ const typeDefs = gql`
     category: String
     description: String
     cost: String
-    invoice: number
+    invoice: Int
     ItemIds: [Item],
   }
   type Address {
@@ -34,13 +34,14 @@ const typeDefs = gql`
   width: String
   height: String
   weight: String
-  qty:  Number
+  qty:  Int
   packType: String
   }
 
   type Customer {
     _id: ID!
-  name: String
+    firstName: String
+    lastName: String
   phone: String
   email: String
   password: String
@@ -48,8 +49,9 @@ const typeDefs = gql`
   jobIDs: [Job]
   }
   type Employee {
-    _id: ID!
-  name: String
+  _id: ID!
+  firstName: String
+  lastName: String
   phone: String
   email: String
   password: String
@@ -58,13 +60,10 @@ const typeDefs = gql`
   jobIDs: [Job]
   }
   
-  type Auth {
-    token: ID!
-    profile: Profile
-  }
+
 
   type Query {
-    customers: [Customer]!
+    customers: [Customer]
     customer(customerId: ID!): Customer
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Customer
@@ -72,6 +71,8 @@ const typeDefs = gql`
     job(jobId: ID!): Job
     employees: [Employee]!
     employee(employeeId: ID!): Employee
+    items: [Item]!
+    item(itemId: ID!): Item
   }
 
   type Mutation {
@@ -114,13 +115,13 @@ const typeDefs = gql`
       employeeId: String
       status: String
       pickupDate: String
-      pickupAddress:[Address]
-      dropOffAddress:[Address]
+      pickupAddress:String
+      dropOffAddress:String
       industry: String
       description: String
       category: String
       cost: String
-      invoice: number
+      invoice: Int
       ItemIds: String
       ): Job
       updateJob(
@@ -129,36 +130,36 @@ const typeDefs = gql`
       employeeId: String
       status: String
       pickupDate: String
-      pickupAddress:[Address]
-      dropOffAddress:[Address]
+      pickupAddress:String
+      dropOffAddress:String
       industry: String
       category: String
       cost: String
-      invoice: number
+      invoice: Int
       ItemIds: String
       ): Job
     addItem(  
       _id: ID!
-      jobID: [Job]
+      jobID: String
       name: String
       value: String
       length: String
       width: String
       height: String
       weight: String
-      qty:  Number
+      qty:  Int
       packType: String
       ) : Item
       updateItem(
         _id: ID!
-      jobID: [Job]
+      jobID: String
       name: String
       value: String
       length: String
       width: String
       height: String
       weight: String
-      qty:  Number
+      qty:  Int
       packType: String
       ) : Item
   }
