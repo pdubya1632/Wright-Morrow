@@ -54,10 +54,7 @@ const jobSchema = new Schema({
       type: String,
     },
   },
-  industry: {
-    type: String,
 
-  },
   customerId: {
     type: Schema.Types.ObjectId,
     ref: 'Customer',
