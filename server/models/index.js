@@ -1,5 +1,5 @@
-const Employee = require('./Employee');
-const Customer = require('./Customer');
+const Employee = require('./employee.model');
+const Customer = require('./customer.model');
 const Job = require('./job.model');
 const Item = require('./item.model');
 
