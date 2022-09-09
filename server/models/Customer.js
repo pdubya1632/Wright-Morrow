@@ -19,13 +19,27 @@ const customerSchema = new Schema({
     required: true,
     unique: true,
   },
+  phone: {
+    type: String,
+  },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  phone: {
-    type: String,
+  billingAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
   },
 });
 

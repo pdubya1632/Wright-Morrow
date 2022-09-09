@@ -7,31 +7,44 @@ const employeeSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+  },
+  address: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
   },
   password: {
     type: String,
     required: true,
-    minlength: 5
+    minlength: 5,
   },
   isAdmin: {
     type: Boolean,
-    default: true
+    default: true,
   },
   isActive: {
     type: Boolean,
-    default: true
-
+    default: true,
   },
 });
 
