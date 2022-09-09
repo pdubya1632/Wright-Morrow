@@ -6,7 +6,6 @@ const itemSchema = new Schema({
   name: {
     type: String,
     required: true,
-    trim: true
   },
   value: {
     type: Number,
@@ -23,15 +22,12 @@ const itemSchema = new Schema({
   weight: {
     type: Number,
   },
+  // should qty be pushed to job model?
   qty: {
     type: Number,
   },
   packType: {
     type: String,
-  },
-  jobID: {
-    type: Schema.Types.ObjectId,
-    ref: 'Job',
   },
 });
 
