@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const jobSchema = new Schema({
   description: {
-    type: String
+    type: String,
   },
   status: {
     type: String,
@@ -20,11 +20,9 @@ const jobSchema = new Schema({
   },
   category: {
     type: String,
-
   },
   industry: {
     type: String,
-
   },
   customerId: {
     type: Schema.Types.ObjectId,
@@ -33,7 +31,7 @@ const jobSchema = new Schema({
   employeeId: {
     type: Schema.Types.ObjectId,
     ref: 'Employee',
-  }
+  },
 });
 
 const Job = mongoose.model('Job', jobSchema);
