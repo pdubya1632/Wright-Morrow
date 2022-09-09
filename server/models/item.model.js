@@ -5,12 +5,13 @@ const { Schema } = mongoose;
 const itemSchema = new Schema({
   name: {
     type: String,
+    required: true,
   },
   value: {
-    type: String,
+    type: Number,
   },
   length: {
-    type: String,
+    type: Number,
   },
   width: {
     type: Number,
@@ -19,10 +20,11 @@ const itemSchema = new Schema({
     type: Number,
   },
   weight: {
-    type: String,
+    type: Number,
   },
+  // should qty be pushed to job model?
   qty: {
-    type: Int,
+    type: Number,
   },
   packType: {
     type: String,
