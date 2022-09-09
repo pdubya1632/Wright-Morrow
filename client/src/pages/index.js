@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 export const Home = React.lazy(() => import('./Home'));
+export const Admin = React.lazy(() => import('./admin/Admin'));
 export const Customers = React.lazy(() =>
   import('./admin/Customers')
 );
