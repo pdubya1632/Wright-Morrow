@@ -144,7 +144,7 @@ const typeDefs = gql`
       _id: ID!
       ): Job
     addItem(  
-      _id: ID!
+      _id: ID
       jobID: String
       name: String
       value: String

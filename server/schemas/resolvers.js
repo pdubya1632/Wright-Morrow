@@ -142,7 +142,7 @@ const resolvers = {
         qty,
         packType
       });
-      return { token, item };
+      return { item };
     },
     updateItem: async (parent, { _id, jobID, name, value, length, width, height, weight, qty, packType }) => {
       const item = await Item.findOneAndUpdate({ _id: _id }, {
@@ -158,7 +158,7 @@ const resolvers = {
       return { item };
     },
     deleteItem: async (parent, { _id }) => {
-      const item = await Item.findOneAndDelete({ _id: _id });
+      const item = await Item.findOneAndRemove({ _id: _id });
       return { item };
     }
   },
