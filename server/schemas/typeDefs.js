@@ -140,6 +140,9 @@ const typeDefs = gql`
       invoice: Int
       ItemIds: String
       ): Job
+      deleteJob(
+      _id: ID!
+      ): Job
     addItem(  
       _id: ID!
       jobID: String
@@ -163,6 +166,9 @@ const typeDefs = gql`
       weight: String
       qty:  Int
       packType: String
+      ) : Item
+      deleteItem(
+        _id: ID!
       ) : Item
   }
 `;

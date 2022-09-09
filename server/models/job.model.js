@@ -21,9 +21,38 @@ const jobSchema = new Schema({
   category: {
     type: String,
   },
-  industry: {
+  pickupDate: {
     type: String,
   },
+  pickupAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
+  },
+  dropOffAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
+  },
+
   customerId: {
     type: Schema.Types.ObjectId,
     ref: 'Customer',
