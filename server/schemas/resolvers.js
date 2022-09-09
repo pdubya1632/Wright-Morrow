@@ -52,14 +52,13 @@ const resolvers = {
       return { employee };
     },
     addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
-      const profile = await Job.create({ firstName, lastName, email, password, phone });
-      const token = signToken(profile);
-      return { token, profile };
+      const job = await Job.create({ firstName, lastName, email, password, phone });
+      return { job };
     },
     addItem: async (parent, { jobID, name, value, length, width, height, weight, qty, packType }) => {
-      const profile = await Item.create({ name, value, length, width, height, weight, qty, packType });
+      const item = await Item.create({ name, value, length, width, height, weight, qty, packType });
       const token = signToken(profile);
-      return { token, profile };
+      return { token, item };
     },
   },
 };
