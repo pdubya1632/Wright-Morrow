@@ -36,7 +36,7 @@ const resolvers = {
 
   Mutation: {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
-      const customer = await Customer.create({ firstName, lastName, email, password, phone }, { new: true });
+      const customer = await Customer.create({ firstName, lastName, email, password, phone });
       return { customer };
     },
     updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {
@@ -51,16 +51,133 @@ const resolvers = {
       const employee = await Employee.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone, isAdmin, isActive });
       return { employee };
     },
-    addJob: async (parent, { customerId, industry, category, phone, isAdmin }) => {
-      const job = await Job.create({ firstName, lastName, email, password, phone });
+    addJob: async (parent, {
+      customerId,
+      industry,
+      employeeId,
+      category,
+      phone,
+      isAdmin,
+      status,
+      pickupDate,
+      pickupAddress,
+      dropOffAddress,
+      description,
+      cost,
+      invoice,
+      ItemIds
+    }) => {
+      const job = await Job.create({
+        customerId,
+        industry,
+        employeeId,
+        phone,
+        isAdmin,
+        status,
+        pickupDate,
+        pickupAddress,
+        dropOffAddress,
+        category,
+        description,
+        cost,
+        invoice,
+        ItemIds
+      });
       return { job };
     },
-    addItem: async (parent, { jobID, name, value, length, width, height, weight, qty, packType }) => {
-      const item = await Item.create({ name, value, length, width, height, weight, qty, packType });
-      const token = signToken(profile);
+    updateJob: async (parent, {
+      _id,
+      customerId,
+      industry,
+      employeeId,
+      category,
+      phone,
+      isAdmin,
+      status,
+      pickupDate,
+      pickupAddress,
+      dropOffAddress,
+      description,
+      cost,
+      invoice,
+      ItemIds
+    }) => {
+      const job = await Job.findOneAndUpdate({ _id: _id }, {
+        customerId,
+        industry,
+        employeeId,
+        phone,
+        isAdmin,
+        status,
+        pickupDate,
+        pickupAddress,
+        dropOffAddress,
+        category,
+        description,
+        cost,
+        invoice,
+        ItemIds
+      });
+      return { job };
+    },
+    addItem: async (parent,
+      {
+        jobID,
+        name,
+        value,
+        length,
+        width,
+        height,
+        weight,
+        qty,
+        packType
+      }) => {
+      const item = await Item.create({
+        name,
+        value,
+        length,
+        width,
+        height,
+        weight,
+        qty,
+        packType
+      });
       return { token, item };
     },
+    updateItem: async (parent, { _id, jobID, name, value, length, width, height, weight, qty, packType }) => {
+      const item = await Item.findOneAndUpdate({ _id: _id }, {
+        name,
+        value,
+        length,
+        width,
+        height,
+        weight,
+        qty,
+        packType
+      });
+      return { item };
+    },
+    deleteItem: async (parent, { _id }) => {
+      const item = await Item.findOneAndDelete({ _id: _id });
+      return { item };
+    }
   },
 };
 
 module.exports = resolvers;
+
+//   },
+//   createdAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+//   updatedAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+// });
+
+// const Item = model('Item', itemSchema);
+
+// module.exports = Item;
+

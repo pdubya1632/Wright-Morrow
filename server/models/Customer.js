@@ -28,6 +28,20 @@ const customerSchema = new Schema({
     type: String,
 
   },
+  billingAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
+  },
 });
 
 // set up pre-save middleware to create password

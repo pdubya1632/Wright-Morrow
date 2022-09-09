@@ -22,6 +22,38 @@ const jobSchema = new Schema({
     type: String,
 
   },
+  pickupDate: {
+    type: String,
+
+  },
+  pickupAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
+  },
+  dropOffAddress: {
+    street: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    zip: {
+      type: String,
+    },
+  },
   industry: {
     type: String,
 
