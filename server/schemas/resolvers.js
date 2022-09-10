@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Customer, Job, Item, Employee } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -160,6 +161,23 @@ const resolvers = {
     deleteItem: async (parent, { _id }) => {
       const item = await Item.findOneAndDelete({ _id: _id });
       return { item };
+    },
+    login: async (parent, { email, password }) => {
+      const employee = await Employee.findOne({ email });
+
+      if (!employee) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await Employee.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(employee);
+
+      return { token, user };
     }
   },
 };
