@@ -59,6 +59,10 @@ const typeDefs = gql`
   isActive: Boolean
   jobIDs: [Job]
   }
+  type Auth {
+    token: ID
+    employee: Employee
+  }
   
 
 
@@ -78,9 +82,9 @@ const typeDefs = gql`
   type Mutation {
     addCustomer(
       firstName: String!
-      lastName: String! 
-      phone: String!, 
-      email: String!, 
+      lastName: String!
+      phone: String! 
+      email: String!
       password: String! 
       jobIDs:  String
       ): Customer
@@ -170,6 +174,7 @@ const typeDefs = gql`
       deleteItem(
         _id: ID!
       ) : Item
+      login(email: String!, password: String!): Auth
   }
 `;
 
