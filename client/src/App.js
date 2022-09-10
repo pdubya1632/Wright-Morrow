@@ -7,9 +7,8 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import { Home, Admin, Customers, Jobs } from './pages/index';
 
-import Home from './pages/Home';
+import { Home, Admin, Customers, Jobs, Login } from './pages/index';
 
 const client = new ApolloClient({
   request: (operation) => {
