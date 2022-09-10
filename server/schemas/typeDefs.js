@@ -59,6 +59,10 @@ const typeDefs = gql`
   isActive: Boolean
   jobIDs: [Job]
   }
+  type Auth {
+    token: ID
+    employee: Employee
+  }
   
 
 
@@ -170,6 +174,7 @@ const typeDefs = gql`
       deleteItem(
         _id: ID!
       ) : Item
+      login(email: String!, password: String!): Auth
   }
 `;
 
