@@ -64,7 +64,21 @@ const typeDefs = gql`
     employee: Employee
   }
   
+  #29.1
+  input RegisterInput {
+    firstName: String!
+    lastName: String!
+    phone: String!
+    email: String!
+    password: String!
+    confirmPassword: String!
+    }
 
+  input LoginInput{
+    email: String!
+    password: String!
+
+  }
 
   type Query {
     customers: [Customer]
@@ -174,7 +188,9 @@ const typeDefs = gql`
       deleteItem(
         _id: ID!
       ) : Item
-      login(email: String!, password: String!): Auth
+      
+      registerUser(registerInput: RegisterInput): Auth
+      loginUser(loginInput: LoginInput): Auth
   }
 `;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import {
     ApolloClient,
     InMemoryCache,
@@ -8,67 +8,51 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-
-
-import { Home, Admin, Customers, Jobs, Login } from './pages/index';
-
-const httpLink = createHttpLink({
-    uri: '/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-    const token = localStorage.getItem('id_token');
-    return {
-        headers: {
-            ...headers,
-            authorization: token ? `Bearer ${token}` : '',
-        },
-    };
-});
-
-const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-})
+import { Home, Admin, Customers, Jobs, Login, Homepage, Register } from './pages/index';
 
 function App() {
     return (
-        <ApolloProvider client={client}>
-            <Router>
-                <>
-                    <Routes>
-                        <Route
-                            index
-                            element={<React.Suspense children={<Home />} />}
-                        />
+        <>
+            <Link to="/home">Home</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+            <Routes>
+                <Route path="/home" element={<Homepage />} />
+                <Route
+                    index
+                    element={<React.Suspense children={<Home />} />}
+                />
 
-                        <Route
-                            path="/login"
-                            element={<React.Suspense children={<Login />} />}
-                        />
+                <Route
+                    path="/login"
+                    element={<React.Suspense children={<Login />} />}
+                />
 
-                        <Route
-                            path="/admin"
-                            element={<React.Suspense children={<Admin />} />}
-                        />
+                <Route
+                    path="/register"
+                    element={<React.Suspense children={<Register />} />}
+                />
 
-                        <Route
-                            path="/admin/customers"
-                            element={<React.Suspense children={<Customers />} />}
-                        />
+                <Route
+                    path="/admin"
+                    element={<React.Suspense children={<Admin />} />}
+                />
 
-                        <Route
-                            path="/admin/jobs"
-                            element={<React.Suspense children={<Jobs />} />}
-                        />
-                        <Route
-                            path="*"
-                            element={<h1 className="display-2">Wrong page!</h1>}
-                        />
-                    </Routes>
-                </>
-            </Router>
-        </ApolloProvider>
+                <Route
+                    path="/admin/customers"
+                    element={<React.Suspense children={<Customers />} />}
+                />
+
+                <Route
+                    path="/admin/jobs"
+                    element={<React.Suspense children={<Jobs />} />}
+                />
+                <Route
+                    path="*"
+                    element={<h1 className="display-2">Wrong page!</h1>}
+                />
+            </Routes>
+        </>
     );
 }
 
