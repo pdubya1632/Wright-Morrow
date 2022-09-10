@@ -15,7 +15,6 @@ const addressSchema = new Schema({
   zip: {
     type: String,
   },
-
 });
 
 const jobSchema = new Schema({
