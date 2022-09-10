@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Label, TextInput, Checkbox, Button } from 'flowbite-react';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
+
 
 export default function LoginForm() {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN);
+  
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      try {
+        const mutationResponse = await login({
+          variables: { 
+            email: formState.email,
+            password: formState.password 
+        },
+        });
+        const token = mutationResponse.data.login.token;
+        Auth.login(token);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
     return (
         <>
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -13,8 +42,10 @@ export default function LoginForm() {
                         />
                     </div>
                     <TextInput
-                    id="email1"
-                    type="email"
+             name="email"
+             type="email"
+             id="email"
+             onChange={handleChange}
                     placeholder="name@wrightandmorrow.com"
                     required={true}
                     />
@@ -27,8 +58,10 @@ export default function LoginForm() {
                         />
                     </div>
                     <TextInput
-                    id="password1"
-                    type="password"
+                name="password"
+                type="password"
+                id="pwd"
+                onChange={handleChange}
                     required={true}
                     />
                 </div>
@@ -44,4 +77,4 @@ export default function LoginForm() {
             </form>
         </>
     )
-};
+}};
