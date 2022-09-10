@@ -2,6 +2,22 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const addressSchema = new Schema({
+  street: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  zip: {
+    type: String,
+  },
+
+});
+
 const jobSchema = new Schema({
   description: {
     type: String,
@@ -24,34 +40,8 @@ const jobSchema = new Schema({
   pickupDate: {
     type: String,
   },
-  pickupAddress: {
-    street: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    state: {
-      type: String,
-    },
-    zip: {
-      type: String,
-    },
-  },
-  dropOffAddress: {
-    street: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    state: {
-      type: String,
-    },
-    zip: {
-      type: String,
-    },
-  },
+  pickupAddress: [addressSchema],
+  dropOffAddress: [addressSchema],
 
   customerId: {
     type: Schema.Types.ObjectId,

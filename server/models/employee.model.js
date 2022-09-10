@@ -3,6 +3,24 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
+const addressSchema = new Schema({
+  street: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  zip: {
+    type: String,
+  },
+
+});
+
+
+
 const employeeSchema = new Schema({
   firstName: {
     type: String,
@@ -19,20 +37,7 @@ const employeeSchema = new Schema({
     required: true,
     unique: true,
   },
-  address: {
-    street: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    state: {
-      type: String,
-    },
-    zip: {
-      type: String,
-    },
-  },
+  address: [addressSchema],
   password: {
     type: String,
     required: true,
