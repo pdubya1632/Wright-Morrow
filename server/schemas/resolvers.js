@@ -38,12 +38,12 @@ const resolvers = {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
       console.log("data", firstName, lastName, email, password, phone);
       const customer = await Customer.create({
-        firstName: "Hi",
-        lastName: "Bye",
-        email: "Email.com",
-        password: "hihihihi",
-        phone: "2322322322"
-      }, { new: true });
+        firstName,
+        lastName,
+        email,
+        password,
+        phone
+      });
       console.log("customer", customer);
       return customer;
     },
@@ -52,12 +52,12 @@ const resolvers = {
       return customer;
     },
     addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin, isActive }) => {
-      const employee = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive }, { new: true });
-      return { employee };
+      const employee = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive });
+      return employee;
     },
     updateEmployee: async (parent, { _id, firstName, lastName, email, password, phone, isAdmin, isActive }) => {
       const employee = await Employee.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone, isAdmin, isActive }, { new: true });
-      return { employee };
+      return employee;
     },
     addJob: async (parent, {
       customerId,
