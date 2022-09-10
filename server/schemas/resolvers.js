@@ -36,7 +36,7 @@ const resolvers = {
 
   Mutation: {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
-      const customer = await Customer.create({ firstName, lastName, email, password, phone }, { new: true });
+      const customer = await Customer.create({ firstName, lastName, email, password, phone });
       return customer;
     },
     updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {
@@ -45,11 +45,11 @@ const resolvers = {
     },
     addEmployee: async (parent, { firstName, lastName, email, password, phone, isAdmin, isActive }) => {
       const employee = await Employee.create({ firstName, lastName, email, password, phone, isAdmin, isActive }, { new: true });
-      return { employee };
+      return employee;
     },
     updateEmployee: async (parent, { _id, firstName, lastName, email, password, phone, isAdmin, isActive }) => {
-      const employee = await Employee.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone, isAdmin, isActive }, { new: true });
-      return { employee };
+      const employee = await Employee.findOneAndUpdate({ _id: _id }, { firstName, lastName, email, password, phone, isAdmin, isActive });
+      return employee;
     },
     addJob: async (parent, {
       customerId,
