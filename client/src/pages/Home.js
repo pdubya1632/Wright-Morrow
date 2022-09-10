@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Button } from 'flowbite-react';
 
+import { FooterLayout } from '../components/layouts/FooterLayout';
+
 export default function Home() {
   return (
     <>
@@ -29,6 +31,8 @@ export default function Home() {
           <Navbar.Link href="/navbars">Contact</Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
+
+      <FooterLayout />
     </>
   );
 }

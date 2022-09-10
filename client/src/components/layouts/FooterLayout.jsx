@@ -1,13 +1,13 @@
 import React from 'react';
 import { Footer } from 'flowbite-react';
 
-export default function LoginForm() {
+export function FooterLayout() {
     return (
         <>
             <Footer container={true}>
             <Footer.Copyright
                 href="#"
-                by="Flowbite™"
+                by="Wright &amp; Morrow™"
                 year={2022}
             />
             <Footer.LinkGroup>
