@@ -36,7 +36,15 @@ const resolvers = {
 
   Mutation: {
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
-      const customer = await Customer.create({ firstName, lastName, email, password, phone }, { new: true });
+      console.log("data", firstName, lastName, email, password, phone);
+      const customer = await Customer.create({
+        firstName: "Hi",
+        lastName: "Bye",
+        email: "Email.com",
+        password: "hihihihi",
+        phone: "2322322322"
+      }, { new: true });
+      console.log("customer", customer);
       return customer;
     },
     updateCustomer: async (parent, { _id, firstName, lastName, email, password, phone }) => {

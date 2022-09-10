@@ -82,9 +82,9 @@ const typeDefs = gql`
   type Mutation {
     addCustomer(
       firstName: String!
-      lastName: String! 
-      phone: String!, 
-      email: String!, 
+      lastName: String!
+      phone: String! 
+      email: String!
       password: String! 
       jobIDs:  String
       ): Customer
