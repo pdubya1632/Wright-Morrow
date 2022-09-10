@@ -5,6 +5,7 @@ export default function AddCustomer() {
   return (
     <>
       <form className="flex flex-col gap-4">
+        {/* First Name */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="firstname" value="firstname" />
@@ -16,6 +17,7 @@ export default function AddCustomer() {
             required={true}
           />
         </div>
+        {/* Last Name */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="lastname" value="lastname" />
@@ -27,6 +29,7 @@ export default function AddCustomer() {
             required={true}
           />
         </div>
+        {/* Email */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email" value="email" />
@@ -38,12 +41,7 @@ export default function AddCustomer() {
             required={true}
           />
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="password1" value="Your password" />
-          </div>
-          <TextInput id="password1" type="password" required={true} />
-        </div>
+        {/* Phone */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="phone" value="phone" />
@@ -55,6 +53,7 @@ export default function AddCustomer() {
             required={true}
           />
         </div>
+        {/* Address */}
         <div>
           <div className="mb-2 block">
             <Label htmlFor="city" value="city" />
@@ -79,7 +78,8 @@ export default function AddCustomer() {
           </div>
           <TextInput id="zip" type="zip" required={true} />
         </div>
-        <Button type="submit">Submit</Button>
+        {/* Submit */}
+        <Button type="submit">Add Customer</Button>
       </form>
     </>
   );
