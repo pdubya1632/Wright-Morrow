@@ -1,6 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Admin, Customers, Jobs } from './pages/index';
 
@@ -52,6 +53,7 @@ function App() {
             </Router>
         </ApolloProvider>
     );
+
 }
 
-export default App; 
+export default App;

@@ -3,6 +3,24 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
+
+// Schema for Adresses only
+const addressSchema = new Schema({
+  street: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  zip: {
+    type: String,
+  },
+
+});
+
 const customerSchema = new Schema({
   firstName: {
     type: String,
@@ -27,20 +45,7 @@ const customerSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  billingAddress: {
-    street: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    state: {
-      type: String,
-    },
-    zip: {
-      type: String,
-    },
-  },
+  billingAddress: [addressSchema],
 });
 
 // set up pre-save middleware to create password
