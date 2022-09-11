@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Button } from 'flowbite-react';
 
-export function TopNavLayout() {
+export function TopNav() {
     return (
         <>
             <Navbar fluid={true} rounded={true}>
