@@ -24,7 +24,7 @@ export default function App() {
 
           {/* if logged in */}
           <Route
-            path="/admin"
+            path="/admin/*"
             element={<React.Suspense children={<Admin />} />}
           />
 

@@ -1,7 +1,12 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import SidebarNav from '../components/nav/SidebarNav';
-import JobsTable from '../components/tables/JobsTable';
+import Dashboard from '../components/admin/Dashboard';
+import Jobs from '../components/admin/Jobs';
+import Items from '../components/admin/Items';
+import Customers from '../components/admin/Customers';
+import Employees from '../components/admin/Employees';
 
 export default function Admin() {
   return (
@@ -10,7 +15,14 @@ export default function Admin() {
         <SidebarNav />
       </div>
       <div className="basis-3/4">
-        <JobsTable />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/employees" element={<Employees />} />
+          {/* <Redirect from="*" to="/admin" /> */}
+        </Routes>
       </div>
     </div>
   );
