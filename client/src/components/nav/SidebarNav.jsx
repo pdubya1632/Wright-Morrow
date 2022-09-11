@@ -1,12 +1,7 @@
 // import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import {
-//   HiChartPie,
-//   HiViewBoards,
-//   HiInbox,
-//   HiUser,
-//   HiShoppingBag,
-// } from 'react-icons/hi';
+// import * from 'heroicons-react';
+// https://heroicons.com/
 
 export default function SidebarNav() {
   return (
