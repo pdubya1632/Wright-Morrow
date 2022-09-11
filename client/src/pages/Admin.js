@@ -22,7 +22,7 @@ function DisplayJobs() {
 
 export default function Admin() {
   return (
-    <div class="flex flex-row">
+    <div class="flex flex-row mt-6">
       <div class="basis-1/4">
         <SidebarNav />
       </div>
