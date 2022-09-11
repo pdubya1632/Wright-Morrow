@@ -142,3 +142,35 @@ export const GET_JOB = gql`
     }
   }
 `;
+
+//Get all items
+export const GET_ITEMS = gql`
+  query GET_ITEMS {
+    items {
+      name
+      value
+      length
+      width
+      height
+      weight
+      qty
+      packType
+    }
+  }
+`;
+
+//Get 1 item
+export const GET_ITEM = gql`
+  query GET_ITEM($itemId: ID!) {
+    item(itemId: $itemId) {
+      name
+      value
+      length
+      width
+      height
+      weight
+      qty
+      packType
+    }
+  }
+`;

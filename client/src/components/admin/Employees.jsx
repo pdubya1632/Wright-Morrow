@@ -2,15 +2,15 @@ import React from 'react';
 import { Table, Pagination } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
 
-import { GET_JOBS } from '../../utils/queries';
+import { GET_EMPLOYEES } from '../../utils/queries';
 
-function DisplayJobs() {
-    const { loading, data, error } = useQuery(GET_JOBS);
+function DisplayItems() {
+    const { loading, data, error } = useQuery(GET_EMPLOYEES);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error :(</div>;
 
-  return data.jobs.map(({ id, status, category, industry }) => (
+  return data.employees.map(({ id, firstName }) => (
     <Table.Row
       key={id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -18,10 +18,10 @@ function DisplayJobs() {
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
         #{id}
       </Table.Cell>
-      <Table.Cell>*customer</Table.Cell>
-      <Table.Cell>{status}</Table.Cell>
-      <Table.Cell>*tracking</Table.Cell>
-      <Table.Cell>{category}</Table.Cell>
+      <Table.Cell>{firstName}</Table.Cell>
+      <Table.Cell>test</Table.Cell>
+      <Table.Cell>test</Table.Cell>
+      <Table.Cell>test</Table.Cell>
       <Table.Cell>
         <a
           href="/tables"
@@ -34,13 +34,13 @@ function DisplayJobs() {
   ));
 }
 
-export default function JobsTable() {
+export default function Items() {
   return (
     <>
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>
-          <Table.HeadCell>Customer</Table.HeadCell>
+          <Table.HeadCell>First Name</Table.HeadCell>
           <Table.HeadCell>Status</Table.HeadCell>
           <Table.HeadCell>Tracking</Table.HeadCell>
           <Table.HeadCell>Category</Table.HeadCell>
@@ -49,7 +49,7 @@ export default function JobsTable() {
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          <DisplayJobs />
+          <DisplayItems />
         </Table.Body>
       </Table>
 
