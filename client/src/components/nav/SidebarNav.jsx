@@ -5,9 +5,7 @@ import {
   HiViewBoards,
   HiInbox,
   HiUser,
-  HiShoppingBag,
-  HiArrowSmRight,
-  HiTable,
+  HiShoppingBag
 } from 'react-icons/hi';
 
 export default function SidebarNav() {
