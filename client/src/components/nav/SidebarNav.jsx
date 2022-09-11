@@ -28,22 +28,16 @@ export default function SidebarNav() {
                 Dashboard
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiViewBoards}>
-                Kanban
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiInbox}>
-                Inbox
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiUser}>
-                Users
+                Jobs
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiShoppingBag}>
-                Products
+                Items
               </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiArrowSmRight}>
-                Sign In
+              <Sidebar.Item href="#" icon={HiInbox}>
+                Customers
               </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiTable}>
-                Sign Up
+              <Sidebar.Item href="#" icon={HiUser}>
+                Employees
               </Sidebar.Item>
             </Sidebar.ItemGroup>
           </Sidebar.Items>
