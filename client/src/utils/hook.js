@@ -4,7 +4,7 @@ export const useForm = (callback, initialState = {}) => {
 
   // Password 
   // Email
-  const [values, setValues] = useState(initialState);
+  const [, setValues] = useState(initialState);
 
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -13,6 +13,7 @@ export const useForm = (callback, initialState = {}) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    console.log(event);
     callback();
   };
 

@@ -29,6 +29,7 @@ function Register(props) {
 
   function registerUserCallback() {
     console.log("registerUserCallback");
+    registerUser();
   }
   const { onChange, onSubmit, values } = useForm(registerUserCallback, {
     firstName: "",
@@ -40,14 +41,16 @@ function Register(props) {
   });
 
   const [registerUser, { loading }] = useMutation(REGISTER_USER, {
+
     update(proxy, { data: { registerUser: userData } }) {
       context.login(userData);
+      console.log(userData);
       navigate('/home');
     },
     onError(graphQLErrors) {
       setErrors(graphQLErrors)
     },
-    variables: { registerUser: values }
+    variables: { registerInput: values }
   })
 
   return (
@@ -156,7 +159,8 @@ function Register(props) {
             Remember me
           </Label>
         </div>
-        <Button type="submit">
+
+        <Button type="submit" onClick={onSubmit}>
           Submit
         </Button>
       </form>
