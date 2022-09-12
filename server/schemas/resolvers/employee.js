@@ -30,7 +30,7 @@ module.exports = {
       const token = jwt.sign(
         {
           user_id: newUser._id,
-          email
+          email: newUser.email
         },
         process.env.JWT_SECRET, {
         expiresIn: '2h'
@@ -40,6 +40,7 @@ module.exports = {
       //save user to db 📝
       const res = await newUser.save();
       // return user 🤓
+      console.log(res);
       return {
         id: res.id,
         ...res._doc,
@@ -50,10 +51,13 @@ module.exports = {
 
       // see if user exists - if so, save user to variable
       const user = await Employee.findOne({ email });
-
+      console.log(user);
       //check if password is correct
-      const isPasswordCorrect = await bcrypt.compare(password, user.password);
-      if (user && isPasswordCorrect) {
+      if (user && (await bcrypt.compare(password, user.password), (err, res) => {
+        console.log("IS PASSWORD CORRECT?");
+        if (err) return console.loh(err);
+        if (!res) return new ApolloError('Invalid password📛');
+      })) {
         // Create JWT token 🍪 (attach to user model)
         const token = jwt.sign(
           {
@@ -72,6 +76,8 @@ module.exports = {
           ...user._doc,
         }
       } else { // if user doesn't exist, throw error
+
+        console.log("Entered Password", password)
         throw new ApolloError('Login Failed', 'PASSWORD_INCORRECT');
       }
     },

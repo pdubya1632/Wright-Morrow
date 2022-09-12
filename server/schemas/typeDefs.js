@@ -58,7 +58,9 @@ const typeDefs = gql`
   isAdmin: Boolean
   isActive: Boolean
   jobIDs: [Job]
+  token: String
   }
+
   type Auth {
     token: ID
     employee: Employee
