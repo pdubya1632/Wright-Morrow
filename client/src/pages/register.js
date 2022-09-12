@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Label, TextInput, Checkbox, Button } from 'flowbite-react';
 import { AuthContext } from "../context/authContext.js";
 
-import { useForm } from "../utils/hooks";
+import { useForm } from "../utils/hook";
 import { useMutation } from "@apollo/react-hooks";
 
 import { gql } from 'graphql-tag';
@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 const REGISTER_USER = gql`
   mutation register(
     $registerInput: RegisterInput!
-  ){44
+  )
+  {
     registerUser(
       registerInput: $registerInput){
         email
@@ -26,6 +27,9 @@ function Register(props) {
   let navigate = useNavigate();
   const [errors, setErrors] = useState([]);
 
+  function registerUserCallback() {
+    console.log("registerUserCallback");
+  }
   const { onChange, onSubmit, values } = useForm(registerUserCallback, {
     firstName: "",
     lastName: "",
@@ -49,7 +53,39 @@ function Register(props) {
   return (
     <>
       <h1>Register</h1>
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="firstName"
+              value="First Name"
+            />
+          </div>
+          <TextInput
+            name="firstName"
+            type="text"
+            id="firstName"
+            onChange={onChange}
+            placeholder="John"
+            required={true}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="lastName"
+              value="Last Name"
+            />
+          </div>
+          <TextInput
+            name="lastName"
+            type="text"
+            id="lastName"
+            onChange={onChange}
+            placeholder="Cena"
+            required={true}
+          />
+        </div>
         <div>
           <div className="mb-2 block">
             <Label
@@ -61,8 +97,24 @@ function Register(props) {
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
+            onChange={onChange}
             placeholder="name@wrightandmorrow.com"
+            required={true}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="phone"
+              value="Your Phone Number"
+            />
+          </div>
+          <TextInput
+            name="phone"
+            type="text"
+            id="phone"
+            onChange={onChange}
+            placeholder="(555) 555-5555"
             required={true}
           />
         </div>
@@ -77,7 +129,24 @@ function Register(props) {
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
+            onChange={onChange}
+            placeholder="🤫🤫🤫"
+            required={true}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="passwordConfirm"
+              value="Confirm password"
+            />
+          </div>
+          <TextInput
+            name="passwordConfirm"
+            type="password"
+            id="passwordConfirm"
+            onChange={onChange}
+            placeholder="🤫🤫🤫"
             required={true}
           />
         </div>
