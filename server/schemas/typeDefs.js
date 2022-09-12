@@ -189,8 +189,8 @@ const typeDefs = gql`
         _id: ID!
       ) : Item
       
-      registerUser(registerInput: RegisterInput): Auth
-      loginUser(loginInput: LoginInput): Auth
+      registerUser(registerInput: RegisterInput): Employee
+      loginUser(loginInput: LoginInput): Employee
   }
 `;
 

@@ -35,6 +35,47 @@ const resolvers = {
   },
 
   Mutation: {
+    registerUser: async (parent, { firstName, lastName, email, password }) => {
+      {
+        /* Do input validation
+        if (!(email && password && first_name && last_name)) {
+            res.status(400).send("All input is required");
+        }
+        */
+        const oldUser = await User.findOne({ email });
+
+        if (oldUser) {
+          throw new ApolloError('A user is already registered with the email: ' + email, 'USER_ALREADY_EXISTS');
+        }
+
+        const encryptedPassword = await bcrypt.hash(password, 10);
+
+        const newUser = new User({
+          username: username,
+          email: email.toLowerCase(),
+          password: encryptedPassword
+        });
+
+        const token = jwt.sign(
+          { user_id: newUser._id, email },
+          { expiresIn: "2h" }
+        );
+
+        newUser.token = token;
+
+        const res = await newUser.save();
+
+        return {
+          id: res.id,
+          ...res._doc
+        };
+      }
+
+      // const user = await Employee.create({ firstName, lastName, email, password })
+      // const token = signToken(user);
+      // return { token, user };
+    },
+
     addCustomer: async (parent, { firstName, lastName, email, password, phone }) => {
       console.log("data", firstName, lastName, email, password, phone);
       const customer = await Customer.create({

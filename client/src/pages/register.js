@@ -25,8 +25,8 @@ const REGISTER_USER = gql`
 function Register(props) {
   const context = useContext(AuthContext);
   let navigate = useNavigate();
-  const [errors, setErrors] = useState([]);
-
+  const [errors, setErrors] = useState();
+  console.log("Errors", errors);
   function registerUserCallback() {
     console.log("registerUserCallback");
     registerUser();
