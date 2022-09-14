@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Table, Pagination, Button } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
 
@@ -7,8 +8,8 @@ import { GET_CUSTOMERS } from '../../utils/queries';
 function DisplayItems() {
     const { loading, data, error } = useQuery(GET_CUSTOMERS);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error :(</div>;
+  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
+  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
   return data.customers.map(({ id, firstName }) => (
     <Table.Row
@@ -40,7 +41,7 @@ export default function Items() {
       <div className="flex-row flex justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Customers</h1>
         <Button>
-          Add Customer
+          <Link to="/admin/customers/add">Add Customer</Link>
         </Button>
       </div>
       <Table hoverable={true}>

@@ -1,26 +1,22 @@
-import { useContext, useState } from "react";
+import { useContext, useState } from 'react';
 import { Label, TextInput, Checkbox, Button } from 'flowbite-react';
-import { AuthContext } from "../context/authContext.js";
+import { AuthContext } from '../context/authContext.js';
 
-import { useForm } from "../utils/hook";
-import { useMutation } from "@apollo/react-hooks";
+import { useForm } from '../utils/hook';
+import { useMutation } from '@apollo/react-hooks';
 
 import { gql } from 'graphql-tag';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const REGISTER_USER = gql`
-  mutation register(
-    $registerInput: RegisterInput!
-  )
-  {
-    registerUser(registerInput: $registerInput)
-      {
-        email
-        firstName
-        token
-      }
+  mutation register($registerInput: RegisterInput!) {
+    registerUser(registerInput: $registerInput) {
+      email
+      firstName
+      token
+    }
   }
-`
+`;
 
 function Register(props) {
   const context = useContext(AuthContext);
@@ -28,32 +24,36 @@ function Register(props) {
   let navigate = useNavigate();
 
   const [errors, setErrors] = useState();
-  console.log("Errors", errors);
+  console.log('Errors', errors);
 
   function registerUserCallback() {
-    console.log("registerUserCallback");
+    console.log('registerUserCallback');
     registerUser();
   }
-  const { onChange, onSubmit, values } = useForm(registerUserCallback, {
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const { onChange, onSubmit, values } = useForm(
+    registerUserCallback,
+    {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      password: '',
+      confirmPassword: '',
+    }
+  );
 
+  // eslint-disable-next-line
   const [registerUser, { loading }] = useMutation(REGISTER_USER, {
     update(proxy, { data: { registerUser: userData } }) {
-      console.log("UserData", userData);
+      console.log('UserData', userData);
       context.login(userData);
       navigate('/admin');
     },
     onError(graphQLErrors) {
-      setErrors(graphQLErrors)
+      setErrors(graphQLErrors);
     },
-    variables: { registerInput: values }
-  })
+    variables: { registerInput: values },
+  });
 
   return (
     <>
@@ -61,10 +61,7 @@ function Register(props) {
       <form className="flex flex-col gap-4">
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="firstName"
-              value="First Name"
-            />
+            <Label htmlFor="firstName" value="First Name" />
           </div>
           <TextInput
             name="firstName"
@@ -77,10 +74,7 @@ function Register(props) {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="lastName"
-              value="Last Name"
-            />
+            <Label htmlFor="lastName" value="Last Name" />
           </div>
           <TextInput
             name="lastName"
@@ -93,10 +87,7 @@ function Register(props) {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="email1"
-              value="Your email"
-            />
+            <Label htmlFor="email1" value="Your email" />
           </div>
           <TextInput
             name="email"
@@ -109,10 +100,7 @@ function Register(props) {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="phone"
-              value="Your Phone Number"
-            />
+            <Label htmlFor="phone" value="Your Phone Number" />
           </div>
           <TextInput
             name="phone"
@@ -125,10 +113,7 @@ function Register(props) {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="password1"
-              value="Your password"
-            />
+            <Label htmlFor="password1" value="Your password" />
           </div>
           <TextInput
             name="password"
@@ -157,9 +142,7 @@ function Register(props) {
         </div>
         <div className="flex items-center gap-2">
           <Checkbox id="remember" />
-          <Label htmlFor="remember">
-            Remember me
-          </Label>
+          <Label htmlFor="remember">Remember me</Label>
         </div>
 
         <Button type="submit" onClick={onSubmit}>
@@ -167,7 +150,7 @@ function Register(props) {
         </Button>
       </form>
     </>
-  )
+  );
 }
 
 export default Register;

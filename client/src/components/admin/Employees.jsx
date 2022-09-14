@@ -6,9 +6,8 @@ import { GET_EMPLOYEES } from '../../utils/queries';
 
 function DisplayItems() {
     const { loading, data, error } = useQuery(GET_EMPLOYEES);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error :(</div>;
+  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
+  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
   return data.employees.map(({ id, firstName }) => (
     <Table.Row
