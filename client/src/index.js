@@ -13,6 +13,7 @@ import { AuthProvider } from './context/authContext.js';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <AuthProvider>
     <ApolloProvider client={client}>

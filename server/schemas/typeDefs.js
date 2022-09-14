@@ -7,46 +7,44 @@ const typeDefs = gql`
     employeeId: String
     status: String
     pickupDate: String
-    pickupAddress:[Address]
-    dropOffAddress:[Address]
+    pickupAddress: [Address]
+    dropOffAddress: [Address]
     industry: String
     category: String
     description: String
     cost: String
     invoice: Int
-    ItemIds: [Item],
+    ItemIds: [Item]
   }
+
   type Address {
     _id: ID!
     street: String
     city: String
     state: String
     zip: String
-
   }
-
-  type Item{
+  type Item {
     _id: ID!
-  jobID: [Job]
-  name: String
-  value: String
-  length: String
-  width: String
-  height: String
-  weight: String
-  qty:  Int
-  packType: String
+    jobID: [Job]
+    name: String
+    value: String
+    length: String
+    width: String
+    height: String
+    weight: String
+    qty: Int
+    packType: String
   }
-
   type Customer {
     _id: ID!
     firstName: String
     lastName: String
-  phone: String
-  email: String
-  password: String
-  billingAddress: [Address]
-  jobIDs: [Job]
+    phone: String
+    email: String
+    password: String
+    billingAddress: [Address]
+    jobIDs: [Job]
   }
   type Employee {
   _id: ID!
@@ -99,29 +97,29 @@ const typeDefs = gql`
     addCustomer(
       firstName: String!
       lastName: String!
-      phone: String! 
+      phone: String!
       email: String!
-      password: String! 
-      jobIDs:  String
-      ): Customer
+      password: String!
+      jobIDs: String
+    ): Customer
     updateCustomer(
       _id: ID!
       firstName: String
       lastName: String
       phone: String
       email: String
-      password: String 
-      jobIDs:  String
-      ): Customer
+      password: String
+      jobIDs: String
+    ): Customer
     addEmployee(
       firstName: String!
-      lastName: String!  
+      lastName: String!
       phone: String!
       email: String!
       password: String!
-      jobIDs:  String
-      isAdmin:Boolean
-      ): Employee
+      jobIDs: String
+      isAdmin: Boolean
+    ): Employee
     updateEmployee(
       _id: ID!
       firstName: String
@@ -129,41 +127,39 @@ const typeDefs = gql`
       phone: String
       email: String
       password: String
-      jobIDs:  String
-      isAdmin:Boolean
-      ): Employee
-    addJob(  
+      jobIDs: String
+      isAdmin: Boolean
+    ): Employee
+    addJob(
       customerId: String
       employeeId: String
       status: String
       pickupDate: String
-      pickupAddress:String
-      dropOffAddress:String
+      pickupAddress: String
+      dropOffAddress: String
       industry: String
       description: String
       category: String
       cost: String
       invoice: Int
       ItemIds: String
-      ): Job
-      updateJob(
+    ): Job
+    updateJob(
       _id: ID!
       customerId: String
       employeeId: String
       status: String
       pickupDate: String
-      pickupAddress:String
-      dropOffAddress:String
+      pickupAddress: String
+      dropOffAddress: String
       industry: String
       category: String
       cost: String
       invoice: Int
       ItemIds: String
-      ): Job
-      deleteJob(
-      _id: ID!
-      ): Job
-    addItem(  
+    ): Job
+    deleteJob(_id: ID!): Job
+    addItem(
       _id: ID!
       jobID: String
       name: String
@@ -172,11 +168,11 @@ const typeDefs = gql`
       width: String
       height: String
       weight: String
-      qty:  Int
+      qty: Int
       packType: String
-      ) : Item
-      updateItem(
-        _id: ID!
+    ): Item
+    updateItem(
+      _id: ID!
       jobID: String
       name: String
       value: String
@@ -184,7 +180,7 @@ const typeDefs = gql`
       width: String
       height: String
       weight: String
-      qty:  Int
+      qty: Int
       packType: String
       ) : Item
       deleteItem(

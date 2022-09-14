@@ -1,7 +1,7 @@
 import React from 'react';
 import { Footer } from 'flowbite-react';
 
-export function FooterLayout() {
+export function FooterNav() {
     return (
         <>
             <Footer container={true}>
