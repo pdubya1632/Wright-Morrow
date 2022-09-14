@@ -47,19 +47,37 @@ const typeDefs = gql`
     jobIDs: [Job]
   }
   type Employee {
-    _id: ID!
-    firstName: String
-    lastName: String
-    phone: String
-    email: String
-    password: String
-    isAdmin: Boolean
-    isActive: Boolean
-    jobIDs: [Job]
+  _id: ID!
+  firstName: String
+  lastName: String
+  phone: String
+  email: String
+  password: String
+  isAdmin: Boolean
+  isActive: Boolean
+  jobIDs: [Job]
+  token: String
   }
+
   type Auth {
     token: ID
     employee: Employee
+  }
+  
+  #29.1
+  input RegisterInput {
+    firstName: String!
+    lastName: String!
+    phone: String!
+    email: String!
+    password: String!
+    confirmPassword: String!
+    }
+
+  input LoginInput{
+    email: String!
+    password: String!
+
   }
 
   type Query {
@@ -164,9 +182,13 @@ const typeDefs = gql`
       weight: String
       qty: Int
       packType: String
-    ): Item
-    deleteItem(_id: ID!): Item
-    login(email: String!, password: String!): Auth
+      ) : Item
+      deleteItem(
+        _id: ID!
+      ) : Item
+      
+      registerUser(registerInput: RegisterInput): Employee
+      loginUser(loginInput: LoginInput): Employee
   }
 `;
 
