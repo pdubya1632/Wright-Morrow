@@ -6,8 +6,6 @@ import { gql } from 'graphql-tag';
 import { AuthContext } from "../../context/authContext.js";
 import { useNavigate } from "react-router-dom";
 
-
-
 const LOGIN_USER = gql`
 
   mutation loginUser(
@@ -22,7 +20,6 @@ const LOGIN_USER = gql`
       }
   }
 `
-
 
 export default function LoginForm() {
     const context = useContext(AuthContext);

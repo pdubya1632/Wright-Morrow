@@ -1,19 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import {
-  Home,
-  Admin,
-  Login,
-  Homepage,
-  Register,
-} from './pages/index';
+import { Home, Admin, Login, Register } from './pages/index';
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/home" element={<Home />} />
         <Route
           index
           element={<React.Suspense children={<Home />} />}
@@ -30,19 +24,10 @@ export default function App() {
         />
 
         <Route
-          path="/admin"
+          path="/admin/*"
           element={<React.Suspense children={<Admin />} />}
         />
 
-        <Route
-          path="/admin/customers"
-          element={<React.Suspense children={<Admin />} />}
-        />
-
-        <Route
-          path="/admin/jobs"
-          element={<React.Suspense children={<Admin />} />}
-        />
         <Route
           path="*"
           element={<h1 className="display-2">Wrong page!</h1>}
