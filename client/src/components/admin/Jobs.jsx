@@ -1,5 +1,6 @@
 import React from 'react';
-import { Table, Pagination } from 'flowbite-react';
+import { Table, Pagination, Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { GET_JOBS } from '../../utils/queries';
@@ -7,8 +8,8 @@ import { GET_JOBS } from '../../utils/queries';
 function DisplayJobs() {
     const { loading, data, error } = useQuery(GET_JOBS);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error :(</div>;
+  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
+  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
   return data.jobs.map(({ id, status, category }) => (
     <Table.Row
@@ -37,6 +38,12 @@ function DisplayJobs() {
 export default function Jobs() {
   return (
     <>
+            <div className="flex-row flex justify-between">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Jobs</h1>
+        <Button>
+          <Link to="/admin/jobs/add">Add Job</Link>
+        </Button>
+      </div>
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>

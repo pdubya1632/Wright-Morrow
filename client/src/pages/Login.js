@@ -1,28 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Label, TextInput, Checkbox, Button } from 'flowbite-react';
-import { useMutation } from "@apollo/react-hooks";
-import { useForm } from "../utils/hook";
+import { useMutation } from '@apollo/react-hooks';
+import { useForm } from '../utils/hook';
 import { gql } from 'graphql-tag';
-import { AuthContext } from "../context/authContext.js";
-import { useNavigate } from "react-router-dom";
-
-
+import { AuthContext } from '../context/authContext.js';
+import { useNavigate } from 'react-router-dom';
 
 const LOGIN_USER = gql`
-
-  mutation loginUser(
-    $loginInput: LoginInput!
-  )
-  {
-    loginUser(loginInput: $loginInput)
-      {
-        email
-        firstName
-        token
-      }
+  mutation loginUser($loginInput: LoginInput!) {
+    loginUser(loginInput: $loginInput) {
+      email
+      firstName
+      token
+    }
   }
-`
-
+`;
 
 export default function LoginForm() {
   const context = useContext(AuthContext);
@@ -30,39 +22,37 @@ export default function LoginForm() {
   let navigate = useNavigate();
 
   const [errors, setErrors] = useState();
-  console.log("Errors", errors);
+  console.log('Errors', errors);
 
   function loginUserCallback() {
-    console.log("loginUserCallback");
+    console.log('loginUserCallback');
     loginUser();
   }
 
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
+  // eslint-disable-next-line
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(proxy, { data: { loginUser: userData } }) {
-      console.log("UserData", userData);
+      console.log('UserData', userData);
       context.login(userData);
       navigate('/admin');
     },
     onError(graphQLErrors) {
-      setErrors(graphQLErrors)
+      setErrors(graphQLErrors);
     },
-    variables: { loginInput: values }
-  })
+    variables: { loginInput: values },
+  });
 
   return (
     <>
       <form className="flex flex-col gap-4">
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="email1"
-              value="Your email"
-            />
+            <Label htmlFor="email1" value="Your email" />
           </div>
           <TextInput
             name="email"
@@ -75,10 +65,7 @@ export default function LoginForm() {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label
-              htmlFor="password1"
-              value="Your password"
-            />
+            <Label htmlFor="password1" value="Your password" />
           </div>
           <TextInput
             name="password"
@@ -91,9 +78,7 @@ export default function LoginForm() {
         </div>
         <div className="flex items-center gap-2">
           <Checkbox id="remember" />
-          <Label htmlFor="remember">
-            Remember me
-          </Label>
+          <Label htmlFor="remember">Remember me</Label>
         </div>
 
         <Button type="submit" onClick={onSubmit}>
@@ -101,5 +86,5 @@ export default function LoginForm() {
         </Button>
       </form>
     </>
-  )
-};
+  );
+}
