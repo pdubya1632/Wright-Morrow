@@ -8,9 +8,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import { Home, Admin, Customers, Jobs, Login, Homepage, Register } from './pages/index';
+import { Home, Admin, Login, Homepage, Register } from './pages/index';
 
-function App() {
+export default function App() {
     return (
         <>
             <Link to="/home">Home</Link>
@@ -40,12 +40,12 @@ function App() {
 
                 <Route
                     path="/admin/customers"
-                    element={<React.Suspense children={<Customers />} />}
+                    element={<React.Suspense children={<Admin />} />}
                 />
 
                 <Route
                     path="/admin/jobs"
-                    element={<React.Suspense children={<Jobs />} />}
+                    element={<React.Suspense children={<Admin />} />}
                 />
                 <Route
                     path="*"
