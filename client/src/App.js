@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 import { Home, Admin, Login, Register } from './pages/index';
-import Jobs from './components/admin/Jobs';
 
 export default function App() {
   return (
