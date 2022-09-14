@@ -17,14 +17,13 @@ module.exports = {
       }
 
       // encrypt password 🔐
-      const hashedPassword = await bcrypt.hash(password, 12);
       // build mongoose model 🦡
       const newUser = new Employee({
         firstName,
         lastName,
         phone,
         email: email.toLowerCase(),
-        password: hashedPassword
+        password,
       });
       // Create JWT token 🍪 (attach to user model)
       const token = jwt.sign(
@@ -52,12 +51,12 @@ module.exports = {
       // see if user exists - if so, save user to variable
       const user = await Employee.findOne({ email });
       console.log(user);
+
+
+      const isPasswordCorrect = await user.isCorrectPassword(password);
+      console.log("IsPasswordCorrect", isPasswordCorrect);
       //check if password is correct
-      if (await bcrypt.compare(password, user.password), (err, res) => {
-        console.log("IS PASSWORD CORRECT?");
-        if (err) return console.loh(err);
-        if (!res) return new ApolloError('Invalid password📛');
-      }) {
+      if (isPasswordCorrect) {
         // Create JWT token 🍪 (attach to user model)
         const token = jwt.sign(
           {
@@ -76,7 +75,6 @@ module.exports = {
           ...user._doc,
         }
       } else { // if user doesn't exist, throw error
-
         console.log("Entered Password", password)
         throw new ApolloError('Login Failed', 'PASSWORD_INCORRECT');
       }

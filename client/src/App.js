@@ -1,14 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import {
-    ApolloClient,
-    InMemoryCache,
-    ApolloProvider,
-    createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
+import { Routes, Route, Link } from 'react-router-dom'
 import { Home, Admin, Login, Homepage, Register } from './pages/index';
+import Jobs from './components/admin/Jobs';
 
 export default function App() {
     return (
@@ -45,7 +38,7 @@ export default function App() {
 
                 <Route
                     path="/admin/jobs"
-                    element={<React.Suspense children={<Admin />} />}
+                    element={<React.Suspense children={<Jobs />} />}
                 />
                 <Route
                     path="*"
