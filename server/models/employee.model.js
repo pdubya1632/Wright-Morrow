@@ -51,6 +51,9 @@ const employeeSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  token: {
+    type: String,
+  },
 });
 
 // set up pre-save middleware to create password

@@ -15,7 +15,6 @@ const addressSchema = new Schema({
   zip: {
     type: String,
   },
-
 });
 
 const jobSchema = new Schema({
@@ -35,9 +34,6 @@ const jobSchema = new Schema({
     type: Number,
   },
   category: {
-    type: String,
-  },
-  pickupDate: {
     type: String,
   },
   pickupAddress: [addressSchema],

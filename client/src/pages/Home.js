@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { TopNavLayout } from '../components/layouts/TopNavLayout';
+import { TopNav } from '../components/nav/TopNav';
 import { RequestForm } from '../components/forms/RequestForm';
-import { FooterLayout } from '../components/layouts/FooterLayout';
+import { FooterNav } from '../components/nav/FooterNav';
 
 export default function Home() {
   return (
     <>
-      <TopNavLayout />
+      <TopNav />
 
       <RequestForm />
 
-      <FooterLayout />
+      <FooterNav />
     </>
   );
 }

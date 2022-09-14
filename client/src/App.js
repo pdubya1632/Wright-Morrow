@@ -1,66 +1,38 @@
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Home, Admin, Login, Register } from './pages/index';
 
-import { Home, Admin, Customers, Jobs, Login } from './pages/index';
-
-const client = new ApolloClient({
-  request: (operation) => {
-    const token = localStorage.getItem('id_token');
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : '',
-      },
-    });
-  },
-  uri: 'graphql',
-});
-
-function App() {
+export default function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Routes>
-            <Route
-              index
-              element={<React.Suspense children={<Home />} />}
-            />
+    <>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route
+          index
+          element={<React.Suspense children={<Home />} />}
+        />
 
-            <Route
-              path="/login"
-              element={<React.Suspense children={<Login />} />}
-            />
+        <Route
+          path="/login"
+          element={<React.Suspense children={<Login />} />}
+        />
 
-            <Route
-              path="/admin"
-              element={<React.Suspense children={<Admin />} />}
-            />
+        <Route
+          path="/register"
+          element={<React.Suspense children={<Register />} />}
+        />
 
-            <Route
-              path="/admin/customers"
-              element={<React.Suspense children={<Customers />} />}
-            />
+        <Route
+          path="/admin/*"
+          element={<React.Suspense children={<Admin />} />}
+        />
 
-            <Route
-              path="/admin/jobs"
-              element={<React.Suspense children={<Jobs />} />}
-            />
-            <Route
-              path="*"
-              element={<h1 className="display-2">Wrong page!</h1>}
-            />
-          </Routes>
-        </>
-      </Router>
-    </ApolloProvider>
+        <Route
+          path="*"
+          element={<h1 className="display-2">Wrong page!</h1>}
+        />
+      </Routes>
+    </>
   );
 }
-
-export default App;
