@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Button } from 'flowbite-react';
 
 export function TopNav() {
     return (
         <>
+            <div className="h-50 bg-slate-50">
+                <Link to="/home">Home</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+            </div>
             <Navbar fluid={true} rounded={true}>
                 <Navbar.Brand href="/">
                 {/* <img
