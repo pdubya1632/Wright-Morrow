@@ -53,16 +53,16 @@ module.exports = {
       const user = await Employee.findOne({ email });
       console.log(user);
       //check if password is correct
-      if (user && (await bcrypt.compare(password, user.password), (err, res) => {
+      if (await bcrypt.compare(password, user.password), (err, res) => {
         console.log("IS PASSWORD CORRECT?");
         if (err) return console.loh(err);
         if (!res) return new ApolloError('Invalid password📛');
-      })) {
+      }) {
         // Create JWT token 🍪 (attach to user model)
         const token = jwt.sign(
           {
             user_id: user._id,
-            email
+            email: user.email
           },
           process.env.JWT_SECRET, {
           expiresIn: '2h'

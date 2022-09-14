@@ -13,8 +13,8 @@ const REGISTER_USER = gql`
     $registerInput: RegisterInput!
   )
   {
-    registerUser(
-      registerInput: $registerInput){
+    registerUser(registerInput: $registerInput)
+      {
         email
         firstName
         token
@@ -24,9 +24,12 @@ const REGISTER_USER = gql`
 
 function Register(props) {
   const context = useContext(AuthContext);
+
   let navigate = useNavigate();
+
   const [errors, setErrors] = useState();
   console.log("Errors", errors);
+
   function registerUserCallback() {
     console.log("registerUserCallback");
     registerUser();
@@ -41,10 +44,9 @@ function Register(props) {
   });
 
   const [registerUser, { loading }] = useMutation(REGISTER_USER, {
-
     update(proxy, { data: { registerUser: userData } }) {
+      console.log("UserData", userData);
       context.login(userData);
-      console.log(userData);
       navigate('/home');
     },
     onError(graphQLErrors) {
@@ -145,9 +147,9 @@ function Register(props) {
             />
           </div>
           <TextInput
-            name="passwordConfirm"
+            name="confirmPassword"
             type="password"
-            id="passwordConfirm"
+            id="confirmPassword"
             onChange={onChange}
             placeholder="🤫🤫🤫"
             required={true}
