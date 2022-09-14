@@ -1,8 +1,8 @@
 import React from 'react';
 import { Label, TextInput, Button  } from 'flowbite-react';
-import { StateSelectDropdown } from '../forms/StateSelectDropdown'
+import { StateSelectDropdown } from './StateSelectDropdown'
 
-export default function AddCustomerForm() {
+export default function AddJobForm() {
   return (
     <>
       <div className="mt-10 sm:mt-0">
