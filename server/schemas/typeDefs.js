@@ -24,6 +24,7 @@ const typeDefs = gql`
     state: String
     zip: String
   }
+
   type Item {
     _id: ID!
     jobID: [Job]
@@ -47,23 +48,23 @@ const typeDefs = gql`
     jobIDs: [Job]
   }
   type Employee {
-  _id: ID!
-  firstName: String
-  lastName: String
-  phone: String
-  email: String
-  password: String
-  isAdmin: Boolean
-  isActive: Boolean
-  jobIDs: [Job]
-  token: String
+    _id: ID!
+    firstName: String
+    lastName: String
+    phone: String
+    email: String
+    password: String
+    isAdmin: Boolean
+    isActive: Boolean
+    jobIDs: [Job]
+    token: String
   }
 
   type Auth {
     token: ID
     employee: Employee
   }
-  
+
   #29.1
   input RegisterInput {
     firstName: String!
@@ -72,12 +73,27 @@ const typeDefs = gql`
     email: String!
     password: String!
     confirmPassword: String!
-    }
+  }
 
-  input LoginInput{
+  input LoginInput {
     email: String!
     password: String!
+  }
 
+  # ADD CUSTOMER
+  input CustomerInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    billingAddress: AddressInput
+  }
+
+  input AddressInput {
+    street: String!
+    city: String!
+    state: String!
+    zip: String!
   }
 
   type Query {
@@ -182,13 +198,11 @@ const typeDefs = gql`
       weight: String
       qty: Int
       packType: String
-      ) : Item
-      deleteItem(
-        _id: ID!
-      ) : Item
-      
-      registerUser(registerInput: RegisterInput): Employee
-      loginUser(loginInput: LoginInput): Employee
+    ): Item
+    deleteItem(_id: ID!): Item
+
+    registerUser(registerInput: RegisterInput): Employee
+    loginUser(loginInput: LoginInput): Employee
   }
 `;
 

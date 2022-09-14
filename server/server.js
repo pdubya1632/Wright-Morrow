@@ -6,8 +6,9 @@ require('dotenv').config();
 
 const app = express();
 
-const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+
+const { typeDefs, resolvers } = require('./schemas');
 const server = new ApolloServer({
   typeDefs,
   resolvers,

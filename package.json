@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.10"
+    "@heroicons/react": "^2.0.10",
+    "update-graphql-schema": "^0.3.0"
   }
 }
