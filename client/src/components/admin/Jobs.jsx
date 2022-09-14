@@ -8,8 +8,8 @@ import { GET_JOBS } from '../../utils/queries';
 function DisplayJobs() {
     const { loading, data, error } = useQuery(GET_JOBS);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error :(</div>;
+  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
+  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
   return data.jobs.map(({ id, status, category }) => (
     <Table.Row

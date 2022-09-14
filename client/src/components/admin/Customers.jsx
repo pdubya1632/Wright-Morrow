@@ -8,8 +8,8 @@ import { GET_CUSTOMERS } from '../../utils/queries';
 function DisplayItems() {
     const { loading, data, error } = useQuery(GET_CUSTOMERS);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error :(</div>;
+  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
+  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
   return data.customers.map(({ id, firstName }) => (
     <Table.Row
