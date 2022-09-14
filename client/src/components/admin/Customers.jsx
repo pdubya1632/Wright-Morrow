@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Pagination } from 'flowbite-react';
+import { Table, Pagination, Button } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
 
 import { GET_CUSTOMERS } from '../../utils/queries';
@@ -37,6 +37,12 @@ function DisplayItems() {
 export default function Items() {
   return (
     <>
+      <div className="flex-row flex justify-between">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Customers</h1>
+        <Button>
+          Add Customer
+        </Button>
+      </div>
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>
