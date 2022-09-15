@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TopNav } from '../components/nav/TopNav';
-import { RequestForm } from '../components/forms/RequestForm';
+import { JobRequestForm } from '../components/forms/JobRequestForm';
 import { FooterNav } from '../components/nav/FooterNav';
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <TopNav />
 
-      <RequestForm />
+      <JobRequestForm />
 
       <FooterNav />
     </>

@@ -4,12 +4,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { ApolloError } = require('apollo-server');
 
-
-
 module.exports = {
-
   Query: {
-
     jobs: async () => {
       return Job.find({});
     },
@@ -151,6 +147,6 @@ module.exports = {
         }
       );
       return { item };
-    }
-  }
-}
+    },
+  },
+};
