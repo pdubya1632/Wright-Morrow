@@ -32,6 +32,28 @@ export const LOGIN = gql`
   }
 `;
 
+export const ADD_JOB = gql`
+  mutation addJob($customer: addJobInput!) {
+    addJob(input: [$job]) {
+      Job {
+        firstName
+        lastName
+        email
+        phone
+        industry
+        pickupAddress {
+          zip
+        }
+        dropOffAddress {
+          zip
+        }
+        category
+        description
+      }
+    }
+  }
+`;
+
 export const ADD_CUSTOMER = gql`
   mutation addCustomer($customer: addCustomerInput!) {
     addCustomer(input: [$customer]) {
