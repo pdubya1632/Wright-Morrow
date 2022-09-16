@@ -85,6 +85,8 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     <TextInput
                       onChange={onChange}
                       type="text"
+                      id='lastName'
+                      name='lastName'
                       required={true}
                     />
                   </div>
@@ -174,6 +176,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     </div>
                     <Textarea
                       id="description"
+                      name='description'
                       placeholder="Please describe the items you wish to ship..."
                       required={true}
                       rows={4}
