@@ -79,7 +79,9 @@ const typeDefs = gql`
     description: String
   }
   #29.1
-  input JobRequestInput {
+  input JobRequestInput{
+    firstName: String
+    lastName: String
     email: String
     phone: String
     shipFrom: String

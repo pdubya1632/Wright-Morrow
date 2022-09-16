@@ -24,33 +24,36 @@ export function JobRequestForm() {
 
 
   function submitRequestCallback() {
-    console.log('submitRequestCallback');
-    submitRequest();
-  }
-// eslint-disable-next-line
-  const [errors, setErrors] = useState();
-  console.log('Errors', errors);
-  const { onChange, onSubmit, values } = useForm(
-    submitRequestCallback,
-    {
-      firstName:'',
-      lastName:'',
+
+  console.log('submitRequestCallback');
+  submitRequest();
+}
+const [errors, setErrors] = useState();
+console.log('Errors', errors);
+const { onChange, onSubmit, values } = useForm(
+  submitRequestCallback,
+  {
+    firstName:"",
+    lastName:"",
+
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
-    }
-  );
-// eslint-disable-next-line
-  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-    update(proxy, { data: { submitRequest: requestData } }) {
-      console.log('requestData', requestData);
-      navigate('/admin/jobs');
-    },
-    onError(graphQLErrors) {
-      console.log(graphQLErrors)
-    },
+
+  }
+);
+
+const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+  update(proxy, { data: { submitRequest: requestData } }) {
+    console.log('requestData', requestData);
+    navigate('/admin/jobs');
+  },
+  onError(graphQLErrors) {
+    console.log(graphQLErrors)
+  },
+
     variables: { jobRequestInput: values },
   });
 
@@ -81,8 +84,6 @@ export function JobRequestForm() {
                     </div>
                     <TextInput
                       onChange={onChange}
-                      id="lastName"
-                      name='lastName'
                       type="text"
                       required={true}
                     />
