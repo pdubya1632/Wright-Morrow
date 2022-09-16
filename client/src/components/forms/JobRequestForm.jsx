@@ -27,6 +27,7 @@ export function JobRequestForm() {
     console.log('submitRequestCallback');
     submitRequest();
   }
+// eslint-disable-next-line
   const [errors, setErrors] = useState();
   console.log('Errors', errors);
   const { onChange, onSubmit, values } = useForm(
@@ -41,7 +42,7 @@ export function JobRequestForm() {
       description: '',
     }
   );
-
+// eslint-disable-next-line
   const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
     update(proxy, { data: { submitRequest: requestData } }) {
       console.log('requestData', requestData);

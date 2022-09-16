@@ -6,9 +6,19 @@ import { useQuery } from '@apollo/client';
 import { GET_ITEMS } from '../../utils/queries';
 
 function DisplayItems() {
-    const { loading, data, error } = useQuery(GET_ITEMS);
-  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
-  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
+  const { loading, data, error } = useQuery(GET_ITEMS);
+  if (loading)
+    return (
+      <Table.Row>
+        <Table.Cell>Loading...</Table.Cell>
+      </Table.Row>
+    );
+  if (error)
+    return (
+      <Table.Row>
+        <Table.Cell>Error :(</Table.Cell>
+      </Table.Row>
+    );
 
   return data.items.map(({ id, name }) => (
     <Table.Row
@@ -37,8 +47,10 @@ function DisplayItems() {
 export default function Items() {
   return (
     <>
-                  <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Jobs</h1>
+      <div className="flex-row flex justify-between">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">
+          Items
+        </h1>
         <Button>
           <Link to="/admin/jobs/add">Add Item</Link>
         </Button>
@@ -69,7 +81,6 @@ export default function Items() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
-
     </>
   );
 }

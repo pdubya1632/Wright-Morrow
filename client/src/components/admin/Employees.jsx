@@ -4,10 +4,20 @@ import { useQuery } from '@apollo/client';
 
 import { GET_EMPLOYEES } from '../../utils/queries';
 
-function DisplayItems() {
-    const { loading, data, error } = useQuery(GET_EMPLOYEES);
-  if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
-  if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
+function DisplayEmployees() {
+  const { loading, data, error } = useQuery(GET_EMPLOYEES);
+  if (loading)
+    return (
+      <Table.Row>
+        <Table.Cell>Loading...</Table.Cell>
+      </Table.Row>
+    );
+  if (error)
+    return (
+      <Table.Row>
+        <Table.Cell>Error :(</Table.Cell>
+      </Table.Row>
+    );
 
   return data.employees.map(({ id, firstName }) => (
     <Table.Row
@@ -33,11 +43,13 @@ function DisplayItems() {
   ));
 }
 
-export default function Items() {
+export default function Employees() {
   return (
     <>
-                        <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Employees</h1>
+      <div className="flex-row flex justify-between">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">
+          Employees
+        </h1>
       </div>
       <Table hoverable={true}>
         <Table.Head>
@@ -51,7 +63,7 @@ export default function Items() {
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          <DisplayItems />
+          <DisplayEmployees />
         </Table.Body>
       </Table>
 
@@ -65,7 +77,6 @@ export default function Items() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
-
     </>
   );
 }

@@ -75,9 +75,9 @@ const typeDefs = gql`
     shipTo: String
     category: String
     description: String
-    }
+  }
   #29.1
-  input JobRequestInput{
+  input JobRequestInput {
     email: String
     phone: String
     shipFrom: String
@@ -128,12 +128,11 @@ const typeDefs = gql`
     employee(employeeId: ID!): Employee
     items: [Item]!
     item(itemId: ID!): Item
-
   }
 
   type Mutation {
     registerUser(registerInput: RegisterInput): Employee
-    requestJob( jobRequestInput: JobRequestInput!): Request 
+    requestJob(jobRequestInput: JobRequestInput!): Request
     addCustomer(
       firstName: String
       lastName: String

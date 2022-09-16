@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react';
-import { Card, Label, TextInput, Select, Textarea, Button } from 'flowbite-react';
+import { useState } from 'react';
+import { Card, Label, TextInput, Textarea, Button } from 'flowbite-react';
+// add Select, back to import above
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -25,6 +26,7 @@ export function RequestForm() {
     console.log('submitRequestCallback');
     submitRequest();
   }
+  // eslint-disable-next-line
   const [errors, setErrors] = useState();
   console.log('Errors', errors);
   const { onChange, onSubmit, values } = useForm(
@@ -37,7 +39,7 @@ export function RequestForm() {
       description: '',
     }
   );
-
+// eslint-disable-next-line
   const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
     update(proxy, { data: { submitRequest: requestData } }) {
       console.log('requestData', requestData);
