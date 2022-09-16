@@ -81,6 +81,9 @@ module.exports = {
     },
   },
   Query: {
-    employee: (_, { ID }) => Employee.findById(ID)
+    employee: (_, { ID }) => Employee.findById(ID),
+    employees: async () => {
+      return await Employee.find({});
+    },
   }
 }

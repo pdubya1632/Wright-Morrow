@@ -21,35 +21,33 @@ export function RequestForm() {
     let navigate = useNavigate();
 
 
-    function submitRequestCallback() {
-        console.log('submitRequestCallback');
-        submitRequest();
-      }
-      const [errors, setErrors] = useState();
-      console.log('Errors', errors);
-      const { onChange, onSubmit, values } = useForm(
-        submitRequestCallback,
-        {
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          password: '',
-          confirmPassword: '',
-        }
-      );
+  function submitRequestCallback() {
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+  const [errors, setErrors] = useState();
+  console.log('Errors', errors);
+  const { onChange, onSubmit, values } = useForm(
+    submitRequestCallback,
+    {
+      email: '',
+      phone: '',
+      shipFrom: '',
+      shipTo: '',
+      description: '',
+    }
+  );
 
-
-      const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-        update(proxy, { data: { submitRequest: requestData } }) {
-          console.log('requestData', requestData);
-          navigate('/home');
-        },
-        onError(graphQLErrors) {
-          console.log(graphQLErrors)
-        },
-        variables: { submitRequest: values },
-      });
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/jobs');
+    },
+    onError(graphQLErrors) {
+      console.log(graphQLErrors)
+    },
+    variables: { jobRequestInput: values },
+  });
     return (
         <>
             <div className="max-w-sm">
@@ -97,20 +95,7 @@ export function RequestForm() {
                             value="Industry"
                             />
                         </div>
-                        <Select
-                            id="industry"
-                            required={true}
-                            name="industry"
-                            onChange={onChange}
-                            onSelect={onChange}
-                        >
-                            <option>Select...</option>
-                            <option>Personal</option>
-                            <option>Auction</option>
-                            <option>Retail Business</option>
-                            <option>Manufacturer</option>
-                            <option>Other</option>
-                        </Select>
+                      
                     </div>
                     {/* Ship From */}
                     <div>
@@ -154,25 +139,7 @@ export function RequestForm() {
                             value="Category of Items"
                             />
                         </div>
-                        <Select
-                            id="category"
-                            required={true}
-                            name='category'
-                            onChange={onChange}
-                        >
-                            <option>Select...</option>
-                            <option>Industrial</option>
-                            <option>Medical</option>
-                            <option>Technology</option>
-                            <option>Automotive</option>
-                            <option>Retail</option>
-                            <option>Art</option>
-                            <option>Antiques</option>
-                            <option>Furniture</option>
-                            <option>Residential Move</option>
-                            <option>Office Move</option>
-                            <option>Other</option>
-                        </Select>
+                      
                     </div>
                     {/* Description */}
                     <div id="textarea">
@@ -192,7 +159,7 @@ export function RequestForm() {
                         />
                     </div>
                     {/* Submit */}
-                    <Button  onSubmit={onSubmit}>
+                    <Button  onClick={onSubmit}>
                         Submit Request
                     </Button>
                     </form>
