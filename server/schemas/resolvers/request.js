@@ -3,14 +3,12 @@ const { ApolloError } = require('apollo-server');
 
 module.exports = {
   Mutation: {
-    async requestJob(_, { jobRequestInput: { email, phone, industry, shipFrom, shipTo, category, description } }) {
+    async requestJob(_, { jobRequestInput: { email, phone, shipFrom, shipTo, description } }) {
       const newRequest = new Request({
         email,
         phone,
-        industry,
         shipFrom,
         shipTo,
-        category,
         description
       });
       // Save request to database

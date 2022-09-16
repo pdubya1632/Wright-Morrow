@@ -80,10 +80,8 @@ const typeDefs = gql`
   input JobRequestInput{
     email: String
     phone: String
-    industry: String
     shipFrom: String
     shipTo: String
-    category: String
     description: String
   }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext, useState } from 'react';
 import { Card, Label, TextInput, Select, Textarea, Button } from 'flowbite-react';
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
@@ -8,17 +8,48 @@ import { gql } from 'graphql-tag';
 import { useNavigate } from 'react-router-dom';
 
 const REQUEST_JOB = gql`
-mutation register($jobRequestInput: JobRequestInput!) {
-  registerUser(jobRequestInput: $jobRequestInput) {
-    email
-    phone
-    category
+mutation RequestJob($jobRequestInput: JobRequestInput!) {
+    requestJob(jobRequestInput: $jobRequestInput) {
+      email
+      phone
+    }
   }
-}
 `;
 
 
 export function RequestForm() {
+    let navigate = useNavigate();
+
+
+    function submitRequestCallback() {
+        console.log('submitRequestCallback');
+        submitRequest();
+      }
+      const [errors, setErrors] = useState();
+      console.log('Errors', errors);
+      const { onChange, onSubmit, values } = useForm(
+        submitRequestCallback,
+        {
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          password: '',
+          confirmPassword: '',
+        }
+      );
+
+
+      const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+        update(proxy, { data: { submitRequest: requestData } }) {
+          console.log('requestData', requestData);
+          navigate('/home');
+        },
+        onError(graphQLErrors) {
+          console.log(graphQLErrors)
+        },
+        variables: { submitRequest: values },
+      });
     return (
         <>
             <div className="max-w-sm">
@@ -38,6 +69,7 @@ export function RequestForm() {
                         name='email'
                         placeholder="name@email.com"
                         required={true}
+                        onChange={onChange}
                         />
                     </div>
                     {/* Phone */}
@@ -54,6 +86,7 @@ export function RequestForm() {
                         name='phone'
                         placeholder="xxx-xxx-xxxx"
                         required={true}
+                        onChange={onChange}
                         />
                     </div>
                     {/* Industry */}
@@ -68,6 +101,8 @@ export function RequestForm() {
                             id="industry"
                             required={true}
                             name="industry"
+                            onChange={onChange}
+                            onSelect={onChange}
                         >
                             <option>Select...</option>
                             <option>Personal</option>
@@ -86,6 +121,7 @@ export function RequestForm() {
                             />
                         </div>
                         <TextInput
+                        onChange={onChange}
                         id="ship-from"
                         type="text"
                         name='shipFrom'
@@ -102,6 +138,7 @@ export function RequestForm() {
                             />
                         </div>
                         <TextInput
+                        onChange={onChange}
                         id="ship-to"
                         type="text"
                         name='shipTo'
@@ -121,6 +158,7 @@ export function RequestForm() {
                             id="category"
                             required={true}
                             name='category'
+                            onChange={onChange}
                         >
                             <option>Select...</option>
                             <option>Industrial</option>
@@ -150,10 +188,11 @@ export function RequestForm() {
                             required={true}
                             rows={4}
                             name='description'
+                            onChange={onChange}
                         />
                     </div>
                     {/* Submit */}
-                    <Button type="submit">
+                    <Button  onSubmit={onSubmit}>
                         Submit Request
                     </Button>
                     </form>

@@ -10,17 +10,11 @@ const requestSchema = new Schema({
   phone: {
     type: String,
   },
-  industry: {
-    type: String,
-  },
   shipFrom: {
     type: Number,
   },
   shipTo: {
     type: Number,
-  },
-  category: {
-    type: String,
   },
   description: {
     type: String,
