@@ -14,7 +14,7 @@ import { gql } from 'graphql-tag';
 import { useNavigate } from 'react-router-dom';
 
 const REQUEST_JOB = gql`
-mutation RequestJob($jobRequestInput: JobRequestInput!) {
+mutation requestJob($jobRequestInput: JobRequestInput!) {
     requestJob(jobRequestInput: $jobRequestInput) {
       email
       phone
@@ -103,7 +103,7 @@ export default function Home() {
                   value="Industry"
                 />
               </div>
-              <Select
+              {/* <Select
                 id="industry"
                 required={true}
                 name="industry"
@@ -116,7 +116,7 @@ export default function Home() {
                 <option>Retail Business</option>
                 <option>Manufacturer</option>
                 <option>Other</option>
-              </Select>
+              </Select> */}
             </div>
             {/* Ship From */}
             <div>
@@ -160,7 +160,7 @@ export default function Home() {
                   value="Category of Items"
                 />
               </div>
-              <Select
+              {/* <Select
                 id="category"
                 required={true}
                 name='category'
@@ -178,7 +178,7 @@ export default function Home() {
                 <option>Residential Move</option>
                 <option>Office Move</option>
                 <option>Other</option>
-              </Select>
+              </Select> */}
             </div>
             {/* Description */}
             <div id="textarea">
