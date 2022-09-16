@@ -5,3 +5,4 @@ export const Home = React.lazy(() => import('./Home'));
 export const Login = React.lazy(() => import('./Login'));
 export const Admin = React.lazy(() => import('./Admin'));
 export const AddJobForm = React.lazy(() => import('./AddJobForm'));
+export const AddItemForm = React.lazy(() => import('./AddItemForm'));
