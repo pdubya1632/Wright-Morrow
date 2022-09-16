@@ -18,10 +18,13 @@ const addressSchema = new Schema({
 });
 
 const jobSchema = new Schema({
-  description: {
+  jobId: {
     type: String,
   },
   status: {
+    type: String,
+  },
+  industry: {
     type: String,
   },
   pickupDate: {
@@ -31,20 +34,19 @@ const jobSchema = new Schema({
     type: Number,
   },
   invoice: {
+    type: String,
+  },
+  tracking: {
     type: Number,
   },
   category: {
     type: String,
   },
-  shipTo: {
-    type: String,
-  },
-  shipFrom: {
-    type: String,
-  },
   pickupAddress: [addressSchema],
   dropOffAddress: [addressSchema],
-
+  description: {
+    type: String,
+  },
   customerId: {
     type: Schema.Types.ObjectId,
     ref: 'Customer',
