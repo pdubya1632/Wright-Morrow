@@ -80,7 +80,7 @@ const typeDefs = gql`
     description: String
   }
   #29.1
-  input JobRequestInput{
+  input JobRequestInput {
     firstName: String
     lastName: String
     email: String
@@ -88,8 +88,6 @@ const typeDefs = gql`
     shipFrom: String
     shipTo: String
     description: String
-    firstName: String
-    lastName: String
   }
 
   input RegisterInput {

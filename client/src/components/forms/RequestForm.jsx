@@ -17,7 +17,6 @@ mutation RequestJob($jobRequestInput: JobRequestInput!) {
   }
 `;
 
-
 export function RequestForm() {
     let navigate = useNavigate();
 
@@ -32,8 +31,8 @@ export function RequestForm() {
   const { onChange, onSubmit, values } = useForm(
     submitRequestCallback,
     {
-    firstName:"",
-    lastName:"",
+        firstName:'',
+        lastName:'',
       email: '',
       phone: '',
       shipFrom: '',
