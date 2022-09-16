@@ -7,6 +7,7 @@ import { CategorySelectDropdown } from './CategorySelectDropdown';
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
+
 import { gql } from 'graphql-tag';
 
 const REQUEST_JOB = gql`
@@ -18,38 +19,38 @@ mutation RequestJob($jobRequestInput: JobRequestInput!) {
   }
 `;
 
-
 export function JobRequestForm() {
     let navigate = useNavigate();
 
 
   function submitRequestCallback() {
-  console.log('submitRequestCallback');
-  submitRequest();
-}
-const [errors, setErrors] = useState();
-console.log('Errors', errors);
-const { onChange, onSubmit, values } = useForm(
-  submitRequestCallback,
-  {
-    firstName:"",
-    lastName:"",
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+// eslint-disable-next-line
+  const [errors, setErrors] = useState();
+  console.log('Errors', errors);
+  const { onChange, onSubmit, values } = useForm(
+    submitRequestCallback,
+    {
+      firstName:'',
+      lastName:'',
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
-  }
-);
-
-const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-  update(proxy, { data: { submitRequest: requestData } }) {
-    console.log('requestData', requestData);
-    navigate('/admin/jobs');
-  },
-  onError(graphQLErrors) {
-    console.log(graphQLErrors)
-  },
+    }
+  );
+// eslint-disable-next-line
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/jobs');
+    },
+    onError(graphQLErrors) {
+      console.log(graphQLErrors)
+    },
     variables: { jobRequestInput: values },
   });
 
@@ -80,9 +81,9 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     </div>
                     <TextInput
                       onChange={onChange}
-                      type="text"
                       id="lastName"
-                      name="lastName"
+                      name='lastName'
+                      type="text"
                       required={true}
                     />
                   </div>

@@ -1,13 +1,14 @@
-const { Employee } = require('../../models');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
-const { ApolloError } = require('apollo-server');
-
-
-
+const { Item } = require('../../models');
 
 module.exports = {
+  Query: {
+    items: async () => {
+      return Item.find({});
+    },
+    item: async (parent, { itemId }) => {
+      return Item.findOne({ _id: itemId });
+    },
+  },
   Mutation: {
     addItem: async (
       parent,
@@ -70,12 +71,4 @@ module.exports = {
       return { item };
     },
   },
-  Query: {
-    items: async (parent, { jobId }) => {
-      return Item.find({ jobID: jobId });
-    },
-    item: async (parent, { itemId }) => {
-      return Item.findOne({ _id: itemId });
-    },
-  }
-}
+};
