@@ -54,17 +54,6 @@ export default function AddItem() {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="status" value="status" />
-          </div>
-          <TextInput
-            id="status"
-            type="text"
-            placeholder="status"
-            required={true}
-          />
-        </div>
-        <div>
-          <div className="mb-2 block">
             <Label htmlFor="pickupDate" value="pickupDate" />
           </div>
           <TextInput id="pickupDate" type="text" required={true} />

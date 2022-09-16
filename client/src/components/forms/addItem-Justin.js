@@ -4,8 +4,7 @@ import { Label, TextInput, Checkbox, Button } from 'flowbite-react';
 export default function AddItem() {
   return (
     <>
-      <form className="flex flex-col gap-4">
-        <div>
+        <div className="col-span-6 sm:col-span-3">
           <div className="mb-2 block">
             <Label htmlFor="name" value="name" />
           </div>
