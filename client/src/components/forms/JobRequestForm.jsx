@@ -7,11 +7,10 @@ import { CategorySelectDropdown } from './CategorySelectDropdown';
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
-
 import { gql } from 'graphql-tag';
 
 const REQUEST_JOB = gql`
-mutation RequestJob($jobRequestInput: JobRequestInput!) {
+  mutation RequestJob($jobRequestInput: JobRequestInput!) {
     requestJob(jobRequestInput: $jobRequestInput) {
       email
       phone
@@ -19,41 +18,37 @@ mutation RequestJob($jobRequestInput: JobRequestInput!) {
   }
 `;
 
-
 export function JobRequestForm() {
-    let navigate = useNavigate();
-
+  let navigate = useNavigate();
 
   function submitRequestCallback() {
-
-  console.log('submitRequestCallback');
-  submitRequest();
-}
-const [errors, setErrors] = useState();
-console.log('Errors', errors);
-const { onChange, onSubmit, values } = useForm(
-  submitRequestCallback,
-  {
-    firstName:"",
-    lastName:"",
-
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+// eslint-disable-next-line  
+  const [errors, setErrors] = useState();
+  console.log('Errors', errors);
+  const { onChange, onSubmit, values } = useForm(
+    submitRequestCallback,
+    {
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
-
-  }
-);
-
-const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-  update(proxy, { data: { submitRequest: requestData } }) {
-    console.log('requestData', requestData);
-    navigate('/admin/jobs');
-  },
-  onError(graphQLErrors) {
-    console.log(graphQLErrors)
-  },
+    }
+  );
+// eslint-disable-next-line
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/jobs');
+    },
+    onError(graphQLErrors) {
+      console.log(graphQLErrors);
+    },
 
     variables: { jobRequestInput: values },
   });
@@ -66,6 +61,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
+                  
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />
@@ -75,7 +71,6 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                       id="firstName"
                       name="firstName"
                       type="text"
-                      name='firstName'
                       required={true}
                     />
                   </div>
