@@ -55,6 +55,7 @@ const typeDefs = gql`
     lastName: String
     phone: String
     email: String
+    address: [Address]
     password: String
     isAdmin: Boolean
     isActive: Boolean
