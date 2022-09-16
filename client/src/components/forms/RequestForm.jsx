@@ -30,6 +30,8 @@ export function RequestForm() {
   const { onChange, onSubmit, values } = useForm(
     submitRequestCallback,
     {
+    firstName:"",
+    lastName:"",
       email: '',
       phone: '',
       shipFrom: '',

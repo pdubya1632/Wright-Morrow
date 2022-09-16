@@ -7,42 +7,50 @@ import { CategorySelectDropdown } from './CategorySelectDropdown';
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
-import { ADD_JOB } from '../../utils/mutations';
+import { gql } from 'graphql-tag';
+
+const REQUEST_JOB = gql`
+mutation RequestJob($jobRequestInput: JobRequestInput!) {
+    requestJob(jobRequestInput: $jobRequestInput) {
+      email
+      phone
+    }
+  }
+`;
+
 
 export function JobRequestForm() {
-  let navigate = useNavigate();
+    let navigate = useNavigate();
 
-  const [errors, setErrors] = useState();
-  console.log('Errors', errors);
 
-  function registerUserCallback() {
-    console.log('addJobCallback');
-    addJob();
-  }
-  const { onChange, onSubmit, values } = useForm(
-    registerUserCallback,
-    {
-      firstName: '',
-      lastName: '',
+  function submitRequestCallback() {
+  console.log('submitRequestCallback');
+  submitRequest();
+}
+const [errors, setErrors] = useState();
+console.log('Errors', errors);
+const { onChange, onSubmit, values } = useForm(
+  submitRequestCallback,
+  {
+    firstName:"",
+    lastName:"",
       email: '',
       phone: '',
-      industry: '',
       shipFrom: '',
       shipTo: '',
-      category: '',
       description: '',
-    }
-  );
+  }
+);
 
-  // eslint-disable-next-line
-  const [addJob, { loading }] = useMutation(ADD_JOB, {
-    update(proxy, { data: { addJob: JobData } }) {
-      navigate('/'); // respond with 'request received' message first
-    },
-    onError(graphQLErrors) {
-      setErrors(graphQLErrors);
-    },
-    variables: { addInput: values },
+const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+  update(proxy, { data: { submitRequest: requestData } }) {
+    console.log('requestData', requestData);
+    navigate('/admin/jobs');
+  },
+  onError(graphQLErrors) {
+    console.log(graphQLErrors)
+  },
+    variables: { jobRequestInput: values },
   });
 
   return (
@@ -60,6 +68,7 @@ export function JobRequestForm() {
                     <TextInput
                       onChange={onChange}
                       id="firstName"
+                      name="firstName"
                       type="text"
                       required={true}
                     />
@@ -71,8 +80,9 @@ export function JobRequestForm() {
                     </div>
                     <TextInput
                       onChange={onChange}
-                      id="lastName"
                       type="text"
+                      id="lastName"
+                      name="lastName"
                       required={true}
                     />
                   </div>
