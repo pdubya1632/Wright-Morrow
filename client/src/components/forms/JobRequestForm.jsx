@@ -7,6 +7,7 @@ import { CategorySelectDropdown } from './CategorySelectDropdown';
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
+
 import { gql } from 'graphql-tag';
 
 const REQUEST_JOB = gql`
@@ -24,6 +25,7 @@ export function JobRequestForm() {
 
 
   function submitRequestCallback() {
+
   console.log('submitRequestCallback');
   submitRequest();
 }
@@ -34,11 +36,13 @@ const { onChange, onSubmit, values } = useForm(
   {
     firstName:"",
     lastName:"",
+
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
+
   }
 );
 
@@ -50,6 +54,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
   onError(graphQLErrors) {
     console.log(graphQLErrors)
   },
+
     variables: { jobRequestInput: values },
   });
 
@@ -70,6 +75,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                       id="firstName"
                       name="firstName"
                       type="text"
+                      name='firstName'
                       required={true}
                     />
                   </div>

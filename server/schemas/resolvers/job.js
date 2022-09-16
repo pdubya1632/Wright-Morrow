@@ -1,8 +1,4 @@
-const { Job, Customer } = require('../../models');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
-const { ApolloError } = require('apollo-server');
+const { Job } = require('../../models');
 
 module.exports = {
   Query: {
@@ -14,7 +10,6 @@ module.exports = {
     },
   },
   Mutation: {
-
     addJob: async (
       parent,
       {
