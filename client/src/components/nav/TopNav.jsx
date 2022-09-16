@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Button } from 'flowbite-react';
+import { ReactComponent as Logo } from "../../images/wm-logo.svg";
 
 export function TopNav() {
     return (
@@ -12,14 +13,8 @@ export function TopNav() {
             </div>
             <Navbar fluid={true} rounded={true}>
                 <Navbar.Brand href="/">
-                {/* <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="mr-3 h-6 sm:h-9"
-                    alt="Wright &amp; Morrow"
-                /> */}
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    Wright &amp; Morrow
-                </span>
+                <Logo width={200} />
+
                 </Navbar.Brand>
                 <div className="flex md:order-2">
                 <Button>Request A Quote</Button>
