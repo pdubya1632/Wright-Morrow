@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
-import { Home, Admin, Login, Register } from './pages/index';
+import { Home, Admin, Login, Register, AddJobForm } from './pages/index';
 
 export default function App() {
   return (
@@ -21,6 +21,10 @@ export default function App() {
         <Route
           path="/register"
           element={<React.Suspense children={<Register />} />}
+        />
+        <Route
+          path="/addjob"
+          element={<React.Suspense children={<AddJobForm />} />}
         />
 
         <Route

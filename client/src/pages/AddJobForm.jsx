@@ -1,6 +1,6 @@
 import React from 'react';
 import { Label, TextInput, Button } from 'flowbite-react';
-import { StateSelectDropdown } from './StateSelectDropdown';
+// import { StateSelectDropdown } from './StateSelectDropdown';
 
 export default function AddJobForm() {
   return (
@@ -16,13 +16,13 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="name"
-                            value="name"
+                            value="Street Name"
                         />
                     </div>
                     <TextInput
                     id="street"
                     type="text"
-                    placeholder="street name"
+                    placeholder="Street name"
                     required={true}
                     />
                 </div>
@@ -31,13 +31,13 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="city"
-                            value="city"
+                            value="City"
                         />
                     </div>
                     <TextInput
                     id="city"
                     type="text"
-                    placeholder="city"
+                    placeholder="City"
                     required={true}
                     />
                 </div>
@@ -46,13 +46,13 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="state"
-                            value="state"
+                            value="State"
                         />
                     </div>
                     <TextInput
                     id="state"
                     type="text"
-                    placeholder="state"
+                    placeholder="State"
                     required={true}
                     />
                 </div>
@@ -61,13 +61,13 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="description"
-                            value="description"
+                            value="Description"
                         />
                     </div>
                     <TextInput
                     id="description"
                     type="text"
-                    placeholder="description"
+                    placeholder="Description"
                     required={true}
                     />
                 </div>
@@ -75,14 +75,13 @@ export default function AddJobForm() {
                   <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <div className="mb-2 block">
                         <Label
-                            htmlFor="status"
-                            value="status"
+                            htmlFor="zip"
+                            value="Zip"
                         />
                     </div>
                     <TextInput
-                    id="status"
+                    id="zip"
                     type="text"
-                    placeholder="status"
                     required={true}
                     />
                 </div>
@@ -91,13 +90,13 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                     <Label
                         htmlFor="status"
-                        value="status"
+                        value="Status"
                     />
                 </div>
                     <TextInput
                     id="status"
                     type="text"
-                    placeholder="status"
+                    placeholder="Status"
                     required={true}
                     />
                 </div>
@@ -106,7 +105,7 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="pickupDate"
-                            value="pickupDate"
+                            value="Pickup Date"
                         />
                     </div>
                     <TextInput
@@ -119,7 +118,7 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                   <Label
                             htmlFor="cost"
-                            value="cost"
+                            value="Cost"
                         />
                     </div>
                     <TextInput
@@ -132,7 +131,7 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                         <Label
                             htmlFor="invoice"
-                            value="invoice"
+                            value="Invoice"
                         />
                     </div>
                     <TextInput
@@ -145,7 +144,7 @@ export default function AddJobForm() {
                   <div className="mb-2 block">
                           <Label
                             htmlFor="category"
-                            value="category"
+                            value="Category"
                         />
                     </div>
                     <TextInput
