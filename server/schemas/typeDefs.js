@@ -83,6 +83,8 @@ const typeDefs = gql`
     shipFrom: String
     shipTo: String
     description: String
+    firstName: String
+    lastName: String
   }
 
   input RegisterInput {
