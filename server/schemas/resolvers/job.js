@@ -1,4 +1,4 @@
-const { Job } = require('../../models');
+const { Job, Customer } = require('../../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -14,6 +14,7 @@ module.exports = {
     },
   },
   Mutation: {
+
     addJob: async (
       parent,
       {

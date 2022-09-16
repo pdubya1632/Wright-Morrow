@@ -36,6 +36,12 @@ const jobSchema = new Schema({
   category: {
     type: String,
   },
+  shipTo: {
+    type: String,
+  },
+  shipFrom: {
+    type: String,
+  },
   pickupAddress: [addressSchema],
   dropOffAddress: [addressSchema],
 
