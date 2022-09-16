@@ -1,20 +1,19 @@
 import nodemailer from 'nodemailer';
 import { buildSendMail } from 'mailing-core';
+require('dotenv').config();
 
 const transport = nodemailer.createTransport({
-  pool: true,
-  host: 'smtp.example.com',
-  port: 465,
-  secure: true, // use TLS
+  host: 'smtp.sendgrid.net',
+  port: 587,
   auth: {
-    user: 'username',
-    pass: 'password',
+    user: 'apikey',
+    pass: process.env.SEND_GRID_KEY,
   },
 });
 
 const sendMail = buildSendMail({
   transport,
-  defaultFrom: 'wrightmight@gmail.com',
+  defaultFrom: 'andrew.m.nedimyer@gmail.com',
   configPath: './mailing.config.json',
 });
 

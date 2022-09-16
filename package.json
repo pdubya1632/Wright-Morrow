@@ -14,9 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "webpack": "^5.74.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.2",
+    "nodemailer": "^6.7.8",
     "update-graphql-schema": "^0.3.0"
   }
 }
