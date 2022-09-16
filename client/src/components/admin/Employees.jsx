@@ -5,7 +5,9 @@ import { useQuery } from '@apollo/client';
 import { GET_EMPLOYEES } from '../../utils/queries';
 
 function DisplayEmployees() {
+  
   const { loading, data, error } = useQuery(GET_EMPLOYEES);
+  
   if (loading)
     return (
       <Table.Row>
@@ -19,7 +21,7 @@ function DisplayEmployees() {
       </Table.Row>
     );
 
-  return data.employees.map(({ id, firstName }) => (
+  return data.employees.map(({ id, firstName, lastName, email, phone, address }) => (
     <Table.Row
       key={id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -27,10 +29,10 @@ function DisplayEmployees() {
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
         #{id}
       </Table.Cell>
-      <Table.Cell>{firstName}</Table.Cell>
-      <Table.Cell>test</Table.Cell>
-      <Table.Cell>test</Table.Cell>
-      <Table.Cell>test</Table.Cell>
+      <Table.Cell>{firstName} {lastName}</Table.Cell>
+      <Table.Cell>{email}</Table.Cell>
+      <Table.Cell>{phone}</Table.Cell>
+      <Table.Cell>{address}</Table.Cell>
       <Table.Cell>
         <a
           href="/tables"
@@ -54,10 +56,11 @@ export default function Employees() {
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>
-          <Table.HeadCell>First Name</Table.HeadCell>
-          <Table.HeadCell>Status</Table.HeadCell>
-          <Table.HeadCell>Tracking</Table.HeadCell>
-          <Table.HeadCell>Category</Table.HeadCell>
+          <Table.HeadCell>Name</Table.HeadCell>
+          <Table.HeadCell>Email</Table.HeadCell>
+          <Table.HeadCell>Phone</Table.HeadCell>
+
+          <Table.HeadCell>City</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
