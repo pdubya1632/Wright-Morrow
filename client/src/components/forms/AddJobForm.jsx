@@ -11,6 +11,7 @@ export default function AddJobForm() {
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
+                  
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />
@@ -99,7 +100,7 @@ export default function AddJobForm() {
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                <Button type="submit">Add Customer</Button>
+                <Button type="submit">Add Job</Button>
               </div>
             </div>
           </form>
