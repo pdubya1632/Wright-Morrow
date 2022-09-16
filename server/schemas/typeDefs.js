@@ -3,6 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Job {
     _id: ID!
+    jobId: String
     customerId: String
     employeeId: String
     status: String
@@ -15,7 +16,8 @@ const typeDefs = gql`
     category: String
     description: String
     cost: String
-    invoice: Int
+    tracking: String
+    invoice: String
     ItemIds: [Item]
   }
 

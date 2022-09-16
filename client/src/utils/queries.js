@@ -82,6 +82,7 @@ export const GET_EMPLOYEE = gql`
 export const GET_JOBS = gql`
   query GET_JOBS {
     jobs {
+      jobId
       customerId
       employeeId
       status
@@ -101,6 +102,7 @@ export const GET_JOBS = gql`
       industry
       category
       description
+      tracking
       cost
       invoice
       ItemIds {
