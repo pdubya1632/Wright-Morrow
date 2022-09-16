@@ -1,5 +1,22 @@
 import React from 'react';
 import { Card, Label, TextInput, Select, Textarea, Button } from 'flowbite-react';
+import { useForm } from '../../utils/hook';
+import { useMutation } from '@apollo/react-hooks';
+
+
+import { gql } from 'graphql-tag';
+import { useNavigate } from 'react-router-dom';
+
+const REQUEST_JOB = gql`
+mutation register($jobRequestInput: JobRequestInput!) {
+  registerUser(jobRequestInput: $jobRequestInput) {
+    email
+    phone
+    category
+  }
+}
+`;
+
 
 export function RequestForm() {
     return (
@@ -18,6 +35,7 @@ export function RequestForm() {
                         <TextInput
                         id="email"
                         type="email"
+                        name='email'
                         placeholder="name@email.com"
                         required={true}
                         />
@@ -33,6 +51,7 @@ export function RequestForm() {
                         <TextInput
                         id="phone"
                         type="phone"
+                        name='phone'
                         placeholder="xxx-xxx-xxxx"
                         required={true}
                         />
@@ -48,6 +67,7 @@ export function RequestForm() {
                         <Select
                             id="industry"
                             required={true}
+                            name="industry"
                         >
                             <option>Select...</option>
                             <option>Personal</option>
@@ -68,6 +88,7 @@ export function RequestForm() {
                         <TextInput
                         id="ship-from"
                         type="text"
+                        name='shipFrom'
                         placeholder="Zip Code"
                         required={true}
                         />
@@ -83,6 +104,7 @@ export function RequestForm() {
                         <TextInput
                         id="ship-to"
                         type="text"
+                        name='shipTo'
                         placeholder="Zip Code"
                         required={true}
                         />
@@ -98,6 +120,7 @@ export function RequestForm() {
                         <Select
                             id="category"
                             required={true}
+                            name='category'
                         >
                             <option>Select...</option>
                             <option>Industrial</option>
@@ -126,6 +149,7 @@ export function RequestForm() {
                             placeholder="Describe your items..."
                             required={true}
                             rows={4}
+                            name='description'
                         />
                     </div>
                     {/* Submit */}

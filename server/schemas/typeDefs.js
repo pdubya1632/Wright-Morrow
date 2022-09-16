@@ -8,6 +8,8 @@ const typeDefs = gql`
     status: String
     pickupDate: String
     pickupAddress: [Address]
+    shipFrom: String
+    shipTo: String
     dropOffAddress: [Address]
     industry: String
     category: String
@@ -64,8 +66,27 @@ const typeDefs = gql`
     token: ID
     employee: Employee
   }
-
+  type Request {
+    _id: ID
+    email: String
+    phone: String
+    industry: String
+    shipFrom: String
+    shipTo: String
+    category: String
+    description: String
+    }
   #29.1
+  input JobRequestInput{
+    email: String
+    phone: String
+    industry: String
+    shipFrom: String
+    shipTo: String
+    category: String
+    description: String
+  }
+
   input RegisterInput {
     firstName: String!
     lastName: String!
@@ -107,15 +128,18 @@ const typeDefs = gql`
     employee(employeeId: ID!): Employee
     items: [Item]!
     item(itemId: ID!): Item
+
   }
 
   type Mutation {
+    registerUser(registerInput: RegisterInput): Employee
+    requestJob( jobRequestInput: JobRequestInput!): Request 
     addCustomer(
-      firstName: String!
-      lastName: String!
+      firstName: String
+      lastName: String
       phone: String!
       email: String!
-      password: String!
+      password: String
       jobIDs: String
     ): Customer
     updateCustomer(
@@ -201,7 +225,6 @@ const typeDefs = gql`
     ): Item
     deleteItem(_id: ID!): Item
 
-    registerUser(registerInput: RegisterInput): Employee
     loginUser(loginInput: LoginInput): Employee
   }
 `;
