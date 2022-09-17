@@ -1,8 +1,53 @@
-import React from 'react';
-import { Label, TextInput, Button } from 'flowbite-react';
-import { StateSelectDropdown } from './StateSelectDropdown';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Label, TextInput, Button, Textarea } from 'flowbite-react';
+import { IndustrySelectDropdown } from './IndustrySelectDropdown';
+import { CategorySelectDropdown } from './CategorySelectDropdown';
+import {StateSelectDropdown} from "./StateSelectDropdown"
+import { useForm } from '../../utils/hook';
+import { useMutation } from '@apollo/react-hooks';
+import {ADD_JOB} from '../../utils/mutations'
+
 
 export default function AddJobForm() {
+  let navigate = useNavigate();
+
+
+  function addJobCallback() {
+
+  console.log('submitRequestCallback');
+  addJob();
+}
+const [errors, setErrors] = useState();
+console.log('Errors', errors);
+const { onChange, onSubmit, values } = useForm(
+  addJobCallback,
+  {
+    status: "",
+    pickupDate: "",
+    pickupAddress: "",
+    shipTo: "",
+    dropOffAddress: "",
+    industry: "",
+    category: "",
+    description: "",
+    cost: "",
+    invoice: "",
+  }
+);
+
+const [addJob, { loading }] = useMutation(ADD_JOB, {
+  update(proxy, { data: { addJob: jobData } }) {
+    console.log('jobData', jobData);
+    navigate('/admin/jobs');
+  },
+  onError(graphQLErrors) {
+    console.log(graphQLErrors)
+  },
+
+    variables: { jobRequestInput: values },
+  });
+
   return (
     <>
       <div className="mt-10 sm:mt-0">
