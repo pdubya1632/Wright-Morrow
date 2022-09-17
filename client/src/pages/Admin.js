@@ -6,9 +6,10 @@ import {
   BellIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-
+import { ReactComponent as Logo } from '../images/bird-logo.svg';
 import { Route, Routes } from 'react-router-dom';
-import Dashboard from '../components/admin/Dashboard';
+
+// import Dashboard from '../components/admin/archived/Dashboard';
 import Jobs from '../components/admin/Jobs';
 import AddJob from '../components/admin/AddJob';
 import Items from '../components/admin/Items';
@@ -23,8 +24,7 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 const navigation = [
-  { name: 'Dashboard', link: '/admin', current: true },
-  { name: 'Jobs', link: '/admin/jobs', current: false },
+  { name: 'Jobs', link: '/admin/jobs', current: true },
   { name: 'Items', link: '/admin/items', current: false },
   { name: 'Customers', link: '/admin/customers', current: false },
   { name: 'Employees', link: '/admin/employees', current: false },
@@ -39,22 +39,18 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function AdminTest() {
+export default function Admin() {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-gray-800 border-b-2">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Wright &amp; Morrow"
-                      />
+                      <Logo width={50} className="fill-white" />
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -225,7 +221,6 @@ export default function AdminTest() {
         </Disclosure>
 
         <Routes>
-          <Route path="/" element={<Dashboard />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/jobs/add" element={<AddJob />} />
           <Route path="/items" element={<Items />} />

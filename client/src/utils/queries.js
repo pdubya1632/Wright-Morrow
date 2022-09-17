@@ -4,6 +4,7 @@ import { gql } from '@apollo/client';
 export const GET_CUSTOMERS = gql`
   query GET_CUSTOMERS {
     customers {
+      _id
       firstName
       lastName
       phone
@@ -48,6 +49,7 @@ export const GET_CUSTOMER = gql`
 export const GET_EMPLOYEES = gql`
   query GET_EMPLOYEES {
     employees {
+      _id
       firstName
       lastName
       phone
@@ -82,6 +84,7 @@ export const GET_EMPLOYEE = gql`
 export const GET_JOBS = gql`
   query GET_JOBS {
     jobs {
+      _id
       jobId
       customerId
       employeeId
@@ -149,6 +152,7 @@ export const GET_JOB = gql`
 export const GET_ITEMS = gql`
   query GET_ITEMS {
     items {
+      _id
       name
       value
       length

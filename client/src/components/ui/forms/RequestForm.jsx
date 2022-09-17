@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Card,
   Label,
   TextInput,
   Textarea,
@@ -60,97 +59,141 @@ export function RequestForm() {
   });
   return (
     <>
-      <div className="max-w-sm">
-        <Card>
-          <form className="flex flex-col gap-4">
-            {/* Email */}
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="email" value="Your email" />
+      
+      <div className="mt-10 sm:mt-0 sm:w-1/2 mx-auto">
+        <div className="mt-5 md:col-span-2 md:mt-0">
+          <h1 className="text-2xl tracking-tight text-gray-900 mb-5">Shipping Quote</h1>
+          <form action="#" method="POST">
+            <div className="overflow-hidden shadow sm:rounded-md">
+              <div className="bg-white px-4 py-5 sm:p-6">
+                <div className="grid grid-cols-6 gap-6">
+                  
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="firstname" value="First Name" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      required={true}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="lastName" value="Last Name" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required={true}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="email" value="Email" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      type="email"
+                      name="email"
+                      id="email"
+                      autoComplete="email"
+                      required={true}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="phone" value="Phone" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      type="phone"
+                      name="phone"
+                      id="phone"
+                      autoComplete="phone"
+                      required={true}
+                      maxLength="12"
+                    />
+                  </div>
+
+                  <div className="col-span-6">
+                    <div className="mb-2 block">
+                      <Label htmlFor="industry" value="Industry" />
+                    </div>
+                    <IndustrySelect />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="shipFrom" value="Ship From" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      name="shipFrom"
+                      id="shipFrom"
+                      type="text"
+                      placeholder="Zip Code"
+                      required={true}
+                      maxLength="5"
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="shipTo" value="Ship To" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      name="shipTo"
+                      id="shipTo"
+                      type="text"
+                      placeholder="Zip Code"
+                      required={true}
+                      maxLength="5"
+                    />
+                  </div>
+
+                  <div className="col-span-6">
+                    <div className="mb-2 block">
+                      <Label
+                        htmlFor="category"
+                        value="Items Category"
+                      />
+                    </div>
+                    <CategorySelect />
+                  </div>
+
+                  <div className="col-span-6">
+                    <div className="mb-2 block">
+                      <Label
+                        htmlFor="description"
+                        value="Items Description"
+                      />
+                    </div>
+                    <Textarea
+                      id="description"
+                      placeholder="Please describe the items you wish to ship..."
+                      required={true}
+                      rows={4}
+                    />
+                  </div>
+                </div>
               </div>
-              <TextInput
-                id="email"
-                type="email"
-                name="email"
-                placeholder="name@email.com"
-                required={true}
-                onChange={onChange}
-              />
-            </div>
-            {/* Phone */}
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="phone" value="Your phone number" />
+              <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <Button type="submit" onClick={onSubmit}>
+                  Submit Request
+                </Button>
               </div>
-              <TextInput
-                id="phone"
-                type="phone"
-                name="phone"
-                placeholder="xxx-xxx-xxxx"
-                required={true}
-                onChange={onChange}
-              />
             </div>
-            {/* Industry */}
-            <div id="select">
-              <div className="mb-2 block">
-                <Label htmlFor="industry" value="Industry" />
-              </div>
-              <IndustrySelect />
-            </div>
-            {/* Ship From */}
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="ship-from" value="Ship From" />
-              </div>
-              <TextInput
-                onChange={onChange}
-                id="ship-from"
-                type="text"
-                name="shipFrom"
-                placeholder="Zip Code"
-                required={true}
-              />
-            </div>
-            {/* Ship To */}
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="ship-to" value="Ship To" />
-              </div>
-              <TextInput
-                onChange={onChange}
-                id="ship-to"
-                type="text"
-                name="shipTo"
-                placeholder="Zip Code"
-                required={true}
-              />
-            </div>
-            {/* Category */}
-            <div id="select">
-              <div className="mb-2 block">
-                <Label htmlFor="category" value="Category of Items" />
-              </div>
-              <CategorySelect />
-            </div>
-            {/* Description */}
-            <div id="textarea">
-              <div className="mb-2 block">
-                <Label htmlFor="description" value="Description" />
-              </div>
-              <Textarea
-                id="description"
-                placeholder="Describe your items..."
-                required={true}
-                rows={4}
-                name="description"
-                onChange={onChange}
-              />
-            </div>
-            {/* Submit */}
-            <Button onClick={onSubmit}>Submit Request</Button>
           </form>
-        </Card>
+        </div>
       </div>
     </>
   );
