@@ -131,6 +131,8 @@ const typeDefs = gql`
     employee(employeeId: ID!): Employee
     items: [Item]!
     item(itemId: ID!): Item
+    requests: [Request]!
+    request(requestId: ID!): Request
   }
 
   type Mutation {

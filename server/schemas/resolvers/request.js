@@ -22,6 +22,18 @@ module.exports = {
     }
   },
   Query: {
-  },
+
+    requests: async () => {
+      try {
+        const requests = await Request.find({});
+        return requests;
+      } catch (err) {
+        throw new ApolloError(err);
+      }
+    },
+    request: async (parent, { jobId }) => {
+      return Request.findOne({ _id: jobId });
+    },
+  }
   // requests: (_, { ID }) => Request.findById(ID)
 }
