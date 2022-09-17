@@ -38,6 +38,20 @@ export function JobRequestForm() {
       shipFrom: '',
       shipTo: '',
       description: '',
+<<<<<<< HEAD:client/src/components/forms/JobRequestForm.jsx
+
+  }
+);
+
+const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+  update(proxy, { data: { submitRequest: requestData } }) {
+    console.log('requestData', requestData);
+    navigate('/admin/requests');
+  },
+  onError(graphQLErrors) {
+    console.log(graphQLErrors)
+  },
+=======
     }
   );
 // eslint-disable-next-line
@@ -49,6 +63,7 @@ export function JobRequestForm() {
     onError(graphQLErrors) {
       console.log(graphQLErrors);
     },
+>>>>>>> main:client/src/components/ui/forms/archived/AddRequestForm.jsx
 
     variables: { jobRequestInput: values },
   });
@@ -177,6 +192,8 @@ export function JobRequestForm() {
                       placeholder="Please describe the items you wish to ship..."
                       required={true}
                       rows={4}
+                      onChange={onChange}
+
                     />
                   </div>
                 </div>

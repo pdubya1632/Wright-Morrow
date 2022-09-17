@@ -12,9 +12,6 @@ module.exports = {
         shipFrom,
         shipTo,
         description
-      }, {
-        new: true,
-        runValidators: true,
       });
       // Save request to database
       const res = await newRequest.save();

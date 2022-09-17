@@ -10,42 +10,32 @@ module.exports = {
     },
   },
   Mutation: {
-    addJob: async (
-      parent,
-      {
-        customerId,
-        industry,
-        employeeId,
-        category,
-        phone,
-        isAdmin,
+    async addJobNew(_, { addJobInput: { status,
+      pickupDate,
+      shipFrom,
+      shipTo,
+      industry,
+      category,
+      description,
+      cost, } }) {
+      const newJob = new Job({
         status,
         pickupDate,
-        pickupAddress,
-        dropOffAddress,
-        description,
-        cost,
-        invoice,
-        ItemIds,
-      }
-    ) => {
-      const job = await Job.create({
-        customerId,
+        shipFrom,
+        shipTo,
         industry,
-        employeeId,
-        phone,
-        isAdmin,
-        status,
-        pickupDate,
-        pickupAddress,
-        dropOffAddress,
         category,
         description,
         cost,
-        invoice,
-        ItemIds,
       });
-      return { job };
+      // Save request to database
+      const res = await newJob.save();
+      // return request
+      console.log(res);
+      return {
+        id: res.id,
+        ...res._doc,
+      }
     },
     updateJob: async (
       parent,

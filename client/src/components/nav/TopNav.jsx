@@ -14,17 +14,18 @@ export function TopNav() {
                 </Navbar.Brand>
 
                 <div className="flex md:order-2">
-                <Button>Request A Quote</Button>
+                <Button>  <Link to="/login">Login</Link></Button>
+                <Button>  <Link to="/register">Register</Link></Button>
                 <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
                 <Navbar.Link href="/">
                     Home
                 </Navbar.Link>
-                <Navbar.Link href="/quote" active={true}>Quote</Navbar.Link>
-                <Navbar.Link href="/services">Services</Navbar.Link>
-                <Navbar.Link href="/about">About</Navbar.Link>
-                <Navbar.Link href="/contact">Contact</Navbar.Link>
+                <Navbar.Link href="/admin/jobs">Jobs</Navbar.Link>
+                <Navbar.Link href="/admin/customers">Customers</Navbar.Link>
+                <Navbar.Link href="/admin/items">Items</Navbar.Link>
+                <Navbar.Link href="/admin/jobs">Jobs</Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
             </div>
