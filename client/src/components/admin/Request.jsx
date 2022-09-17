@@ -1,9 +1,9 @@
 import React from 'react';
 import { Table,  Button, Pagination } from 'flowbite-react';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { RequestForm } from '../ui/forms/RequestForm.jsx';
-import { gql } from 'graphql-tag';
+import { Outlet } from 'react-router-dom';
+// import { useQuery } from '@apollo/client';
+// import { RequestForm } from '../ui/forms/RequestForm.jsx';
+// import { gql } from 'graphql-tag';
 import DisplayRequest from './DisplayRequest';
 
 
