@@ -88,33 +88,86 @@ const [addJob, { loading }] = useMutation(ADD_JOB, {
                       required={true}
                     />
                   </div>
-
+                  {/*INPUTS  */}
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="shipFrom" value="shipFrom" />
                     </div>
                     <TextInput
-                      id="shipTo"
+                      id="shipFrom"
                       type="text"
                       name='shipFrom'
-                      required={true}
                       onChange={onChange}
-
+                      required={true}
                     />
                   </div>
-
+                  {/*INPUTS  */}
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
-                      <Label htmlFor="shipTo" value="shipFrom" />
+                      <Label htmlFor="shipTo" value="shipTo" />
                     </div>
                     <TextInput
                       id="shipTo"
                       type="text"
                       name='shipTo'
-                      required={true}
                       onChange={onChange}
+                      required={true}
                     />
                   </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="industry" value="industry" />
+                    </div>
+                    <TextInput
+                      id="industry"
+                      type="text"
+                      name='industry'
+                      required={true}
+                      onChange={onChange}
+
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="category" value="category" />
+                    </div>
+                    <TextInput
+                      id="category"
+                      type="text"
+                      name='category'
+                      required={true}
+                      onChange={onChange}
+
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="description" value="description" />
+                    </div>
+                    <TextInput
+                      id="description"
+                      type="text"
+                      name='description'
+                      required={true}
+                      onChange={onChange}
+
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="cost" value="Cost $" />
+                    </div>
+                    <TextInput
+                      id="cost"
+                      type="text"
+                      name='cost'
+                      required={true}
+                      onChange={onChange}
+
+                    />
+                  </div>
+
 
                  
                 </div>
