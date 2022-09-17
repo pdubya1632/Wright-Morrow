@@ -1,6 +1,6 @@
 import { Select } from 'flowbite-react';
 
-export function CategorySelectDropdown() {
+export function CategorySelect() {
   return (
                     <Select id="category" required={true}>
                         <option>Select...</option>

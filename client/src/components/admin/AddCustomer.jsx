@@ -1,5 +1,5 @@
 import React from 'react';
-import AddCustomerForm from '../forms/AddCustomerForm';
+import AddCustomerForm from '../ui/forms/AddCustomerForm';
 
 export default function AddCustomer() {
     return (

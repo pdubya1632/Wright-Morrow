@@ -1,64 +1,75 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Label, TextInput, Button } from 'flowbite-react';
-import { StateSelectDropdown } from './StateSelectDropdown';
+import { Label, TextInput, Button, Textarea } from 'flowbite-react';
+import { IndustrySelect } from '../../selects/IndustrySelect';
+import { CategorySelect } from '../../selects/CategorySelect';
 
-import { useForm } from '../../utils/hook';
+import { useForm } from '../../../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
-import { ADD_CUSTOMER } from '../../utils/mutations';
+import { gql } from 'graphql-tag';
 
-export default function AddCustomerForm() {
+const REQUEST_JOB = gql`
+  mutation RequestJob($jobRequestInput: JobRequestInput!) {
+    requestJob(jobRequestInput: $jobRequestInput) {
+      email
+      phone
+    }
+  }
+`;
+
+export function JobRequestForm() {
   let navigate = useNavigate();
 
+  function submitRequestCallback() {
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+// eslint-disable-next-line  
   const [errors, setErrors] = useState();
   console.log('Errors', errors);
-
-  function registerUserCallback() {
-    console.log('addCustomerCallback');
-    addCustomer();
-  }
   const { onChange, onSubmit, values } = useForm(
-    registerUserCallback,
+    submitRequestCallback,
     {
       firstName: '',
       lastName: '',
       email: '',
       phone: '',
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
+      shipFrom: '',
+      shipTo: '',
+      description: '',
     }
   );
-
-  // eslint-disable-next-line
-  const [addCustomer, { loading }] = useMutation(ADD_CUSTOMER, {
-    update(proxy, { data: { addCustomer: customerData } }) {
-      navigate('/admin/customers');
+// eslint-disable-next-line
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/jobs');
     },
     onError(graphQLErrors) {
-      setErrors(graphQLErrors);
+      console.log(graphQLErrors);
     },
-    variables: { addInput: values },
+
+    variables: { jobRequestInput: values },
   });
 
   return (
     <>
-      <div className="mt-10 sm:mt-0">
+      <div className="mt-10 sm:mt-0 sm:w-1/2">
         <div className="mt-5 md:col-span-2 md:mt-0">
           <form action="#" method="POST">
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
+                  
                   <div className="col-span-6 sm:col-span-3">
-                    
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />
                     </div>
                     <TextInput
                       onChange={onChange}
                       id="firstName"
+                      name="firstName"
                       type="text"
                       required={true}
                     />
@@ -70,13 +81,14 @@ export default function AddCustomerForm() {
                     </div>
                     <TextInput
                       onChange={onChange}
-                      id="lastName"
                       type="text"
+                      id="lastName"
+                      name="lastName"
                       required={true}
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-4">
+                  <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="email" value="Email" />
                     </div>
@@ -90,66 +102,87 @@ export default function AddCustomerForm() {
                     />
                   </div>
 
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="phone" value="Phone" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      type="phone"
+                      name="phone"
+                      id="phone"
+                      autoComplete="phone"
+                      required={true}
+                      maxLength="12"
+                    />
+                  </div>
+
+                  <div className="col-span-6">
+                    <div className="mb-2 block">
+                      <Label htmlFor="industry" value="Industry" />
+                    </div>
+                    <IndustrySelect />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="shipFrom" value="Ship From" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      name="shipFrom"
+                      id="shipFrom"
+                      type="text"
+                      placeholder="Zip Code"
+                      required={true}
+                      maxLength="5"
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="shipTo" value="Ship To" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      name="shipTo"
+                      id="shipTo"
+                      type="text"
+                      placeholder="Zip Code"
+                      required={true}
+                      maxLength="5"
+                    />
+                  </div>
+
                   <div className="col-span-6">
                     <div className="mb-2 block">
                       <Label
-                        htmlFor="street"
-                        value="Street Address"
+                        htmlFor="category"
+                        value="Items Category"
                       />
                     </div>
-                    <TextInput
-                      onChange={onChange}
-                      id="street"
-                      name="street"
-                      type="text"
-                      required={true}
-                    />
+                    <CategorySelect />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <div className="mb-2 block">
-                      <Label htmlFor="city" value="City" />
-                    </div>
-                    <TextInput
-                      onChange={onChange}
-                      id="city"
-                      name="city"
-                      type="text"
-                      required={true}
-                    />
-                  </div>
-
-                  <div
-                    id="select"
-                    className="col-span-6 sm:col-span-3 lg:col-span-2"
-                  >
-                    <div className="mb-2 block">
-                      <Label htmlFor="state" value="State" />
-                    </div>
-                    <StateSelectDropdown />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <div className="col-span-6">
                     <div className="mb-2 block">
                       <Label
-                        htmlFor="zip"
-                        value="Zip / Postal Code"
+                        htmlFor="description"
+                        value="Items Description"
                       />
                     </div>
-                    <TextInput
-                      onChange={onChange}
-                      name="zip"
-                      id="zip"
-                      autoComplete="zip"
-                      type="text"
+                    <Textarea
+                      id="description"
+                      placeholder="Please describe the items you wish to ship..."
                       required={true}
+                      rows={4}
                     />
                   </div>
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                 <Button type="submit" onClick={onSubmit}>
-                  Add Customer
+                  Submit Request
                 </Button>
               </div>
             </div>

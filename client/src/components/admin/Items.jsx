@@ -67,7 +67,7 @@ export default function Items() {
           Items
         </h1>
         <Button>
-          <Link to="/admin/jobs/add">Add Item</Link>
+          <Link to="/admin/items/add">Add Item</Link>
         </Button>
       </div>
       <Table hoverable={true}>

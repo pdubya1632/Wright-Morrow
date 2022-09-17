@@ -1,6 +1,6 @@
 import { Select } from 'flowbite-react';
 
-export function StateSelectDropdown() {
+export function StateSelect() {
   return (
 <Select
     id="states"
