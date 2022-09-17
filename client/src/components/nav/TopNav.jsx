@@ -6,11 +6,6 @@ import { ReactComponent as Logo } from "../../images/wm-logo.svg";
 export function TopNav() {
     return (
         <>
-            <div className="h-50 bg-slate-50">
-                <Link to="/home">Home</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-            </div>
             <Navbar fluid={true} rounded={true}>
                 <Navbar.Brand href="/">
                 <Logo width={200} />
