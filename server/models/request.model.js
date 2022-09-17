@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const requestSchema = new Schema({
-
   firstName: { type: String, },
   lastName: { type: String, },
-
   email: {
     type: String,
   },
@@ -24,6 +22,6 @@ const requestSchema = new Schema({
   }
 });
 
-const Request = mongoose.model('Request', requestSchema);
+const Request = model('Request', requestSchema);
 
 module.exports = Request;

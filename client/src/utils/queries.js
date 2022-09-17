@@ -197,8 +197,9 @@ export const GET_REQUESTS = gql`
 // Get 1 request
 
 export const GET_REQUEST = gql`
-  query GET_REQUEST($requestId: ID!) {
+  query getSingleRequest($requestId: ID!) {
   request(requestId: $requestId) {
+    _id
     phone
     email
     shipFrom

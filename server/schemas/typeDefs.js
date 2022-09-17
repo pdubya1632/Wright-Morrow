@@ -73,8 +73,8 @@ const typeDefs = gql`
     email: String
     phone: String
     industry: String
-    shipFrom: String
-    shipTo: String
+    shipFrom: Int
+    shipTo: Int
     category: String
     description: String
   }

@@ -31,8 +31,13 @@ module.exports = {
         throw new ApolloError(err);
       }
     },
-    request: async (parent, { jobId }) => {
-      return Request.findOne({ _id: jobId });
+    request: async (parent, { requestId }) => {
+      console.log("PassedId", requestId); // PassedId 5f1f1f1f1f1f1f1f1f1f1f1f
+      // const request = await Request.findOne({ _id: requestId });
+      const request = await Request.findById(requestId);
+      console.log("request", request); // Null ???????
+      return request
+
     },
   }
   // requests: (_, { ID }) => Request.findById(ID)

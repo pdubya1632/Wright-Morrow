@@ -1,6 +1,5 @@
-import React  from 'react';
 import { Table, Pagination, Button } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { GET_REQUESTS } from '../../utils/queries';
@@ -18,8 +17,12 @@ function DisplayRequests() {
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-      <Link to="/#">#{_id}</Link>
-        #{_id}
+
+            <NavLink
+              to={`/admin/request/${_id}`}
+              className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+            >#{_id}</NavLink>
+
       </Table.Cell>
       <Table.Cell>{email}</Table.Cell>
       <Table.Cell>{phone}</Table.Cell>
@@ -36,7 +39,9 @@ function DisplayRequests() {
           Edit
         </a>
       </Table.Cell>
+      <Outlet />
     </Table.Row>
+    
   ));
 }
 
@@ -46,7 +51,7 @@ export default function Requests() {
             <div className="flex-row flex justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Requests</h1>
         <Button>
-          <Link to="/admin/jobs/add">Add Request</Link>
+
         </Button>
       </div>
       <Table hoverable={true}>
@@ -78,7 +83,7 @@ export default function Requests() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
-
+      <Outlet />
     </>
   );
 }
