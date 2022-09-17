@@ -7,7 +7,6 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<Home />} />
         <Route
           index
           element={<React.Suspense children={<Home />} />}
@@ -22,15 +21,6 @@ export default function App() {
           path="/register"
           element={<React.Suspense children={<Register />} />}
         />
-        <Route
-          path="/addjob"
-          element={<React.Suspense children={<AddJobForm />} />}
-        />
-        <Route
-          path="/additem"
-          element={<React.Suspense children={<AddItemForm />} />}
-        />
-
         <Route
           path="/admin/*"
           element={<React.Suspense children={<Admin />} />}
