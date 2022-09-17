@@ -1,17 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Label, TextInput, Button, Textarea } from 'flowbite-react';
-import { IndustrySelectDropdown } from './IndustrySelectDropdown';
-import { CategorySelectDropdown } from './CategorySelectDropdown';
-
-import { useForm } from '../../utils/hook';
+import {
+  Label,
+  TextInput,
+  Textarea,
+  Button,
+} from 'flowbite-react';
+// add Select, back to import above
+import { useForm } from '../../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
+import { IndustrySelect } from '../selects/IndustrySelect';
+import { CategorySelect } from '../selects/CategorySelect';
 
 import { gql } from 'graphql-tag';
+import { useNavigate } from 'react-router-dom';
 
 const REQUEST_JOB = gql`
-mutation RequestJob($jobRequestInput: JobRequestInput!) {
+  mutation RequestJob($jobRequestInput: JobRequestInput!) {
     requestJob(jobRequestInput: $jobRequestInput) {
       email
       phone
@@ -19,52 +24,50 @@ mutation RequestJob($jobRequestInput: JobRequestInput!) {
   }
 `;
 
-export function JobRequestForm() {
-    let navigate = useNavigate();
-
+export function RequestForm() {
+  let navigate = useNavigate();
 
   function submitRequestCallback() {
-
-  console.log('submitRequestCallback');
-  submitRequest();
-}
-const [errors, setErrors] = useState();
-console.log('Errors', errors);
-const { onChange, onSubmit, values } = useForm(
-  submitRequestCallback,
-  {
-    firstName:"",
-    lastName:"",
-
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+  // eslint-disable-next-line
+  const [errors, setErrors] = useState();
+  console.log('Errors', errors);
+  const { onChange, onSubmit, values } = useForm(
+    submitRequestCallback,
+    {
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
-
-  }
-);
-
-const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-  update(proxy, { data: { submitRequest: requestData } }) {
-    console.log('requestData', requestData);
-    navigate('/admin/jobs');
-  },
-  onError(graphQLErrors) {
-    console.log(graphQLErrors)
-  },
-
+    }
+  );
+  // eslint-disable-next-line
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/jobs');
+    },
+    onError(graphQLErrors) {
+      console.log(graphQLErrors);
+    },
     variables: { jobRequestInput: values },
   });
-
   return (
     <>
-      <div className="mt-10 sm:mt-0 sm:w-1/2">
+      
+      <div className="mt-10 sm:mt-0 sm:w-1/2 mx-auto">
         <div className="mt-5 md:col-span-2 md:mt-0">
+          <h1 className="text-2xl tracking-tight text-gray-900 mb-5">Shipping Quote</h1>
           <form action="#" method="POST">
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
+                  
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />
@@ -85,8 +88,8 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     <TextInput
                       onChange={onChange}
                       type="text"
-                      id='lastName'
-                      name='lastName'
+                      id="lastName"
+                      name="lastName"
                       required={true}
                     />
                   </div>
@@ -124,7 +127,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     <div className="mb-2 block">
                       <Label htmlFor="industry" value="Industry" />
                     </div>
-                    <IndustrySelectDropdown />
+                    <IndustrySelect />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
@@ -164,7 +167,7 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                         value="Items Category"
                       />
                     </div>
-                    <CategorySelectDropdown />
+                    <CategorySelect />
                   </div>
 
                   <div className="col-span-6">
@@ -176,7 +179,6 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                     </div>
                     <Textarea
                       id="description"
-                      name='description'
                       placeholder="Please describe the items you wish to ship..."
                       required={true}
                       rows={4}

@@ -8,16 +8,19 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "mailing": "cd client && npx mailing"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "webpack": "^5.74.0"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.10",
+    "dotenv": "^16.0.2",
+    "react-moment": "^1.1.2",
     "update-graphql-schema": "^0.3.0"
   }
 }

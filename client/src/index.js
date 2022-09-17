@@ -11,7 +11,6 @@ import { AuthProvider } from './context/authContext.js';
 // AUTH Context,
 // Browser Router(React Router),
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
