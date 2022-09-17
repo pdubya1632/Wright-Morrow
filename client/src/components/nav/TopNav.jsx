@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Button } from 'flowbite-react';
 import { ReactComponent as Logo } from "../../images/wm-logo.svg";
 
