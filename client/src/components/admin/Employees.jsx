@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table, Pagination } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
-import { useReactTable } from '@tanstack/react-table'
 
 import { GET_EMPLOYEES } from '../../utils/queries';
 
