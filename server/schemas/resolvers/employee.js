@@ -71,10 +71,7 @@ module.exports = {
       const user = await Employee.findOne({ email });
       console.log(user);
 
-      const isPasswordCorrect = await user.isCorrectPassword(
-        password
-      );
-      console.log('IsPasswordCorrect', isPasswordCorrect);
+      const isPasswordCorrect = await user.isCorrectPassword(password);
       //check if password is correct
       if (isPasswordCorrect) {
         // Create JWT token 🍪 (attach to user model)

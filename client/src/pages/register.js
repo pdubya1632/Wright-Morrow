@@ -49,7 +49,7 @@ function Register(props) {
     update(proxy, { data: { registerUser: userData } }) {
       console.log('UserData', userData);
       context.login(userData);
-      navigate('/admin');
+      navigate('/login');
     },
     onError(graphQLErrors) {
       setErrors(graphQLErrors);

@@ -48,7 +48,7 @@ const { onChange, onSubmit, values } = useForm(
 const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
   update(proxy, { data: { submitRequest: requestData } }) {
     console.log('requestData', requestData);
-    navigate('/admin/jobs');
+    navigate('/admin/requests');
   },
   onError(graphQLErrors) {
     console.log(graphQLErrors)
