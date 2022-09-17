@@ -22,7 +22,7 @@ function DisplayItems() {
 
   return data.items.map(
     ({
-      id,
+      _id,
       name,
       value,
       length,
@@ -32,12 +32,10 @@ function DisplayItems() {
       packType,
     }) => (
       <Table.Row
-        key={id}
+        key={_id}
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
-        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          #{id}
-        </Table.Cell>
+
         <Table.Cell>{name}</Table.Cell>
         <Table.Cell>${value}</Table.Cell>
         <Table.Cell>
@@ -74,7 +72,7 @@ export default function Items() {
             <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
-          <Table.HeadCell>ID</Table.HeadCell>
+
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Value</Table.HeadCell>
           <Table.HeadCell>Dimensions (in)</Table.HeadCell>

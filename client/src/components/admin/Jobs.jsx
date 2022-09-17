@@ -12,9 +12,9 @@ function DisplayJobs() {
   if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
   if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
-  return data.jobs.map(({ jobId, status, pickupDate, category, invoice, tracking }) => (
+  return data.jobs.map(({ _id, jobId, status, pickupDate, category, invoice, tracking }) => (
     <Table.Row
-      key={jobId}
+      key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">

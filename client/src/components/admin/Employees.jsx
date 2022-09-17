@@ -21,18 +21,14 @@ function DisplayEmployees() {
       </Table.Row>
     );
 
-  return data.employees.map(({ id, firstName, lastName, email, phone, address }) => (
+  return data.employees.map(({ _id, firstName, lastName, email, phone, address }) => (
     <Table.Row
-      key={id}
+      key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
-      <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-        #{id}
-      </Table.Cell>
       <Table.Cell>{firstName} {lastName}</Table.Cell>
       <Table.Cell>{email}</Table.Cell>
       <Table.Cell>{phone}</Table.Cell>
-      <Table.Cell>{address}</Table.Cell>
       <Table.Cell>
         <a
           href="/tables"
@@ -60,11 +56,9 @@ export default function Employees() {
             <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
-          <Table.HeadCell>ID</Table.HeadCell>
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Email</Table.HeadCell>
           <Table.HeadCell>Phone</Table.HeadCell>
-          <Table.HeadCell>City</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>

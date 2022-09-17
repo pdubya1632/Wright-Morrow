@@ -11,14 +11,11 @@ function DisplayItems() {
   if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
   if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
-  return data.customers.map(({ id, firstName, lastName, email, phone }) => (
+  return data.customers.map(({ _id, firstName, lastName, email, phone }) => (
     <Table.Row
-      key={id}
+      key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
-      <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-        #{id}
-      </Table.Cell>
       <Table.Cell>{firstName} {lastName}</Table.Cell>
       <Table.Cell>{email}</Table.Cell>
       <Table.Cell>{phone}</Table.Cell>
@@ -49,7 +46,6 @@ export default function Items() {
             <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
-          <Table.HeadCell>ID</Table.HeadCell>
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Email</Table.HeadCell>
           <Table.HeadCell>Phone</Table.HeadCell>
