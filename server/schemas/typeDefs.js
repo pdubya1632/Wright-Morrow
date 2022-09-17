@@ -230,6 +230,7 @@ const typeDefs = gql`
     deleteItem(_id: ID!): Item
 
     loginUser(loginInput: LoginInput): Employee
+    updateRequest(_id: ID!, firstName: String, lastName: String, email: String, phone: String, industry: String, shipFrom: String, shipTo: String, category: String, description: String): Request
   }
 `;
 

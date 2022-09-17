@@ -11,6 +11,7 @@ import AddCustomer from '../components/admin/AddCustomer';
 import Employees from '../components/admin/Employees';
 import Requests from '../components/admin/Requests';
 import Request from '../components/admin/Request';
+import { UpdateRequestForm } from '../components/forms/UpdateRequest';
 
 export default function Admin() {
   return (
@@ -25,6 +26,7 @@ export default function Admin() {
           <Route path="/jobs/add" element={<AddJob />} />
           <Route path="/items" element={<Items />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/updateRequest" element={<UpdateRequestForm />} />
           <Route path="requests" element={<Requests />}></Route>
           <Route
             path="/request/:requestId"

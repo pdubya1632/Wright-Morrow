@@ -3,13 +3,18 @@ const { ApolloError } = require('apollo-server');
 
 module.exports = {
   Mutation: {
-    async requestJob(_, { jobRequestInput: { email, phone, shipFrom, shipTo, description } }) {
+    async requestJob(_, { jobRequestInput: { firstName, lastName, email, phone, shipFrom, shipTo, description } }) {
       const newRequest = new Request({
+        firstName,
+        lastName,
         email,
         phone,
         shipFrom,
         shipTo,
         description
+      }, {
+        new: true,
+        runValidators: true,
       });
       // Save request to database
       const res = await newRequest.save();
@@ -19,6 +24,30 @@ module.exports = {
         id: res.id,
         ...res._doc,
       }
+    },
+    async updateRequest(_, { _id, firstName,
+      lastName,
+      email,
+      phone,
+      shipFrom,
+      shipTo,
+      description }) {
+      const updatedRequest = await Request.findByIdAndUpdate(_id, {
+        firstName,
+        lastName,
+        email,
+        phone,
+        shipFrom,
+        shipTo,
+        description
+      }, {
+        new: true,
+        runValidators: true,
+      });
+      if (!updatedRequest) {
+        throw new ApolloError('Job not found');
+      }
+      return updatedRequest;
     }
   },
   Query: {
