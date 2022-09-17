@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
-import AddJobForm from '../ui/forms/AddJobForm';
+import AddJobForm from '../forms/AddJobForm';
 
 export default function AddJob() {
     return (

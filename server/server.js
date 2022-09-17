@@ -14,7 +14,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));

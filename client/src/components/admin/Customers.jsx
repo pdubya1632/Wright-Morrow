@@ -16,6 +16,7 @@ function DisplayItems() {
       key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
+      
       <Table.Cell>{firstName} {lastName}</Table.Cell>
       <Table.Cell>{email}</Table.Cell>
       <Table.Cell>{phone}</Table.Cell>

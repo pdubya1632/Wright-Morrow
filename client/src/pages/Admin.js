@@ -31,6 +31,7 @@ const navigation = [
   { name: 'Items', link: '/admin/items', current: false },
   { name: 'Customers', link: '/admin/customers', current: false },
   { name: 'Employees', link: '/admin/employees', current: false },
+  { name: 'Requests', link: '/admin/requests', current: false },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -42,7 +43,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Admin() {
+export default function AdminTest() {
   return (
     <>
       <div className="min-h-full">

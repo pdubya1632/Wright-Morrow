@@ -25,7 +25,7 @@ export function TopNav() {
                 <Navbar.Link href="/admin/jobs">Jobs</Navbar.Link>
                 <Navbar.Link href="/admin/customers">Customers</Navbar.Link>
                 <Navbar.Link href="/admin/items">Items</Navbar.Link>
-                <Navbar.Link href="/admin/jobs">Jobs</Navbar.Link>
+                <Navbar.Link href="/admin/requests">Requests</Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
             </div>

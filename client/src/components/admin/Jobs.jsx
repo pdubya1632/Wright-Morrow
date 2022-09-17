@@ -12,22 +12,22 @@ function DisplayJobs() {
   if (loading) return <Table.Row><Table.Cell>Loading...</Table.Cell></Table.Row>;
   if (error) return <Table.Row><Table.Cell>Error :(</Table.Cell></Table.Row>;
 
-  return data.jobs.map(({ _id, jobId, status, pickupDate, category, invoice, tracking }) => (
+  return data.jobs.map(({ _id, jobId, status, pickupDate, shipFrom,category, invoice, tracking,shipTo,cost }) => (
     <Table.Row
       key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-        <Link to={jobId}>{jobId}</Link>
+        {/* <Link to={jobId}>{jobId}</Link> */}
       </Table.Cell>
       <Table.Cell>*customer</Table.Cell>
       <Table.Cell>{status}</Table.Cell>
       <Table.Cell><Moment format="MM/DD/YYYY">
                 {pickupDate}
             </Moment></Table.Cell>
-      <Table.Cell>{invoice}</Table.Cell>      
-      <Table.Cell>{tracking}</Table.Cell>
-      <Table.Cell>{category}</Table.Cell>
+      <Table.Cell>{shipFrom}</Table.Cell>      
+      <Table.Cell>{shipTo}</Table.Cell>
+      <Table.Cell>{cost}</Table.Cell>
       <Table.Cell>
         <a
           href="/tables"
@@ -46,7 +46,7 @@ export default function Jobs() {
         <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">Jobs</h1>
         <Button>
-          <Link to="/admin/items/add">Add Job</Link>
+          <Link to="/admin/jobs/add">Add Job</Link>
         </Button>
         </header>
 
@@ -61,8 +61,8 @@ export default function Jobs() {
           <Table.HeadCell>Status</Table.HeadCell>
           <Table.HeadCell>Pickup Date</Table.HeadCell>
           <Table.HeadCell>Invoice</Table.HeadCell>
-          <Table.HeadCell>Tracking</Table.HeadCell>
-          <Table.HeadCell>Category</Table.HeadCell>
+          <Table.HeadCell>ShipTo</Table.HeadCell>
+          <Table.HeadCell>Cost</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
