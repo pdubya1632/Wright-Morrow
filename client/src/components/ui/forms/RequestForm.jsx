@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  Label,
-  TextInput,
-  Textarea,
-  Button,
-} from 'flowbite-react';
+import { Label, TextInput, Textarea, Button } from 'flowbite-react';
 // add Select, back to import above
 import { useForm } from '../../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
@@ -16,7 +11,7 @@ import { gql } from 'graphql-tag';
 import { useNavigate } from 'react-router-dom';
 
 const REQUEST_JOB = gql`
-mutation RequestJob($jobRequestInput: JobRequestInput!) {
+  mutation RequestJob($jobRequestInput: JobRequestInput!) {
     requestJob(jobRequestInput: $jobRequestInput) {
       email
       phone
@@ -26,52 +21,50 @@ mutation RequestJob($jobRequestInput: JobRequestInput!) {
 export function RequestForm() {
   let navigate = useNavigate();
 
-
   function submitRequestCallback() {
-
-  console.log('submitRequestCallback');
-  submitRequest();
-}
-const [errors, setErrors] = useState();
-console.log('Errors', errors);
-const { onChange, onSubmit, values } = useForm(
-  submitRequestCallback,
-  {
-    firstName:"",
-    lastName:"",
-
+    console.log('submitRequestCallback');
+    submitRequest();
+  }
+// eslint-disable-next-line
+  const [errors, setErrors] = useState();
+  console.log('Errors', errors);
+  const { onChange, onSubmit, values } = useForm(
+    submitRequestCallback,
+    {
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       shipFrom: '',
       shipTo: '',
       description: '',
-
-  }
-);
-
-const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
-  update(proxy, { data: { submitRequest: requestData } }) {
-    console.log('requestData', requestData);
-    navigate('/admin/requests');
-  },
-  onError(graphQLErrors) {
-    console.log(graphQLErrors)
-  },
+    }
+  );
+  
+// eslint-disable-next-line
+  const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
+    update(proxy, { data: { submitRequest: requestData } }) {
+      console.log('requestData', requestData);
+      navigate('/admin/requests');
+    },
+    onError(graphQLErrors) {
+      console.log(graphQLErrors);
+    },
 
     variables: { jobRequestInput: values },
   });
 
   return (
     <>
-      
       <div className="mt-10 sm:mt-0 sm:w-1/2 mx-auto">
         <div className="mt-5 md:col-span-2 md:mt-0">
-          <h1 className="text-2xl tracking-tight text-gray-900 mb-5">Shipping Quote</h1>
+          <h1 className="text-2xl tracking-tight text-gray-900 mb-5">
+            Shipping Quote
+          </h1>
           <form action="#" method="POST">
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
-                  
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />

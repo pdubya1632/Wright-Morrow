@@ -1,5 +1,5 @@
 import { Table, Pagination, Button } from 'flowbite-react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { GET_REQUESTS } from '../../utils/queries';

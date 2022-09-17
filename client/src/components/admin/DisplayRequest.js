@@ -1,25 +1,26 @@
 import React from 'react';
-import { Table, } from 'flowbite-react';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { Table } from 'flowbite-react';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { gql } from 'graphql-tag';
 
 const GET_REQUEST = gql`
   query getSingleRequest($requestId: ID!) {
-  request(requestId: $requestId) {
-    _id
-    phone
-    email
-    shipFrom
-    shipTo
-    industry
-    category
-    description
-    lastName
-    firstName
-    _id
-  }}
+    request(requestId: $requestId) {
+      _id
+      phone
+      email
+      shipFrom
+      shipTo
+      industry
+      category
+      description
+      lastName
+      firstName
+      _id
+    }
+  }
 `;
 
 export default function DisplayRequest() {
@@ -42,12 +43,12 @@ export default function DisplayRequest() {
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
       <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-
         <NavLink
           to={`/admin/request/${request.email}`}
           className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-        >#{request._id}</NavLink>
-
+        >
+          #{request._id}
+        </NavLink>
       </Table.Cell>
       <Table.Cell>{request.email}</Table.Cell>
       <Table.Cell>{request.phone}</Table.Cell>
@@ -66,7 +67,5 @@ export default function DisplayRequest() {
       </Table.Cell>
       <Outlet />
     </Table.Row>
-
-
   );
 }
