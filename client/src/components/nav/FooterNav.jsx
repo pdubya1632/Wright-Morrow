@@ -12,8 +12,11 @@ export function FooterNav() {
                 year={2022}
             />
             <Footer.LinkGroup>
-                <Footer.Link href="#">
-                About
+                <Footer.Link href="/login">
+                Login
+                </Footer.Link>
+                <Footer.Link href="/register">
+                Register
                 </Footer.Link>
                 <Footer.Link href="#">
                 Privacy Policy
@@ -21,7 +24,7 @@ export function FooterNav() {
                 <Footer.Link href="#">
                 Licensing
                 </Footer.Link>
-                <Footer.Link href="#">
+                <Footer.Link href="/contact">
                 Contact
                 </Footer.Link>
             </Footer.LinkGroup>
