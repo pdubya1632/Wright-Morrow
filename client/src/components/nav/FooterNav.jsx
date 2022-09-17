@@ -4,6 +4,7 @@ import { Footer } from 'flowbite-react';
 export function FooterNav() {
     return (
         <>
+            <div className='mt-10'>
             <Footer container={true}>
             <Footer.Copyright
                 href="#"
@@ -25,6 +26,7 @@ export function FooterNav() {
                 </Footer.Link>
             </Footer.LinkGroup>
             </Footer>
+            </div>
         </>
     )
 };

@@ -16,10 +16,7 @@ const addressSchema = new Schema({
   zip: {
     type: String,
   },
-
 });
-
-
 
 const employeeSchema = new Schema({
   firstName: {
@@ -33,6 +30,11 @@ const employeeSchema = new Schema({
     trim: true,
   },
   email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  phone: {
     type: String,
     required: true,
     unique: true,

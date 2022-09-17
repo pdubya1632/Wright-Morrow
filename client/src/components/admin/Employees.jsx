@@ -5,7 +5,9 @@ import { useQuery } from '@apollo/client';
 import { GET_EMPLOYEES } from '../../utils/queries';
 
 function DisplayEmployees() {
+  
   const { loading, data, error } = useQuery(GET_EMPLOYEES);
+  
   if (loading)
     return (
       <Table.Row>
@@ -19,18 +21,14 @@ function DisplayEmployees() {
       </Table.Row>
     );
 
-  return data.employees.map(({ id, firstName }) => (
+  return data.employees.map(({ _id, firstName, lastName, email, phone, address }) => (
     <Table.Row
-      key={id}
+      key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
-      <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-        #{id}
-      </Table.Cell>
-      <Table.Cell>{firstName}</Table.Cell>
-      <Table.Cell>test</Table.Cell>
-      <Table.Cell>test</Table.Cell>
-      <Table.Cell>test</Table.Cell>
+      <Table.Cell>{firstName} {lastName}</Table.Cell>
+      <Table.Cell>{email}</Table.Cell>
+      <Table.Cell>{phone}</Table.Cell>
       <Table.Cell>
         <a
           href="/tables"
@@ -46,18 +44,21 @@ function DisplayEmployees() {
 export default function Employees() {
   return (
     <>
-      <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">
-          Employees
-        </h1>
-      </div>
+        <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Employees</h1>
+        {/* <Button>
+          <Link to="/admin/items/add">Add Item</Link>
+        </Button> */}
+        </header>
+
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
-          <Table.HeadCell>ID</Table.HeadCell>
-          <Table.HeadCell>First Name</Table.HeadCell>
-          <Table.HeadCell>Status</Table.HeadCell>
-          <Table.HeadCell>Tracking</Table.HeadCell>
-          <Table.HeadCell>Category</Table.HeadCell>
+          <Table.HeadCell>Name</Table.HeadCell>
+          <Table.HeadCell>Email</Table.HeadCell>
+          <Table.HeadCell>Phone</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
@@ -77,6 +78,9 @@ export default function Employees() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
+      </div>
+      </div>
+      </main>
     </>
   );
 }

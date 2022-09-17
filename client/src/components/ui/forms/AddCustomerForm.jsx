@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Label, TextInput, Button } from 'flowbite-react';
-import { StateSelectDropdown } from './StateSelectDropdown';
+import { StateSelect } from '../selects/StateSelect';
 
-import { useForm } from '../../utils/hook';
+import { useForm } from '../../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
 
-import { ADD_CUSTOMER } from '../../utils/mutations';
+import { ADD_CUSTOMER } from '../../../utils/mutations';
 
 export default function AddCustomerForm() {
   let navigate = useNavigate();
@@ -52,6 +52,7 @@ export default function AddCustomerForm() {
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
+                    
                     <div className="mb-2 block">
                       <Label htmlFor="firstname" value="First Name" />
                     </div>
@@ -125,7 +126,7 @@ export default function AddCustomerForm() {
                     <div className="mb-2 block">
                       <Label htmlFor="state" value="State" />
                     </div>
-                    <StateSelectDropdown />
+                    <StateSelect />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3 lg:col-span-2">

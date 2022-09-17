@@ -22,7 +22,7 @@ function DisplayItems() {
 
   return data.items.map(
     ({
-      id,
+      _id,
       name,
       value,
       length,
@@ -32,12 +32,10 @@ function DisplayItems() {
       packType,
     }) => (
       <Table.Row
-        key={id}
+        key={_id}
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
-        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          #{id}
-        </Table.Cell>
+
         <Table.Cell>{name}</Table.Cell>
         <Table.Cell>${value}</Table.Cell>
         <Table.Cell>
@@ -62,17 +60,19 @@ function DisplayItems() {
 export default function Items() {
   return (
     <>
-      <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">
-          Items
-        </h1>
+        <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Items</h1>
         <Button>
-          <Link to="/admin/jobs/add">Add Item</Link>
+          <Link to="/admin/items/add">Add Item</Link>
         </Button>
-      </div>
+        </header>
+
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
-          <Table.HeadCell>ID</Table.HeadCell>
+
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Value</Table.HeadCell>
           <Table.HeadCell>Dimensions (in)</Table.HeadCell>
@@ -97,6 +97,9 @@ export default function Items() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
+      </div>
+      </div>
+      </main>
     </>
   );
 }
