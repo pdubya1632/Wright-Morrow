@@ -43,12 +43,17 @@ function DisplayJobs() {
 export default function Jobs() {
   return (
     <>
-            <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Jobs</h1>
+        <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Jobs</h1>
         <Button>
-          <Link to="/admin/jobs/add">Add Job</Link>
+          <Link to="/admin/items/add">Add Job</Link>
         </Button>
-      </div>
+        </header>
+
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div className="px-4 py-6 sm:px-0">
+
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>Job ID</Table.HeadCell>
@@ -77,7 +82,9 @@ export default function Jobs() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
-
+</div>
+</div>
+</main>
     </>
   );
 }

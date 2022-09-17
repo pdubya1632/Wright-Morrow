@@ -37,12 +37,16 @@ function DisplayItems() {
 export default function Items() {
   return (
     <>
-      <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">Customers</h1>
+        <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Customers</h1>
         <Button>
           <Link to="/admin/customers/add">Add Customer</Link>
         </Button>
-      </div>
+        </header>
+
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>
@@ -68,7 +72,9 @@ export default function Items() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
-
+</div>
+</div>
+</main>
     </>
   );
 }

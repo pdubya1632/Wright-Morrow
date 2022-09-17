@@ -7,8 +7,11 @@ import {
   Button,
 } from 'flowbite-react';
 // add Select, back to import above
-import { useForm } from '../../utils/hook';
+import { useForm } from '../../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
+
+import { IndustrySelect } from '../selects/IndustrySelect';
+import { CategorySelect } from '../selects/CategorySelect';
 
 import { gql } from 'graphql-tag';
 import { useNavigate } from 'react-router-dom';
@@ -93,6 +96,7 @@ export function RequestForm() {
               <div className="mb-2 block">
                 <Label htmlFor="industry" value="Industry" />
               </div>
+              <IndustrySelect />
             </div>
             {/* Ship From */}
             <div>
@@ -127,6 +131,7 @@ export function RequestForm() {
               <div className="mb-2 block">
                 <Label htmlFor="category" value="Category of Items" />
               </div>
+              <CategorySelect />
             </div>
             {/* Description */}
             <div id="textarea">

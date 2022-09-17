@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Pagination } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
+import { useReactTable } from '@tanstack/react-table'
 
 import { GET_EMPLOYEES } from '../../utils/queries';
 
@@ -48,18 +49,22 @@ function DisplayEmployees() {
 export default function Employees() {
   return (
     <>
-      <div className="flex-row flex justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-200">
-          Employees
-        </h1>
-      </div>
+        <header className="bg-white shadow flex-row flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Employees</h1>
+        {/* <Button>
+          <Link to="/admin/items/add">Add Item</Link>
+        </Button> */}
+        </header>
+
+        <main>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div className="px-4 py-6 sm:px-0">
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>ID</Table.HeadCell>
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Email</Table.HeadCell>
           <Table.HeadCell>Phone</Table.HeadCell>
-
           <Table.HeadCell>City</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
@@ -80,6 +85,9 @@ export default function Employees() {
         {/* todo: add onPageChange to Pagination */}
         {/* onPageChange={onPageChange} */}
       </div>
+      </div>
+      </div>
+      </main>
     </>
   );
 }

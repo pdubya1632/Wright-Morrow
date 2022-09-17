@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 export default function SidebarNav() {
   return (
-    <>
-      <div className="w-full bg-gray-300">
+      
+      <div className="min-h-full bg-gray-300 p-7">
         <p>Wright &amp; Morrow</p>
         <ul className="flex-col min-w-full flex list-none">
           <li className="rounded-lg mb-4">
@@ -51,6 +51,6 @@ export default function SidebarNav() {
           </li>
         </ul>
       </div>
-    </>
+
   );
 }
