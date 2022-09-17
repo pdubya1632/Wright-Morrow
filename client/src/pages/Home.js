@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TopNav } from '../components/nav/TopNav';
 import { RequestForm } from '../components/ui/forms/RequestForm';
 import { FooterNav } from '../components/nav/FooterNav';

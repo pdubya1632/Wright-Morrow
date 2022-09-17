@@ -1,7 +1,12 @@
 import React from 'react';
-
 import { Routes, Route } from 'react-router-dom';
-import { Home, AdminTest, Login, Register } from './pages/index';
+import {
+  Home,
+  QuoteRequest,
+  Admin,
+  Login,
+  Register,
+} from './pages/index';
 
 export default function App() {
   return (
@@ -13,6 +18,11 @@ export default function App() {
         />
 
         <Route
+          path="/admin/*"
+          element={<React.Suspense children={<Admin />} />}
+        />
+
+        <Route
           path="/login"
           element={<React.Suspense children={<Login />} />}
         />
@@ -21,10 +31,7 @@ export default function App() {
           path="/register"
           element={<React.Suspense children={<Register />} />}
         />
-        <Route
-          path="/admin/*"
-          element={<React.Suspense children={<AdminTest />} />}
-        />
+
         <Route
           path="*"
           element={<h1 className="display-2">Wrong page!</h1>}
