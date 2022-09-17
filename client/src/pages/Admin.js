@@ -26,7 +26,7 @@ export default function Admin() {
           <Route path="/jobs/add" element={<AddJob />} />
           <Route path="/items" element={<Items />} />
           <Route path="/customers" element={<Customers />} />
-          <Route path="/updateRequest" element={<UpdateRequestForm />} />
+
           <Route path="requests" element={<Requests />}></Route>
           <Route
             path="/request/:requestId"

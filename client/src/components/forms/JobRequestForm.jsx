@@ -180,6 +180,8 @@ const [submitRequest, { loading }] = useMutation(REQUEST_JOB, {
                       placeholder="Please describe the items you wish to ship..."
                       required={true}
                       rows={4}
+                      onChange={onChange}
+
                     />
                   </div>
                 </div>

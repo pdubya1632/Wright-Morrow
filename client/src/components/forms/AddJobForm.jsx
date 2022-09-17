@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Label, TextInput, Button, Textarea } from 'flowbite-react';
-import { IndustrySelectDropdown } from './IndustrySelectDropdown';
-import { CategorySelectDropdown } from './CategorySelectDropdown';
-import {StateSelectDropdown} from "./StateSelectDropdown"
+
 import { useForm } from '../../utils/hook';
 import { useMutation } from '@apollo/react-hooks';
-import {ADD_JOB} from '../../utils/mutations'
+// import {ADD_JOB} from '../../utils/mutations'
+import { gql } from 'graphql-tag';
 
 
+const ADD_JOB = gql`
+mutation addJobNew($addJobInput: AddJobInput!) {
+  addJobNew(addJobInput: $addJobInput) {
+    description
+    status
+    }
+  }
+`;
 export default function AddJobForm() {
   let navigate = useNavigate();
 
 
   function addJobCallback() {
 
-  console.log('submitRequestCallback');
+  console.log('addJobCallback');
   addJob();
 }
 const [errors, setErrors] = useState();
@@ -25,14 +32,13 @@ const { onChange, onSubmit, values } = useForm(
   {
     status: "",
     pickupDate: "",
-    pickupAddress: "",
+    shipFrom: "",
     shipTo: "",
-    dropOffAddress: "",
     industry: "",
     category: "",
     description: "",
     cost: "",
-    invoice: "",
+
   }
 );
 
@@ -45,107 +51,76 @@ const [addJob, { loading }] = useMutation(ADD_JOB, {
     console.log(graphQLErrors)
   },
 
-    variables: { jobRequestInput: values },
+    variables: { addJobInput: values },
   });
 
   return (
     <>
       <div className="mt-10 sm:mt-0">
         <div className="mt-5 md:col-span-2 md:mt-0">
-          <form action="#" method="POST">
+          <form >
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
-                  
+                  {/*INPUTS  */}
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
-                      <Label htmlFor="firstname" value="First Name" />
+                      <Label htmlFor="status" value="status " />
                     </div>
                     <TextInput
-                      id="firstName"
+                      id="status"
                       type="text"
+                      name='status'
+                      onChange={onChange}
+                      required={true}
+                    />
+                  </div>
+                  {/*INPUTS  */}
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="pickupDate" value="pickupDate" />
+                    </div>
+                    <TextInput
+                      id="pickupDate"
+                      type="text"
+                      name='pickupDate'
+                      onChange={onChange}
                       required={true}
                     />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
-                      <Label htmlFor="lastName" value="Last Name" />
+                      <Label htmlFor="shipFrom" value="shipFrom" />
                     </div>
                     <TextInput
-                      id="lastName"
+                      id="shipTo"
                       type="text"
+                      name='shipFrom'
                       required={true}
+                      onChange={onChange}
+
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-4">
+                  <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
-                      <Label htmlFor="email-address" value="Email" />
+                      <Label htmlFor="shipTo" value="shipFrom" />
                     </div>
                     <TextInput
-                      type="email"
-                      name="email-address"
-                      id="email-address"
-                      autoComplete="email"
-                      required={true}
-                    />
-                  </div>
-
-                  <div className="col-span-6">
-                    <div className="mb-2 block">
-                      <Label
-                        htmlFor="street-address"
-                        value="Street Address"
-                      />
-                    </div>
-                    <TextInput
-                      id="street-address"
+                      id="shipTo"
                       type="text"
+                      name='shipTo'
                       required={true}
+                      onChange={onChange}
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <div className="mb-2 block">
-                      <Label htmlFor="city" value="City" />
-                    </div>
-                    <TextInput
-                      id="city"
-                      type="text"
-                      required={true}
-                    />
-                  </div>
-
-                  <div
-                    id="select"
-                    className="col-span-6 sm:col-span-3 lg:col-span-2"
-                  >
-                    <div className="mb-2 block">
-                      <Label htmlFor="state" value="State" />
-                    </div>
-                    <StateSelectDropdown />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <div className="mb-2 block">
-                      <Label
-                        htmlFor="postal-code"
-                        value="Zip / Postal Code"
-                      />
-                    </div>
-                    <TextInput
-                      name="postal-code"
-                      id="postal-code"
-                      autoComplete="postal-code"
-                      type="text"
-                      required={true}
-                    />
-                  </div>
+                 
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                <Button type="submit">Add Job</Button>
+                <Button type="submit" onClick={onSubmit}>Add Job</Button>
               </div>
             </div>
           </form>
