@@ -76,8 +76,8 @@ const typeDefs = gql`
     email: String
     phone: String
     industry: String
-    shipFrom: String
-    shipTo: String
+    shipFrom: Int
+    shipTo: Int
     category: String
     description: String
   }
@@ -90,6 +90,7 @@ const typeDefs = gql`
     shipFrom: String
     shipTo: String
     description: String
+
   }
 
   input RegisterInput {
@@ -133,6 +134,8 @@ const typeDefs = gql`
     employee(employeeId: ID!): Employee
     items: [Item]!
     item(itemId: ID!): Item
+    requests: [Request]!
+    request(requestId: ID!): Request
   }
 
   type Mutation {
@@ -230,6 +233,7 @@ const typeDefs = gql`
     deleteItem(_id: ID!): Item
 
     loginUser(loginInput: LoginInput): Employee
+    updateRequest(_id: ID!, firstName: String, lastName: String, email: String, phone: String, industry: String, shipFrom: String, shipTo: String, category: String, description: String): Request
   }
 `;
 

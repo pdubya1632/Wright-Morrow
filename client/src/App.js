@@ -25,7 +25,6 @@ export default function App() {
           path="/admin/*"
           element={<React.Suspense children={<AdminTest />} />}
         />
-
         <Route
           path="*"
           element={<h1 className="display-2">Wrong page!</h1>}

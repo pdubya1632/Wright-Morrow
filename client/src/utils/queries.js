@@ -180,3 +180,41 @@ export const GET_ITEM = gql`
     }
   }
 `;
+
+
+// Get all requests
+
+export const GET_REQUESTS = gql`
+  query GET_REQUESTS {
+  requests {
+    phone
+    email
+    shipFrom
+    shipTo
+    industry
+    category
+    description
+    lastName
+    firstName
+    _id
+ } }
+`;
+
+// Get 1 request
+
+export const GET_REQUEST = gql`
+  query getSingleRequest($requestId: ID!) {
+  request(requestId: $requestId) {
+    _id
+    phone
+    email
+    shipFrom
+    shipTo
+    industry
+    category
+    description
+    lastName
+    firstName
+    _id
+  }}
+`;
