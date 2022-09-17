@@ -9,15 +9,15 @@ export function TopNav() {
           <Logo width={200} />
         </Navbar.Brand>
 
-        <div className="flex md:order-2">
-          <Button>Request Quote</Button>
+        <div className="flex space-x-6 md:order-2">
+          <Button href="/login">Login</Button>
+          <Button href="/register">Register</Button>
           <Navbar.Toggle />
         </div>
 
         <Navbar.Collapse>
-          <Navbar.Link href="/">Home</Navbar.Link>
-          <Navbar.Link href="/jobs">Services</Navbar.Link>
-          <Navbar.Link href="/quote" active={true}>
+          <Navbar.Link href="/services" >Services</Navbar.Link>
+          <Navbar.Link href="/quote-request" use active={true}>
             Quote
           </Navbar.Link>
           <Navbar.Link href="/about">About</Navbar.Link>
