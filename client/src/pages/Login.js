@@ -105,7 +105,7 @@ export default function LoginForm() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 flex justify-end">
+            <div className="bg-gray-50 px-4 py-3 sm:px-6">
               <Button type="submit" onClick={onSubmit}>
                 Submit
               </Button>
