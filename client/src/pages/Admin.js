@@ -6,7 +6,7 @@ import {
   BellIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { ReactComponent as Logo } from '../images/bird-logo.svg';
+import { ReactComponent as Logo } from '../images/bird-logo-white.svg';
 import { Route, Routes } from 'react-router-dom';
 
 // import Dashboard from '../components/admin/archived/Dashboard';
@@ -22,16 +22,16 @@ import Request from '../components/admin/Request';
 // import { UpdateRequestForm } from '../components/forms/UpdateRequest';
 
 const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
+  name: 'John Doe',
+  email: 'john@wrightandmorrow.com',
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 const navigation = [
-  { name: 'Jobs', link: '/admin/jobs', current: true },
-  { name: 'Items', link: '/admin/items', current: false },
-  { name: 'Customers', link: '/admin/customers', current: false },
-  { name: 'Employees', link: '/admin/employees', current: false },
+  { name: 'Jobs', link: '/admin/jobs' },
+  { name: 'Items', link: '/admin/items' },
+  { name: 'Customers', link: '/admin/customers' },
+  { name: 'Employees', link: '/admin/employees' },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -54,7 +54,7 @@ export default function Admin() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <Logo width={50} className="fill-white" />
+                      <Logo width={50} />
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -62,15 +62,7 @@ export default function Admin() {
                           <NavLink
                             key={item.name}
                             to={item.link}
-                            className={classNames(
-                              item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'px-3 py-2 rounded-md text-sm font-medium'
-                            )}
-                            aria-current={
-                              item.current ? 'page' : undefined
-                            }
+                            className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                           >
                             {item.name}
                           </NavLink>

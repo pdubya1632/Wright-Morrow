@@ -1,12 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import {
-  Home,
-  QuoteRequest,
-  Admin,
-  Login,
-  Register,
-} from './pages/index';
+import { Home, Admin, Login, Register } from './pages/index';
 
 export default function App() {
   return (

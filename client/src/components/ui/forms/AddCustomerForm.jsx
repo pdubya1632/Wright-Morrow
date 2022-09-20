@@ -45,12 +45,17 @@ export default function AddCustomerForm() {
 
   return (
     <>
-      <div className="mt-10 sm:mt-0">
-        <div className="mt-5 md:col-span-2 md:mt-0">
-          <form action="#" method="POST">
-            <div className="overflow-hidden shadow sm:rounded-md">
-              <div className="bg-white px-4 py-5 sm:p-6">
-                <div className="grid grid-cols-6 gap-6">
+<div className="w-3/4 md:w-1/2 lg:w-1/2 m-auto overflow-hidden">
+        <form action="#" method="POST">
+          <div className="bg-white px-4 py-5 sm:p-6 rounded-lg shadow">
+            <div className="grid grid-cols-6 gap-6">
+              <div className="col-span-6">
+                <h1 className="text-2xl font-semibold">
+                  Add New Customer
+                </h1>
+                {/* SUBTITLE
+                <p></p> */}
+              </div>
                   <div className="col-span-6 sm:col-span-3">
                     
                     <div className="mb-2 block">
@@ -76,7 +81,7 @@ export default function AddCustomerForm() {
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-4">
+                  <div className="col-span-6  sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="email" value="Email" />
                     </div>
@@ -86,6 +91,20 @@ export default function AddCustomerForm() {
                       name="email"
                       id="email"
                       autoComplete="email"
+                      required={true}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <div className="mb-2 block">
+                      <Label htmlFor="phone" value="Phone" />
+                    </div>
+                    <TextInput
+                      onChange={onChange}
+                      type="tel"
+                      name="phone"
+                      id="phone"
+                      autoComplete="phone"
                       required={true}
                     />
                   </div>
@@ -106,7 +125,7 @@ export default function AddCustomerForm() {
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <div className="col-span-6 sm:col-span-3">
                     <div className="mb-2 block">
                       <Label htmlFor="city" value="City" />
                     </div>
@@ -152,9 +171,7 @@ export default function AddCustomerForm() {
                   Add Customer
                 </Button>
               </div>
-            </div>
-          </form>
-        </div>
+        </form>
       </div>
     </>
   );
