@@ -55,17 +55,16 @@ export default function AddJobForm() {
 
   return (
     <>
-      <div className="w-3/4 md:w-1/2 lg:w-1/2 m-auto overflow-hidden"> 
-        
-        
-      <form action="#" method="POST">
-        <div className="bg-white px-4 py-5 sm:p-6 rounded-lg  shadow">
+      <div className="w-3/4 md:w-1/2 lg:w-1/2 m-auto overflow-hidden">
+        <form action="#" method="POST">
+          <div className="bg-white px-4 py-5 sm:p-6 rounded-lg  shadow">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6">
-                  <h1 className="text-2xl font-semibold">
-                    Add A New Job
-                  </h1>
-                 <p>For new customers who reach out via email or phone, manually enter their job info below.</p>
+                <h1 className="text-2xl font-semibold">Add Job</h1>
+                <p>
+                  For new customers who reach out via email or phone,
+                  manually enter their job info below.
+                </p>
               </div>
               {/* First Name */}
               <div className="col-span-6 sm:col-span-3">
@@ -186,10 +185,9 @@ export default function AddJobForm() {
           </div>
           {/* Submit */}
           <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-            <Button onClick={onSubmit}>Add Job </Button>
+            <Button onClick={onSubmit}>Add Job</Button>
           </div>
-        
-      </form>
+        </form>
       </div>
     </>
   );
