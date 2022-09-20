@@ -1,10 +1,10 @@
+import { ReactComponent as Logo } from '../../images/wm-logo.svg';
+
 export function AuthFormHeader() {
   return (
-
-<header class="flex items-center justify-between mt-20">
-        <div class="h-6 text-2xl font-semibold block w-full text-center">
-          <a href="/">Wright &amp; Morrow</a>
-        </div>
-      </header>
-  )
-};
+    <header className="mt-20 mb-5 flex justify-center w-full">
+        <Logo width={175} alt="Wright &amp; Morrow" className="" />
+        <a href="/" className="text-2xl font-semibold hidden">Wright &amp; Morrow</a>
+    </header>
+  );
+}

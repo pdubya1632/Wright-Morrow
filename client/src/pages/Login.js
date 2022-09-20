@@ -53,18 +53,18 @@ export default function LoginForm() {
     <>
       <AuthFormHeader />
 
-      <div class="p-6 md:w-1/2 m-auto bg-white rounded-lg dark:bg-gray-800">
+      <div className="w-3/4 md:w-1/2 lg:w-1/3 m-auto bg-white rounded-lg">
         <form className="flex flex-col gap-4">
           <div className="overflow-hidden shadow sm:rounded-md">
             <div className="bg-white px-4 py-5 sm:p-6">
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6">
-                  <h1 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
+                  <h1 className="text-xl font-semibold">
                     Login to your account
                   </h1>
                   <p>
                     <Link
-                      class="text-xs font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                      className="text-xs font-medium text-blue-500 hover:underline"
                       to="/register"
                     >
                       Or create a new account
@@ -105,7 +105,7 @@ export default function LoginForm() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+            <div className="bg-gray-50 px-4 py-3 sm:px-6 flex justify-end">
               <Button type="submit" onClick={onSubmit}>
                 Submit
               </Button>
