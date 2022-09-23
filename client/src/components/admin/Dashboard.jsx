@@ -10,7 +10,7 @@ export default function Dashboard() {
         </h1>
       </header>
 
-      <main className="p-7 w-full grid grid-rows-2 grid-flow-col gap-7">
+      <main className="p-7 w-full grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-7">
 
         {/* LATEST JOBS */}
         <div>
