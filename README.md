@@ -1,6 +1,6 @@
 # Project-3
 
-![Thumbnail](Picture%20for%20W%26M.pdf)
+![Thumbnail](wright%26morrow.png)
 
 ## Table of Contents
 
