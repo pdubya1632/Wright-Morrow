@@ -12,8 +12,8 @@ export function TopNav() {
         </Navbar.Brand>
 
         <div className="flex space-x-6 md:order-2">
-          <Button href="/login">Login</Button>
-          <Button href="/register">Register</Button>
+          <Button ><NavLink to="/login">Login</NavLink></Button>
+          <Button ><NavLink to="/register">Register</NavLink></Button>
           <Navbar.Toggle />
         </div>
 
