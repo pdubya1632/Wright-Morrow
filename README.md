@@ -1,6 +1,6 @@
 # Wright & Morrow
 
-![Thumbnail](wright%26morrow.png)
+![Thumbnail](img/wright-morrow.png)
 
 ## Table of Contents
 
