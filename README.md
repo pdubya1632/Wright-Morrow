@@ -45,7 +45,7 @@ Frontend design and building out client forms + class presentation text and read
 
 ## Questions
 
-If you have questions, please contact us at the information below:
+If you have questions, please contact us individually through our respective GitHub pages.
 
 Deployed App: [Wright-Morrow](https://wright-and-morrow.herokuapp.com/)
 
