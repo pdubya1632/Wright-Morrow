@@ -170,14 +170,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Neil Sims
+                        Computer
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
                         email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $320
+                      $30839
                     </div>
                   </div>
                 </li>
@@ -301,14 +301,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Neil Sims
+                        Marquise Terry
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        Marquise_Terry@yahoo.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $320
+                      038-774-355
                     </div>
                   </div>
                 </li>
@@ -323,14 +323,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
+                        Alphonso Hermiston
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        Alphonso59@hotmail.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $3467
+                      769-428-133
                     </div>
                   </div>
                 </li>
