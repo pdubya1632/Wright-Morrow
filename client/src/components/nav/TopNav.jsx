@@ -2,6 +2,7 @@ import { Navbar, Button } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../images/wm-logo.svg';
+import { NavLink } from 'react-router-dom';
 
 export function TopNav() {
   return (
