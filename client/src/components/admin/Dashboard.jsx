@@ -30,111 +30,81 @@ export default function Dashboard() {
               <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                        alt="Neil"
-                      />
-                    </div>
+                    
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Neil Sims
+                        WM278
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        16736
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $320
+                      9001805737322
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie"
-                      />
-                    </div>
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
+                        WM70
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        8943
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $3467
+                      5199230691769
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                        alt="Michael"
-                      />
-                    </div>
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Michael Gough
+                        WM279
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        6863
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $67
+                      1854424965565
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-                        alt="Lana"
-                      />
-                    </div>
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Lana Byrd
+                        WM53
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        8964
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $367
+                      6930187487630
                     </div>
                   </div>
                 </li>
                 <li className="pt-3 pb-0 sm:pt-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                        alt="Thomas"
-                      />
-                    </div>
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Thomes Lean
+                        WM236
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        5577
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $2367
+                      1531271753594
                     </div>
                   </div>
                 </li>
@@ -161,111 +131,77 @@ export default function Dashboard() {
               <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                        alt="Neil"
-                      />
-                    </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Computer
+                        Sausages
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        114.14 x 50.95 x 174.51
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $30839
+                      $40309
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie"
-                      />
-                    </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
+                        Ball
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        144.24 x 17.49 x 151.74
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $3467
+                      $2947
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                        alt="Michael"
-                      />
-                    </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Michael Gough
+                        Pants
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        14.87 x 82.81 x 167.39
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $67
+                      $19987
                     </div>
                   </div>
                 </li>
                 <li className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-                        alt="Lana"
-                      />
-                    </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Lana Byrd
+                        Bacon
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        41.58 x 174.33 x 103.69
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $367
+                      $49257
                     </div>
                   </div>
                 </li>
                 <li className="pt-3 pb-0 sm:pt-4">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                        alt="Thomas"
-                      />
-                    </div>
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Thomes Lean
+                        Fish
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        48.56 x 38.06 x 84.18
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $2367
+                      $46583
                     </div>
                   </div>
                 </li>
@@ -345,14 +281,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Michael Gough
+                        Conrad Rempel
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        Conrad33@yahoo.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $67
+                      892-815-835
                     </div>
                   </div>
                 </li>
@@ -367,14 +303,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Lana Byrd
+                        Lucas Rohan
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        Lucas40@hotmail.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $367
+                      319-856-190
                     </div>
                   </div>
                 </li>
@@ -389,14 +325,14 @@ export default function Dashboard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                        Thomes Lean
+                        Darrell Dooley
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@wrightandmorrow.com
+                        Darrell_Dooley73@yahoo.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $2367
+                     750-301-443
                     </div>
                   </div>
                 </li>
@@ -439,7 +375,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $320
+                      
                     </div>
                   </div>
                 </li>
@@ -461,7 +397,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $3467
+                      
                     </div>
                   </div>
                 </li>
@@ -483,7 +419,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $67
+                      
                     </div>
                   </div>
                 </li>
@@ -505,7 +441,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $367
+                      
                     </div>
                   </div>
                 </li>
@@ -527,7 +463,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                      $2367
+                      
                     </div>
                   </div>
                 </li>

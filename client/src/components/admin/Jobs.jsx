@@ -2,7 +2,6 @@ import React from 'react';
 import { Table, Pagination, Button } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import Moment from 'react-moment';
 
 import { GET_JOBS } from '../../utils/queries';
 
@@ -25,27 +24,29 @@ function DisplayJobs() {
   return data.jobs.map(
     ({
       _id,
+      jobId,
       customerId,
       status,
       pickupDate,
       cost,
-      tracking
-
-
+      tracking,
+      category
     }) => (
+      
       <Table.Row
         key={_id}
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          <Link to={_id}>{_id}</Link>
+          <Link to={jobId}>{jobId}</Link>
         </Table.Cell>
-        <Table.Cell>*customer</Table.Cell>
+        <Table.Cell>{customerId}</Table.Cell>
         <Table.Cell>{status}</Table.Cell>
-        <Table.Cell>{pickupDate}</Table.Cell>
+        <Table.Cell>
+                {pickupDate}</Table.Cell>
         <Table.Cell>{cost}</Table.Cell>
         <Table.Cell>{tracking}</Table.Cell>
-
+        <Table.Cell>{category}</Table.Cell>
         <Table.Cell>
           <a
             href="/tables"
@@ -77,7 +78,7 @@ export default function Jobs() {
             <Table hoverable={true}>
               <Table.Head>
                 <Table.HeadCell>Job ID</Table.HeadCell>
-                <Table.HeadCell>Customer</Table.HeadCell>
+                <Table.HeadCell>Customer ID</Table.HeadCell>
                 <Table.HeadCell>Status</Table.HeadCell>
                 <Table.HeadCell>Pickup Date</Table.HeadCell>
                 <Table.HeadCell>Invoice</Table.HeadCell>
