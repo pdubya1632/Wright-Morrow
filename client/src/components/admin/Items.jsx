@@ -35,7 +35,9 @@ function DisplayItems() {
         key={_id}
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
-        <Table.Cell>{name}</Table.Cell>
+        <Table.Cell>
+          <Link to={_id}>{name}</Link>
+          </Table.Cell>
         <Table.Cell>${value}</Table.Cell>
         <Table.Cell>
           {length} x {width} x {height}
@@ -44,12 +46,11 @@ function DisplayItems() {
         <Table.Cell>{packType}</Table.Cell>
 
         <Table.Cell>
-          <a
-            href="/tables"
+<Link to={_id}
             className="font-medium text-blue-600 hover:underline dark:text-blue-500"
           >
             Edit
-          </a>
+          </Link>
         </Table.Cell>
       </Table.Row>
     )

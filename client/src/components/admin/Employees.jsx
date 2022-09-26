@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Pagination } from 'flowbite-react';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
 import { GET_EMPLOYEES } from '../../utils/queries';
 
@@ -26,16 +27,16 @@ function DisplayEmployees() {
       key={_id}
       className="bg-white dark:border-gray-700 dark:bg-gray-800"
     >
-      <Table.Cell>{firstName} {lastName}</Table.Cell>
+      <Table.Cell>
+        <Link to={_id}>{firstName} {lastName}</Link></Table.Cell>
       <Table.Cell>{email}</Table.Cell>
       <Table.Cell>{phone}</Table.Cell>
       <Table.Cell>
-        <a
-          href="/tables"
-          className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-        >
-          Edit
-        </a>
+<Link to={_id}
+            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+          >
+            Edit
+          </Link>
       </Table.Cell>
     </Table.Row>
   ));

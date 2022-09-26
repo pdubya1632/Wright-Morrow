@@ -38,7 +38,7 @@ function DisplayJobs() {
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          <Link to={jobId}>{jobId}</Link>
+          <Link to={_id}>{jobId}</Link>
         </Table.Cell>
         <Table.Cell>{customerId}</Table.Cell>
         <Table.Cell>{status}</Table.Cell>
@@ -48,12 +48,11 @@ function DisplayJobs() {
         <Table.Cell>{tracking}</Table.Cell>
         <Table.Cell>{category}</Table.Cell>
         <Table.Cell>
-          <a
-            href="/tables"
+          <Link to={_id}
             className="font-medium text-blue-600 hover:underline dark:text-blue-500"
           >
             Edit
-          </a>
+          </Link>
         </Table.Cell>
       </Table.Row>
     )
