@@ -1,4 +1,6 @@
 import { Navbar, Button } from 'flowbite-react';
+import { NavLink } from 'react-router-dom';
+
 import { ReactComponent as Logo } from '../../images/wm-logo.svg';
 
 export function TopNav() {
@@ -16,7 +18,7 @@ export function TopNav() {
         </div>
 
         <Navbar.Collapse>
-          <Navbar.Link href="/services" >Services</Navbar.Link>
+
           <Navbar.Link href="/quote-request" use active={true}>
             Quote
           </Navbar.Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Footer } from 'flowbite-react';
+import { NavLink } from 'react-router-dom';
 
 export function FooterNav() {
     return (
@@ -27,6 +28,7 @@ export function FooterNav() {
                 <Footer.Link href="/contact">
                 Contact
                 </Footer.Link>
+                <Footer.Link href="/services" ><NavLink to="/admin">Admin</NavLink></Footer.Link>
             </Footer.LinkGroup>
             </Footer>
             </div>
