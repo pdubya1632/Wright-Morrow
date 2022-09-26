@@ -1,5 +1,6 @@
 import { Navbar, Button } from 'flowbite-react';
 import { ReactComponent as Logo } from '../../images/wm-logo.svg';
+import { NavLink } from 'react-router-dom';
 
 export function TopNav() {
   return (
@@ -10,7 +11,7 @@ export function TopNav() {
         </Navbar.Brand>
 
         <div className="flex space-x-6 md:order-2">
-          <Button href="/login">Login</Button>
+          <Button><NavLink to="/login">Login</NavLink></Button>
           <Button href="/register">Register</Button>
           <Navbar.Toggle />
         </div>
