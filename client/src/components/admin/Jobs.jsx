@@ -25,28 +25,27 @@ function DisplayJobs() {
   return data.jobs.map(
     ({
       _id,
-      jobId,
+      customerId,
       status,
       pickupDate,
-      category,
-      invoice,
-      tracking,
+      cost,
+      tracking
+
+
     }) => (
       <Table.Row
         key={_id}
         className="bg-white dark:border-gray-700 dark:bg-gray-800"
       >
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          <Link to={jobId}>{jobId}</Link>
+          <Link to={_id}>{_id}</Link>
         </Table.Cell>
         <Table.Cell>*customer</Table.Cell>
         <Table.Cell>{status}</Table.Cell>
-        <Table.Cell>
-          <Moment format="MM/DD/YYYY">{pickupDate}</Moment>
-        </Table.Cell>
-        <Table.Cell>{invoice}</Table.Cell>
+        <Table.Cell>{pickupDate}</Table.Cell>
+        <Table.Cell>{cost}</Table.Cell>
         <Table.Cell>{tracking}</Table.Cell>
-        <Table.Cell>{category}</Table.Cell>
+
         <Table.Cell>
           <a
             href="/tables"
