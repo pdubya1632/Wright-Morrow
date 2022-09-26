@@ -20,7 +20,7 @@ export default function Dashboard() {
                 Latest Jobs
               </h5>
               <NavLink
-                to="/"
+                to="/admin/jobs"
                 className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
               >
                 View all
@@ -42,7 +42,7 @@ export default function Dashboard() {
                         Neil Sims
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -64,7 +64,7 @@ export default function Dashboard() {
                         Bonnie Green
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -86,7 +86,7 @@ export default function Dashboard() {
                         Michael Gough
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -108,7 +108,7 @@ export default function Dashboard() {
                         Lana Byrd
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -130,7 +130,7 @@ export default function Dashboard() {
                         Thomes Lean
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -151,7 +151,7 @@ export default function Dashboard() {
                 Latest Items
               </h5>
               <NavLink
-                to="/"
+                to="/admin/items"
                 className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
               >
                 View all
@@ -173,7 +173,7 @@ export default function Dashboard() {
                         Neil Sims
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -195,7 +195,7 @@ export default function Dashboard() {
                         Bonnie Green
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -217,7 +217,7 @@ export default function Dashboard() {
                         Michael Gough
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -239,7 +239,7 @@ export default function Dashboard() {
                         Lana Byrd
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -261,7 +261,7 @@ export default function Dashboard() {
                         Thomes Lean
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -282,7 +282,7 @@ export default function Dashboard() {
                 Latest Customers
               </h5>
               <NavLink
-                to="/"
+                to="/admin/customers"
                 className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
               >
                 View all
@@ -304,7 +304,7 @@ export default function Dashboard() {
                         Neil Sims
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -326,7 +326,7 @@ export default function Dashboard() {
                         Bonnie Green
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -348,7 +348,7 @@ export default function Dashboard() {
                         Michael Gough
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -370,7 +370,7 @@ export default function Dashboard() {
                         Lana Byrd
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -392,7 +392,7 @@ export default function Dashboard() {
                         Thomes Lean
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -413,7 +413,7 @@ export default function Dashboard() {
                 Latest Employees
               </h5>
               <NavLink
-                to="/"
+                to="/admin/employees"
                 className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
               >
                 View all
@@ -435,7 +435,7 @@ export default function Dashboard() {
                         Neil Sims
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -457,7 +457,7 @@ export default function Dashboard() {
                         Bonnie Green
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -479,7 +479,7 @@ export default function Dashboard() {
                         Michael Gough
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -501,7 +501,7 @@ export default function Dashboard() {
                         Lana Byrd
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -523,7 +523,7 @@ export default function Dashboard() {
                         Thomes Lean
                       </p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                        email@windster.com
+                        email@wrightandmorrow.com
                       </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
